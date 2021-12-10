@@ -1,4 +1,4 @@
-package com.zhang.bruce.algorithm.linked;
+package com.zhang.bruce.algorithm.linked.december;
 
 
 /**
