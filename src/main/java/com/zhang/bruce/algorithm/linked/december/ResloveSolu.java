@@ -1,6 +1,4 @@
-package com.zhang.bruce.algorithm.linked;
-
-import java.util.List;
+package com.zhang.bruce.algorithm.linked.december;
 
 /**
  * @author bruce
