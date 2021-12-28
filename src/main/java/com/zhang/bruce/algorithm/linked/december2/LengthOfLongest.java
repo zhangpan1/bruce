@@ -13,20 +13,6 @@ import java.util.Set;
 public class LengthOfLongest {
     // abcdabcdsssd ，判断最长无重复字符串的集合
     // 使用滑动窗口来解决这个问题
-    public int length(String s){
-        if (s.length() == 0) return 0;
-        HashMap<Character,Integer> map = new HashMap<>();
-        int max = 0;
-        int left = 0;
-        for (int i = 0; i < s.length(); i ++) {
-            if (map.containsKey(s.charAt(i))) {
-                left = Math.max(left,map.get(s.charAt(i) + 1)) ;
-            }
-            map.put(s.charAt(i), i);
-            max = Math.max(max,i-left+ 1);
-        }
-        return 0;
-    }
     public int length1(String s){
         // 哈希集合，记录每个字符是否出现过
         Set<Character> occ = new HashSet<Character>();
@@ -47,5 +33,26 @@ public class LengthOfLongest {
             ans = Math.max(ans,rk - i + 1);
         }
         return ans;
+    }
+    public int length3(String s){
+        if (s.length() == 0) return 0;
+        HashMap<Character, Integer> map = new HashMap<>();
+        int max = 0;
+        int left = 0;
+        for (int i = 0; i <s.length(); i ++) {
+            if (map.containsKey(s.charAt(i))) {
+                left = Math.max(left,map.get(s.charAt(i)) + 1);
+            }
+            map.put(s.charAt(i),i);
+            max = Math.max(max,i-left + 1);
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        String ss = "abcdsedfsgdgfhsc";
+        System.out.println(ss.charAt(3));
+        int x = new LengthOfLongest().length3(ss);
+        System.out.println(x);
     }
 }
