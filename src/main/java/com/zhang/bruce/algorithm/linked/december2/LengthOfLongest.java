@@ -50,7 +50,7 @@ public class LengthOfLongest {
     }
 
     public static void main(String[] args) {
-        String ss = "abcdsedfsgdgfhsc";
+        String ss = "pwwkew";
         System.out.println(ss.charAt(3));
         int x = new LengthOfLongest().length3(ss);
         System.out.println(x);
