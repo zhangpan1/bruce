@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.SysSerialNumMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.general.SysSerialNum" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
+        <result column="module_code" property="moduleCode" jdbcType="VARCHAR" />
+        <result column="config_template" property="configTemplate" jdbcType="VARCHAR" />
+        <result column="current_serial" property="currentSerial" jdbcType="INTEGER" />
+        <result column="pre_max_num" property="preMaxNum" jdbcType="INTEGER" />
+        <result column="auto_increment_num" property="autoIncrementNum" jdbcType="INTEGER" />
+        <result column="data_width" property="dataWidth" jdbcType="INTEGER" />
+        <result column="input_date" property="inputDate" jdbcType="TIMESTAMP" />
+        <result column="modify_date" property="modifyDate" jdbcType="TIMESTAMP" />
+        <result column="modify_user_id" property="modifyUserId" jdbcType="INTEGER" />
+        <result column="input_user_id" property="inputUserId" jdbcType="BIGINT" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, module_name, module_code, config_template, current_serial, pre_max_num, auto_increment_num, 
+        data_width, input_date, modify_date, modify_user_id, input_user_id, status
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select 
+        <include refid="Base_Column_List" />
+        from sys_serial_num
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+        delete from sys_serial_num
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.general.SysSerialNum" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
+        insert into sys_serial_num (id, module_name, module_code, 
+            config_template, current_serial, pre_max_num, 
+            auto_increment_num, data_width, input_date, 
+            modify_date, modify_user_id, input_user_id, 
+            status)
+        values (#{id,jdbcType=BIGINT}, #{moduleName,jdbcType=VARCHAR}, #{moduleCode,jdbcType=VARCHAR}, 
+            #{configTemplate,jdbcType=VARCHAR}, #{currentSerial,jdbcType=INTEGER}, #{preMaxNum,jdbcType=INTEGER}, 
+            #{autoIncrementNum,jdbcType=INTEGER}, #{dataWidth,jdbcType=INTEGER}, #{inputDate,jdbcType=TIMESTAMP}, 
+            #{modifyDate,jdbcType=TIMESTAMP}, #{modifyUserId,jdbcType=INTEGER}, #{inputUserId,jdbcType=BIGINT}, 
+            #{status,jdbcType=INTEGER})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.general.SysSerialNum" >
+        insert into sys_serial_num
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="moduleName != null" >
+                module_name,
+            </if>
+            <if test="moduleCode != null" >
+                module_code,
+            </if>
+            <if test="configTemplate != null" >
+                config_template,
+            </if>
+            <if test="currentSerial != null" >
+                current_serial,
+            </if>
+            <if test="preMaxNum != null" >
+                pre_max_num,
+            </if>
+            <if test="autoIncrementNum != null" >
+                auto_increment_num,
+            </if>
+            <if test="dataWidth != null" >
+                data_width,
+            </if>
+            <if test="inputDate != null" >
+                input_date,
+            </if>
+            <if test="modifyDate != null" >
+                modify_date,
+            </if>
+            <if test="modifyUserId != null" >
+                modify_user_id,
+            </if>
+            <if test="inputUserId != null" >
+                input_user_id,
+            </if>
+            <if test="status != null" >
+                status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="moduleName != null" >
+                #{moduleName,jdbcType=VARCHAR},
+            </if>
+            <if test="moduleCode != null" >
+                #{moduleCode,jdbcType=VARCHAR},
+            </if>
+            <if test="configTemplate != null" >
+                #{configTemplate,jdbcType=VARCHAR},
+            </if>
+            <if test="currentSerial != null" >
+                #{currentSerial,jdbcType=INTEGER},
+            </if>
+            <if test="preMaxNum != null" >
+                #{preMaxNum,jdbcType=INTEGER},
+            </if>
+            <if test="autoIncrementNum != null" >
+                #{autoIncrementNum,jdbcType=INTEGER},
+            </if>
+            <if test="dataWidth != null" >
+                #{dataWidth,jdbcType=INTEGER},
+            </if>
+            <if test="inputDate != null" >
+                #{inputDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null" >
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUserId != null" >
+                #{modifyUserId,jdbcType=INTEGER},
+            </if>
+            <if test="inputUserId != null" >
+                #{inputUserId,jdbcType=BIGINT},
+            </if>
+            <if test="status != null" >
+                #{status,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhang.bruce.general.SysSerialNum" >
+        update sys_serial_num
+        <set >
+            <if test="moduleName != null" >
+                module_name = #{moduleName,jdbcType=VARCHAR},
+            </if>
+            <if test="moduleCode != null" >
+                module_code = #{moduleCode,jdbcType=VARCHAR},
+            </if>
+            <if test="configTemplate != null" >
+                config_template = #{configTemplate,jdbcType=VARCHAR},
+            </if>
+            <if test="currentSerial != null" >
+                current_serial = #{currentSerial,jdbcType=INTEGER},
+            </if>
+            <if test="preMaxNum != null" >
+                pre_max_num = #{preMaxNum,jdbcType=INTEGER},
+            </if>
+            <if test="autoIncrementNum != null" >
+                auto_increment_num = #{autoIncrementNum,jdbcType=INTEGER},
+            </if>
+            <if test="dataWidth != null" >
+                data_width = #{dataWidth,jdbcType=INTEGER},
+            </if>
+            <if test="inputDate != null" >
+                input_date = #{inputDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null" >
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUserId != null" >
+                modify_user_id = #{modifyUserId,jdbcType=INTEGER},
+            </if>
+            <if test="inputUserId != null" >
+                input_user_id = #{inputUserId,jdbcType=BIGINT},
+            </if>
+            <if test="status != null" >
+                status = #{status,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.zhang.bruce.general.SysSerialNum" >
+        update sys_serial_num
+        set module_name = #{moduleName,jdbcType=VARCHAR},
+            module_code = #{moduleCode,jdbcType=VARCHAR},
+            config_template = #{configTemplate,jdbcType=VARCHAR},
+            current_serial = #{currentSerial,jdbcType=INTEGER},
+            pre_max_num = #{preMaxNum,jdbcType=INTEGER},
+            auto_increment_num = #{autoIncrementNum,jdbcType=INTEGER},
+            data_width = #{dataWidth,jdbcType=INTEGER},
+            input_date = #{inputDate,jdbcType=TIMESTAMP},
+            modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            modify_user_id = #{modifyUserId,jdbcType=INTEGER},
+            input_user_id = #{inputUserId,jdbcType=BIGINT},
+            status = #{status,jdbcType=INTEGER}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>
