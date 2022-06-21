@@ -87,7 +87,11 @@
             <artifactId>jedis</artifactId>
             <version>2.5.1</version>
         </dependency>-->
-
+        <dependency>
+            <groupId>com.yeepay.g3.utils</groupId>
+            <artifactId>yeepay-utils-common</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
