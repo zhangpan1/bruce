@@ -1,0 +1,32 @@
+package com.zhang.bruce.java8.day02.chap5;
+
+/**
+ * @description: some desc
+ * @email: pan.zhang@yeepay.com
+ * @date: 2022/6/23 6:12 下午
+ */
+public class Trader {
+    private String name;
+    private String city;
+
+    public Trader(String n, String c){
+        this.name = n;
+        this.city = c;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getCity(){
+        return this.city;
+    }
+
+    public void setCity(String newCity){
+        this.city = newCity;
+    }
+
+    public String toString(){
+        return "Trader:"+this.name + " in " + this.city;
+    }
+}
