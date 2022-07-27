@@ -2,6 +2,9 @@ package com.zhang.bruce.java8.day02.chap5;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Comparator.comparing;
 
 /**
  * @description: some desc
@@ -24,8 +27,12 @@ public class PuttingIntoPractice {
                 new Transaction(alan, 2012, 950)
         );
         // 1.找出2011年发生的所有交易，并按照交易额排序（从低到高）
-
-
+        List<Transaction> tr2011 = transactions.stream().filter(
+                transaction -> transaction.getYear() == 2011
+        ).sorted(comparing(Transaction :: getValue)).collect(Collectors.toList());
+        // 2.交易员都在哪些不同的城市呆过
+        List<String> cityes = transactions.stream().map(transaction -> transaction.getTrader().getCity()).distinct().collect(Collectors.toList());
+        System.out.println(cityes);
 
     }
 }
