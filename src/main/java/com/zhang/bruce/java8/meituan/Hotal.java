@@ -1,6 +1,7 @@
 package com.zhang.bruce.java8.meituan;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -26,13 +27,19 @@ abstract class AbstractStrategy implements Strategy {
     public void register() {
         StrategyContext1.registerStrategy(getClass().getSimpleName(), this);
     }
+    void handle(String s){
+        String[] strings = s.split(",");
+        for (String s11 : strings) {
+            System.out.println(s11);
+        };
+    }
 }
 
 // 单例外卖策略
 class Waimai1 extends AbstractStrategy implements Strategy {
     private static final Waimai instance = new Waimai();
     //private WaimaiService waimaiService;
-    private Waimai1() {
+    Waimai1() {
         register();
     }
     public static Waimai getInstance() {
@@ -43,7 +50,8 @@ class Waimai1 extends AbstractStrategy implements Strategy {
 //        WaimaiRequest request = new WaimaiRequest();
 //        // 构建入参
 //        request.setWaimaiReq(params);
-//        waimaiService.issueWaimai(request);
+//        waimaiService.issueWaimai(request)
+//  ;
     }
 }
 // 单例酒旅策略
@@ -64,10 +72,10 @@ class Hotel1 extends AbstractStrategy implements Strategy {
     }
 }
 // 单例美食策略
-class Food1 extends AbstractStrategy implements Strategy {
+ class Food1 extends AbstractStrategy implements Strategy {
     private static final Food instance = new Food();
     // private FoodService foodService;
-    private Food1() {
+    Food1() {
         register();
     }
     public static Food getInstance() {
@@ -77,5 +85,25 @@ class Food1 extends AbstractStrategy implements Strategy {
     public void issue(Object... params) {
 //        FoodRequest request = new FoodRequest(params);
 //        foodService.payCoupon(request);
+        handle((String) params[0]);
+
+
+
+    }
+
+
+
+
+}
+
+class Test{
+    public static void main(String[] args) {
+        Waimai1 waimai = new Waimai1();
+        Food1 food1 = new Food1();
+        Strategy strategy = StrategyContext1.getStrategy("Food1");
+
+        strategy.issue("nihao,woshi,bengdan");
+
+        System.out.println(strategy.getClass());
     }
 }

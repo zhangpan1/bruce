@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FDBK>
+  <RPID>NPHZ2014411000012-20220819-00000041.XML</RPID>
+  <SFID>CTFL</SFID>
+  <ERTN>46</ERTN>
+  <FCERs>
+    <FCER seqno="1">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="37"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="2">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="78"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="3">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="34"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="4">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="12"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="5">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="79"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="6">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="35"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="7">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="76"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="8">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="10"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="9">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="77"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="10">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="33"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="11">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="11"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="12">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="74"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="13">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="30"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="14">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="75"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="15">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="72"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="16">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="73"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="17">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="70"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="18">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="71"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="19">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="3"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="20">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="69"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="21">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="25"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="22">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="4"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="23">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="26"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="24">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="5"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="25">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="67"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="26">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="6"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="27">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="24"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="28">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="7"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="29">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="65"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="30">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="8"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="31">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="88"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="32">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="66"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="33">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="9"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="34">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="85"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="35">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="63"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="36">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="64"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="37">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="83"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="38">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="62"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="39">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="81"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="40">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="82"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="41">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="80"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="42">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="1"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="43">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="2"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="44">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="29"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="45">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="27"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+    <FCER seqno="46">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="28"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+  </FCERs>
+</FDBK>

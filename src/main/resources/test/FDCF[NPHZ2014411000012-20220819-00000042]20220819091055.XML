@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FDBK>
+  <RPID>NPHZ2014411000012-20220819-00000042.XML</RPID>
+  <SFID>CTFL</SFID>
+  <ERTN>1</ERTN>
+  <FCERs>
+    <FCER seqno="1">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="55"]/ATIF/CBAC</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）账号中不得含有除数字、字母、“-”、"_"、“@”、“.”之外的字符，且不得使用全角字符。 （二）账号字段不得全部为连续相同的数字，例如“11111111111111”等。</ERRS>
+    </FCER>
+  </FCERs>
+</FDBK>

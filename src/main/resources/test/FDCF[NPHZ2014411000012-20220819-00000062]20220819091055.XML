@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FDBK>
+  <RPID>NPHZ2014411000012-20220819-00000062.XML</RPID>
+  <SFID>CTFL</SFID>
+  <ERTN>15</ERTN>
+  <FCERs>
+    <FCER seqno="1">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="89"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="2">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="79"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="3">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="24"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="4">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="7"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="5">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="33"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="6">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="96"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="7">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="74"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="8">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="41"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="9">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="64"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="10">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="72"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="11">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="50"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="12">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="61"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="13">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="1"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="14">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="102"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+    <FCER seqno="15">
+      <ERLC>/PHTR/CATIs/CATI[seqno="1"]/HTCRs/HTCR[seqno="1"]/CCIFs/CCIF[seqno="1"]/TSDTs/TSDT[seqno="29"]/ATIF/OATM</ERLC>
+      <ERRS>该数据项需满足如下条件： （一）日期格式：年年年年月月日日时时分分秒秒，如无法获知准确时间，则相应位置填写半角字母“t”，例如“2010071315tttt”。 （二）对“时”、“分”、“秒”位检查校验要求为：0≤时＜24，0≤分＜60，0≤秒＜60。 （三）在大额交易的新增报文中，该数据项中的“年年年年月月日日”要早于或等于文件名中报送日期。</ERRS>
+    </FCER>
+  </FCERs>
+</FDBK>
