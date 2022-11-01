@@ -843,7 +843,15 @@ public class DateUtils {
         Date endOfDate = calendar.getTime();
         return endOfDate;
     }
-
+    /**
+     * 获取参数日期的前后 N天
+     */
+    public static Date getAfBeDayDate(Date date, Integer nDay) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE, nDay);
+        return calendar.getTime();
+    }
     /**
      * 选出最早的时间
      *

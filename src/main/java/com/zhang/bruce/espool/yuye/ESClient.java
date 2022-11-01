@@ -138,3 +138,303 @@
 //        }
 //    }
 //}
+
+
+/**
+ * put /tbl_rrs_req
+ * {
+ *   "mappings": {
+ *     "properties": {
+ *       "id": {
+ *         "type": "long"
+ *       },
+ *       "ip_country": {
+ *         "type": "keyword"
+ *       },
+ *       "ip_province": {
+ *         "type": "keyword"
+ *       },
+ *       "req_id": {
+ *         "type": "keyword"
+ *       },
+ *       "seq_id": {
+ *         "type": "keyword"
+ *       },
+ *       "rid": {
+ *         "type": "keyword"
+ *       },
+ *       "prod": {
+ *         "type": "keyword"
+ *       },
+ *       "biz": {
+ *         "type": "keyword"
+ *       },
+ *       "use_tool": {
+ *         "type": "keyword"
+ *       },
+ *       "bnk_id": {
+ *         "type": "keyword"
+ *       },
+ *       "crd_no": {
+ *         "type": "long"
+ *       },
+ *       "crd_area": {
+ *         "type": "keyword"
+ *       },
+ *       "crd_typ": {
+ *         "type": "keyword"
+ *       },
+ *       "amt": {
+ *         "type": "double"
+ *       },
+ *       "mobile": {
+ *         "type": "keyword"
+ *       },
+ *       "mobile_area": {
+ *         "type": "keyword"
+ *       },
+ *       "usr_id": {
+ *         "type": "keyword"
+ *       },
+ *       "pay_id": {
+ *         "type": "keyword"
+ *       },
+ *       "mec_no": {
+ *         "type": "keyword"
+ *       },
+ *       "usr_ip": {
+ *         "type": "keyword"
+ *       },
+ *       "usr_ip_area": {
+ *         "type": "keyword"
+ *       },
+ *       "occ_tm": {
+ *         "type": "date",
+ *         "format": "yyyy-mm-dd hh:mm:ss"
+ *       },
+ *       "tools_if": {
+ *         "type": "keyword"
+ *       },
+ *       "goods_if": {
+ *         "type": "keyword"
+ *       },
+ *       "req_if": {
+ *         "type": "keyword"
+ *       },
+ *       "rts_tm": {
+ *         "type": "integer"
+ *       },
+ *       "rts_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "rlsb_tm": {
+ *         "type": "integer"
+ *       },
+ *       "rlsb_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "rlsw_tm": {
+ *         "type": "integer"
+ *       },
+ *        "rlsw_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "rds_tm": {
+ *         "type": "integer"
+ *       },
+ *       "rds_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "doorgod_tm": {
+ *         "type": "integer"
+ *       },
+ *       "doorgod_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "doorgod_retcode": {
+ *         "type": "keyword"
+ *       },
+ *       "prepare_tm": {
+ *         "type": "integer"
+ *       },
+ *       "chk_tm": {
+ *         "type": "integer"
+ *       },
+ *       "rk_ip": {
+ *         "type": "keyword"
+ *       },
+ *       "sub_sys": {
+ *         "type": "keyword"
+ *       },
+ *        "ct_tm": {
+ *         "type": "date",
+ *         "format": "yyyy-mm-dd hh:mm:ss"
+ *       },
+ *       "mf_tm": {
+ *         "type": "date",
+ *         "format": "yyyy-mm-dd hh:mm:ss"
+ *       },
+ *       "chk_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "prepare_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "first_pay": {
+ *         "type": "keyword"
+ *       },
+ *       "goods_nm": {
+ *         "type": "keyword"
+ *       },
+ *       "sub_prod_id": {
+ *         "type": "keyword"
+ *       },
+ *       "rgs_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "rgs_tm": {
+ *         "type": "integer"
+ *       },
+ *       "rbs_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "rbs_tm": {
+ *         "type": "integer"
+ *       },
+ *       "ret_switch": {
+ *         "type": "keyword"
+ *       },
+ *       "rlsg_retdesc": {
+ *         "type": "keyword"
+ *       },
+ *       "rlsg_tm": {
+ *         "type": "integer"
+ *       },
+ *       "retcode": {
+ *         "type": "keyword"
+ *       },
+ *       "bangsun_trigerrule": {
+ *         "type": "keyword"
+ *       },
+ *       "payway": {
+ *         "type": "keyword"
+ *       },
+ *       "trade_src": {
+ *         "type": "keyword"
+ *       },
+ *       "param_typ": {
+ *         "type": "keyword"
+ *       },
+ *       "merchant_retcode": {
+ *         "type": "keyword"
+ *       },
+ *       "if_encry": {
+ *         "type": "keyword"
+ *       },
+ *       "pay_result": {
+ *         "type": "keyword"
+ *       },
+ *      "pay_tm": {
+ *         "type": "date",
+ *         "format": "yyyy-mm-dd hh:mm:ss"
+ *       },
+ *       "pay_cd": {
+ *         "type": "keyword"
+ *       },
+ *       "syn_con_tm": {
+ *         "type": "integer"
+ *       },
+ *       "syn_err_cd": {
+ *         "type": "keyword"
+ *       },
+ *       "bizorder": {
+ *         "type": "keyword"
+ *       },
+ *       "bank_seq": {
+ *         "type": "keyword"
+ *       },
+ *       "bank_orderno": {
+ *         "type": "keyword"
+ *       },
+ *       "order_type": {
+ *         "type": "keyword"
+ *       },
+ *       "frp_code": {
+ *         "type": "keyword"
+ *       },
+ *       "etltaskid": {
+ *         "type": "keyword"
+ *       },
+ *      "idno": {
+ *         "type": "keyword"
+ *       },
+ *       "terminalid": {
+ *         "type": "keyword"
+ *       },
+ *       "terminal_id": {
+ *         "type": "keyword"
+ *       },
+ *       "pre_phone": {
+ *         "type": "keyword"
+ *       },
+ *       "contact_phone": {
+ *         "type": "keyword"
+ *       },
+ *       "agency_no": {
+ *         "type": "keyword"
+ *       },
+ *       "passenger_phone": {
+ *         "type": "keyword"
+ *       },
+ *       "customeridno": {
+ *         "type": "keyword"
+ *       },
+ *         "target_merchant_no": {
+ *         "type": "keyword"
+ *       },
+ *       "request_merchant_no": {
+ *         "type": "keyword"
+ *       },
+ *      "user_type": {
+ *         "type": "keyword"
+ *       },
+ *       "target_user_type": {
+ *         "type": "keyword"
+ *       },
+ *       "user_type1": {
+ *         "type": "keyword"
+ *       },
+ *       "target_merchant_no1": {
+ *         "type": "keyword"
+ *       },
+ *       "target_user_type1": {
+ *         "type": "keyword"
+ *       },
+ *       "request_merchant_no1": {
+ *         "type": "keyword"
+ *       },
+ *       "id_no_digest": {
+ *         "type": "keyword"
+ *       },
+ *       "customeridno_digest": {
+ *         "type": "keyword"
+ *       },
+ *        "crd_no_digest": {
+ *         "type": "keyword"
+ *       },
+ *       "mobile_digest": {
+ *         "type": "keyword"
+ *       },
+ *       "pre_phone_digest": {
+ *         "type": "keyword"
+ *       },
+ *       "contact_phone_digest": {
+ *         "type": "keyword"
+ *       },
+ *       "passenger_phone_digest": {
+ *         "type": "keyword"
+ *       }
+ *     }
+ *   }
+ * }
+ */

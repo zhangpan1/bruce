@@ -9,10 +9,11 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -29,25 +30,23 @@ public class ReceiptExplainUtils {
 
     private static final Log log = LogFactory.getLog(ReceiptExplainUtils.class);
 
-    /**
-     * 创建一个解析XML的工厂对象
-     */
-    private static final SAXParserFactory PREFATORY = SAXParserFactory.newInstance();
-    /**
-     * 创建一个解析XML的对象
-     */
-    private static SAXParser parser;
+
+    private static GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
+
+    static {
+        poolConfig.setMaxIdle(1);
+        poolConfig.setMaxTotal(1);
+        poolConfig.setMinIdle(1);
+        poolConfig.setMinEvictableIdleTimeMillis(180000);
+    }
+
+    private static SAXParseFactor saxParseFactor = new SAXParseFactor();
+
+    private static GenericObjectPool<SAXParser> saxParsePool = new GenericObjectPool<SAXParser>(saxParseFactor, poolConfig);
 
     private ReceiptExplainUtils() {
     }
 
-    static {
-        try {
-            parser = PREFATORY.newSAXParser();
-        } catch (Exception e) {
-            log.error("创建SAXParser失败！！", e);
-        }
-    }
 
     /**
      * 读取回执xml
@@ -55,7 +54,11 @@ public class ReceiptExplainUtils {
      * @param file 文件
      */
     public static ReceiptPacketBean readReceiptXml(File file) throws ReceiptExplainException {
-        if (parser == null) {
+        SAXParser parser = null;
+        try {
+            parser = getSAXParser();
+        } catch (Exception e) {
+            e.printStackTrace();
             throw new IllegalArgumentException("saxParser获取失败！");
         }
         try {
@@ -67,7 +70,33 @@ public class ReceiptExplainUtils {
             throw new ReceiptExplainException("[SAXException]=>file=" + file.getName() + ",parseError:" + e.getMessage(), e);
         } catch (IOException e) {
             throw new ReceiptExplainException("[IOException]=>file=" + file.getName() + ",parseError:" + e.getMessage(), e);
+        } finally {
+            try {
+                returnSAXParser(parser);
+            } catch (Throwable e) {
+
+            }
         }
+    }
+
+    /**
+     * 获取池对象
+     *
+     * @return
+     * @throws Exception
+     */
+    public static SAXParser getSAXParser() throws Exception {
+        return saxParsePool.borrowObject();
+    }
+
+    /**
+     * 归还池对象
+     *
+     * @param saxParser
+     * @throws Exception
+     */
+    public static void returnSAXParser(SAXParser saxParser) {
+        saxParsePool.returnObject(saxParser);
     }
 
     /**
@@ -78,8 +107,12 @@ public class ReceiptExplainUtils {
      * @throws ReceiptExplainException 异常信息
      */
     public static Map<String, String> readXmlForXPath(File file) throws ReceiptExplainException {
-        if (parser == null) {
-            throw new IllegalArgumentException("readXmlForXPath saxParser获取失败！");
+        SAXParser parser = null;
+        try {
+            parser = getSAXParser();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("saxParser获取失败！");
         }
         try {
             FragmentContentHandler dh = new FragmentContentHandler(parser.getXMLReader());
@@ -89,6 +122,12 @@ public class ReceiptExplainUtils {
             throw new ReceiptExplainException("[SAXException]=>file=" + file.getName() + ",parseError:" + e.getMessage(), e);
         } catch (IOException e) {
             throw new ReceiptExplainException("[IOException]=>file=" + file.getName() + ",parseError:" + e.getMessage(), e);
+        } finally {
+            try {
+                returnSAXParser(parser);
+            } catch (Throwable e) {
+
+            }
         }
     }
 
@@ -100,8 +139,12 @@ public class ReceiptExplainUtils {
      * @throws ReceiptExplainException
      */
     public static XPathTree genXpathTree(File file) throws ReceiptExplainException {
-        if (parser == null) {
-            throw new IllegalArgumentException("genXpathTree saxParser获取失败！");
+        SAXParser parser = null;
+        try {
+            parser = getSAXParser();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("saxParser获取失败！");
         }
         try {
             XPathTreeContentHandler dh = new XPathTreeContentHandler(parser.getXMLReader());
@@ -111,6 +154,12 @@ public class ReceiptExplainUtils {
             throw new ReceiptExplainException("[SAXException]=>file=" + file.getName() + ",parseError:" + e.getMessage(), e);
         } catch (IOException e) {
             throw new ReceiptExplainException("[IOException]=>file=" + file.getName() + ",parseError:" + e.getMessage(), e);
+        } finally {
+            try {
+                returnSAXParser(parser);
+            } catch (Throwable e) {
+
+            }
         }
     }
 
@@ -147,6 +196,7 @@ public class ReceiptExplainUtils {
     public static boolean isNPH(String packetName) {
         return StringUtils.substring(packetName, 0, 3).equals(AntiPackageOpTypeEnum.CREATE + AntiPackageBizEnum.LARGE_AMOUNT.getDataPackageFlag());
     }
+
     public static boolean isCPS(String packetName) {
         return StringUtils.substring(packetName, 0, 3).equals(AntiPackageOpTypeEnum.MODIFY + AntiPackageBizEnum.SUSPICIOUS.getDataPackageFlag());
     }
