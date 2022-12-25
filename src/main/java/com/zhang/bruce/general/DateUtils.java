@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +19,10 @@ import java.util.regex.Pattern;
  * 日期公用类
  */
 public class DateUtils {
+
+    private static final SimpleDateFormat yyyyMMddHHmmssFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final Lock yyyyMMddHHmmssFormatLock = new ReentrantLock();
+    private static final Lock yyyyMMddFormatLock = new ReentrantLock();
 
     /**
      * 默认生效时间 -- 今天
@@ -567,7 +573,19 @@ public class DateUtils {
         }
         return outputString;
     }
-
+    /**
+     * 时间格式化 yyyy-MM-dd HH:mm:ss
+     * @param date
+     * @return
+     */
+    public static String getDateStringByFormat(Date date, String format){
+        if(date == null){
+            return "";
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+        String dateStr = simpleDateFormat.format(date);
+        return dateStr;
+    }
     /**
      * @return 将日期字符串yyyyMMdd 转换为 一周的第几天，如果跟今天日期相等则返回今天，如
      * 果跟明天日期相等，则返回明天，否则返回周几
@@ -583,6 +601,20 @@ public class DateUtils {
         } else {
             return getDayOfWeek(inputString);
         }
+    }
+    /**
+     * 时间格式化 yyyy-MM-dd HH:mm:ss
+     * @param date
+     * @return
+     */
+    public static String formateyyyyMMddHHmmss(Date date){
+        if(date == null){
+            return "";
+        }
+        yyyyMMddHHmmssFormatLock.lock();
+        String dateStr = yyyyMMddHHmmssFormat.format(date);
+        yyyyMMddHHmmssFormatLock.unlock();
+        return dateStr;
     }
 
 }

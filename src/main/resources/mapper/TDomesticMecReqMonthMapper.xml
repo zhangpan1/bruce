@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.TDomesticMecReqMonthMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TDomesticMecReqMonth" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="prod" property="prod" jdbcType="VARCHAR" />
+        <result column="biz" property="biz" jdbcType="VARCHAR" />
+        <result column="pay_way" property="payWay" jdbcType="VARCHAR" />
+        <result column="mec_no" property="mecNo" jdbcType="VARCHAR" />
+        <result column="table_name" property="tableName" jdbcType="VARCHAR" />
+        <result column="amt" property="amt" jdbcType="DECIMAL" />
+        <result column="total_count" property="totalCount" jdbcType="BIGINT" />
+        <result column="pay_result" property="payResult" jdbcType="VARCHAR" />
+        <result column="category_result" property="categoryResult" jdbcType="VARCHAR" />
+        <result column="month_str" property="monthStr" jdbcType="VARCHAR" />
+        <result column="occ_tm" property="occTm" jdbcType="TIMESTAMP" />
+        <result column="ct_tm" property="ctTm" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        id, prod, biz, pay_way, mec_no, table_name, amt, total_count, pay_result, category_result,
+        month_str, occ_tm, ct_tm
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TDomesticMecReqMonthExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from t_domestic_mec_req_month
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from t_domestic_mec_req_month
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+        delete from t_domestic_mec_req_month
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <delete id="deleteByExample" parameterType="com.zhang.bruce.easyexcel.TDomesticMecReqMonthExample" >
+        delete from t_domestic_mec_req_month
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.easyexcel.TDomesticMecReqMonth" >
+        insert into t_domestic_mec_req_month (id, prod, biz,
+            pay_way, mec_no, table_name,
+            amt, total_count, pay_result,
+            category_result, month_str, occ_tm,
+            ct_tm)
+        values (#{id,jdbcType=BIGINT}, #{prod,jdbcType=VARCHAR}, #{biz,jdbcType=VARCHAR},
+            #{payWay,jdbcType=VARCHAR}, #{mecNo,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR},
+            #{amt,jdbcType=DECIMAL}, #{totalCount,jdbcType=BIGINT}, #{payResult,jdbcType=VARCHAR},
+            #{categoryResult,jdbcType=VARCHAR}, #{monthStr,jdbcType=VARCHAR}, #{occTm,jdbcType=TIMESTAMP},
+            #{ctTm,jdbcType=TIMESTAMP})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TDomesticMecReqMonth" useGeneratedKeys="true" keyProperty="id">
+        insert into t_domestic_mec_req_month
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="prod != null" >
+                prod,
+            </if>
+            <if test="biz != null" >
+                biz,
+            </if>
+            <if test="payWay != null" >
+                pay_way,
+            </if>
+            <if test="mecNo != null" >
+                mec_no,
+            </if>
+            <if test="tableName != null" >
+                table_name,
+            </if>
+            <if test="amt != null" >
+                amt,
+            </if>
+            <if test="totalCount != null" >
+                total_count,
+            </if>
+            <if test="payResult != null" >
+                pay_result,
+            </if>
+            <if test="categoryResult != null" >
+                category_result,
+            </if>
+            <if test="monthStr != null" >
+                month_str,
+            </if>
+            <if test="occTm != null" >
+                occ_tm,
+            </if>
+            <if test="ctTm != null" >
+                ct_tm,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="prod != null" >
+                #{prod,jdbcType=VARCHAR},
+            </if>
+            <if test="biz != null" >
+                #{biz,jdbcType=VARCHAR},
+            </if>
+            <if test="payWay != null" >
+                #{payWay,jdbcType=VARCHAR},
+            </if>
+            <if test="mecNo != null" >
+                #{mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tableName != null" >
+                #{tableName,jdbcType=VARCHAR},
+            </if>
+            <if test="amt != null" >
+                #{amt,jdbcType=DECIMAL},
+            </if>
+            <if test="totalCount != null" >
+                #{totalCount,jdbcType=BIGINT},
+            </if>
+            <if test="payResult != null" >
+                #{payResult,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryResult != null" >
+                #{categoryResult,jdbcType=VARCHAR},
+            </if>
+            <if test="monthStr != null" >
+                #{monthStr,jdbcType=VARCHAR},
+            </if>
+            <if test="occTm != null" >
+                #{occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ctTm != null" >
+                #{ctTm,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.zhang.bruce.easyexcel.TDomesticMecReqMonthExample" resultType="java.lang.Integer" >
+        select count(*) from t_domestic_mec_req_month
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update t_domestic_mec_req_month
+        <set >
+            <if test="record.id != null" >
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.prod != null" >
+                prod = #{record.prod,jdbcType=VARCHAR},
+            </if>
+            <if test="record.biz != null" >
+                biz = #{record.biz,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payWay != null" >
+                pay_way = #{record.payWay,jdbcType=VARCHAR},
+            </if>
+            <if test="record.mecNo != null" >
+                mec_no = #{record.mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.tableName != null" >
+                table_name = #{record.tableName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.amt != null" >
+                amt = #{record.amt,jdbcType=DECIMAL},
+            </if>
+            <if test="record.totalCount != null" >
+                total_count = #{record.totalCount,jdbcType=BIGINT},
+            </if>
+            <if test="record.payResult != null" >
+                pay_result = #{record.payResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.categoryResult != null" >
+                category_result = #{record.categoryResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.monthStr != null" >
+                month_str = #{record.monthStr,jdbcType=VARCHAR},
+            </if>
+            <if test="record.occTm != null" >
+                occ_tm = #{record.occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.ctTm != null" >
+                ct_tm = #{record.ctTm,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update t_domestic_mec_req_month
+        set id = #{record.id,jdbcType=BIGINT},
+            prod = #{record.prod,jdbcType=VARCHAR},
+            biz = #{record.biz,jdbcType=VARCHAR},
+            pay_way = #{record.payWay,jdbcType=VARCHAR},
+            mec_no = #{record.mecNo,jdbcType=VARCHAR},
+            table_name = #{record.tableName,jdbcType=VARCHAR},
+            amt = #{record.amt,jdbcType=DECIMAL},
+            total_count = #{record.totalCount,jdbcType=BIGINT},
+            pay_result = #{record.payResult,jdbcType=VARCHAR},
+            category_result = #{record.categoryResult,jdbcType=VARCHAR},
+            month_str = #{record.monthStr,jdbcType=VARCHAR},
+            occ_tm = #{record.occTm,jdbcType=TIMESTAMP},
+            ct_tm = #{record.ctTm,jdbcType=TIMESTAMP}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhang.bruce.easyexcel.TDomesticMecReqMonth" >
+        update t_domestic_mec_req_month
+        <set >
+            <if test="prod != null" >
+                prod = #{prod,jdbcType=VARCHAR},
+            </if>
+            <if test="biz != null" >
+                biz = #{biz,jdbcType=VARCHAR},
+            </if>
+            <if test="payWay != null" >
+                pay_way = #{payWay,jdbcType=VARCHAR},
+            </if>
+            <if test="mecNo != null" >
+                mec_no = #{mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tableName != null" >
+                table_name = #{tableName,jdbcType=VARCHAR},
+            </if>
+            <if test="amt != null" >
+                amt = #{amt,jdbcType=DECIMAL},
+            </if>
+            <if test="totalCount != null" >
+                total_count = #{totalCount,jdbcType=BIGINT},
+            </if>
+            <if test="payResult != null" >
+                pay_result = #{payResult,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryResult != null" >
+                category_result = #{categoryResult,jdbcType=VARCHAR},
+            </if>
+            <if test="monthStr != null" >
+                month_str = #{monthStr,jdbcType=VARCHAR},
+            </if>
+            <if test="occTm != null" >
+                occ_tm = #{occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ctTm != null" >
+                ct_tm = #{ctTm,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.zhang.bruce.easyexcel.TDomesticMecReqMonth" >
+        update t_domestic_mec_req_month
+        set prod = #{prod,jdbcType=VARCHAR},
+            biz = #{biz,jdbcType=VARCHAR},
+            pay_way = #{payWay,jdbcType=VARCHAR},
+            mec_no = #{mecNo,jdbcType=VARCHAR},
+            table_name = #{tableName,jdbcType=VARCHAR},
+            amt = #{amt,jdbcType=DECIMAL},
+            total_count = #{totalCount,jdbcType=BIGINT},
+            pay_result = #{payResult,jdbcType=VARCHAR},
+            category_result = #{categoryResult,jdbcType=VARCHAR},
+            month_str = #{monthStr,jdbcType=VARCHAR},
+            occ_tm = #{occTm,jdbcType=TIMESTAMP},
+            ct_tm = #{ctTm,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.RTDomesticMecReqMonthMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TDomesticMecReqMonth" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="prod" property="prod" jdbcType="VARCHAR" />
+        <result column="biz" property="biz" jdbcType="VARCHAR" />
+        <result column="pay_way" property="payWay" jdbcType="VARCHAR" />
+        <result column="mec_no" property="mecNo" jdbcType="VARCHAR" />
+        <result column="table_name" property="tableName" jdbcType="VARCHAR" />
+        <result column="amt" property="amt" jdbcType="DECIMAL" />
+        <result column="total_count" property="totalCount" jdbcType="BIGINT" />
+        <result column="pay_result" property="payResult" jdbcType="VARCHAR" />
+        <result column="category_result" property="categoryResult" jdbcType="VARCHAR" />
+        <result column="month_str" property="monthStr" jdbcType="VARCHAR" />
+        <result column="occ_tm" property="occTm" jdbcType="TIMESTAMP" />
+        <result column="ct_tm" property="ctTm" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, prod, biz, pay_way, mec_no, table_name, sum(amt) as amt, sum(total_count) as total_count, pay_result, category_result,
+        month_str, occ_tm, ct_tm
+    </sql>
+    <select id="selectByMecNo" resultType="com.zhang.bruce.easyexcel.TDomesticMecReqMonth" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from
+        t_domestic_mec_req_month
+        where
+        mec_no = #{customernumber}
+        group by prod,biz,pay_way,mec_no,month_str
+    </select>
+</mapper>
