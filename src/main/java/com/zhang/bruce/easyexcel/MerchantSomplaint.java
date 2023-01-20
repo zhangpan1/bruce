@@ -1,198 +1,113 @@
 package com.zhang.bruce.easyexcel;
 
-import com.alibaba.excel.annotation.ExcelIgnore;
-import com.alibaba.excel.annotation.ExcelProperty;
-import lombok.Data;
-
-import java.io.Serializable;
+import java.util.Date;
 
 /**
- * @Author: xueqimiao
- * @Date: 2022/9/28 10:10
- * 导入专用VO 所有数据类型均用String接收 避免用户随便乱输入 接收不同的类型报异常  比如 年龄是int类型  用户输入十三 后台就会报异常
+ *
+ *
+ * @author wcyong
+ *
+ * @date 2023-01-13
  */
-@Data
-public class UserImportVO implements Serializable {
-    /**
-     * @ExcelIgnore 不导出此列
-     */
-    @ExcelIgnore
-    private String id;
-
+public class MerchantSomplaint {
+    private Long id;
 
     /**
-     * 业务方
+     * acceptance_time的日期格式
      */
-    @ExcelProperty(value = "ACCEPTANCE_TIME")
-    private String acceptanceTime;
+    private Date acceptanceDate;
 
-    /**
-     * 支付方式
-     */
-    @ExcelProperty(value = "SOMPLAINT_SOURCE")
+    private Date acceptanceTime;
+
     private String somplaintSource;
 
-    /**
-     * 商户编号
-     */
-    @ExcelProperty(value = "MERCHANT_NO")
     private String merchantNo;
 
-    /**
-     * 表名
-     */
-    @ExcelProperty(value = "ORDER_NO")
     private String orderNo;
 
-    /**
-     * 交易总金额
-     */
-    @ExcelProperty(value = "TRANSACTION_AMOUNT")
     private String transactionAmount;
 
-    /**
-     * 总交易笔数
-     */
-    @ExcelProperty(value = "PAY_TIME")
-    private String payTime;
+    private Date payTime;
 
-    /**
-     * 支付结果
-     */
-    @ExcelProperty(value = "SOMPLAINT_WAY")
     private String somplaintWay;
 
-    /**
-     * 拼接结果字段
-     */
-    @ExcelProperty(value = "REPORT_TYPE")
     private String reportType;
 
-    /**
-     * 月份字段
-     */
-    @ExcelProperty(value = "SOMPLAINT_REASON")
     private String somplaintReason;
 
-    /**
-     * 交易时间
-     */
-    @ExcelProperty(value = "SOMPLAINT_BY")
     private String somplaintBy;
 
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "CONTACT_WAY")
     private String contactWay;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "LAST_MODIFIED_BY")
-    private String lastModifiedBy;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "LAST_MODIFIED_TIME")
-    private String lastModifiedTime;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "SOMPLAINT_TYPE")
-    private String somplaintType;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "BANK_ORDER_NO")
-    private String bankOrderNo;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "SOMPLAINT_URL")
-    private String somplaintUrl;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "WORK_ORDER_NO")
-    private String workOrderNo;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "CREATE_TIME")
-    private String createTime;
 
-    @ExcelProperty(value = "ACCEPTANCE_DATE")
-    private String acceptanceDate;
+    private String lastModifiedBy;
+
+    private Date lastModifiedTime;
+
+    private String somplaintType;
+
+    private String bankOrderNo;
+
+    private String somplaintUrl;
+
+    private String workOrderNo;
+
     /**
      * 创建时间
      */
-    @ExcelProperty(value = "CHANNEL")
+    private Date createTime;
+
     private String channel;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "COMPLAINT_NATURE")
+
     private String complaintNature;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "PROCESS_CONTENT")
+
     private String processContent;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "ORDER_CODE")
+
     private String orderCode;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "SOMPLAINT_DETAIL")
+
     private String somplaintDetail;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "SUPPLEMENT_COMMENT")
+
     private String supplementComment;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "YP_MEC_NO")
+
     private String ypMecNo;
+
+    private Short punishStatus;
+
     /**
-     * 创建时间
+     * 银行卡号
      */
-    @ExcelProperty(value = "PUNISH_STATUS")
-    private String punishStatus;
-    /**
-     * 创建时间
-     */
-    @ExcelProperty(value = "CRD_NO")
     private String crdNo;
+
     /**
-     * 创建时间
+     * 证件号
      */
-    @ExcelProperty(value = "ID_NO")
     private String idNo;
+
     /**
-     * 创建时间
+     * 用户id
      */
-    @ExcelProperty(value = "USER_ID")
     private String userId;
 
+    public Long getId() {
+        return id;
+    }
 
-    public String getAcceptanceDate() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getAcceptanceDate() {
         return acceptanceDate;
     }
 
-    public void setAcceptanceDate(String acceptanceDate) {
+    public void setAcceptanceDate(Date acceptanceDate) {
         this.acceptanceDate = acceptanceDate;
     }
 
-    public String getAcceptanceTime() {
+    public Date getAcceptanceTime() {
         return acceptanceTime;
     }
 
-    public void setAcceptanceTime(String acceptanceTime) {
+    public void setAcceptanceTime(Date acceptanceTime) {
         this.acceptanceTime = acceptanceTime;
     }
 
@@ -201,7 +116,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSomplaintSource(String somplaintSource) {
-        this.somplaintSource = somplaintSource;
+        this.somplaintSource = somplaintSource == null ? null : somplaintSource.trim();
     }
 
     public String getMerchantNo() {
@@ -209,7 +124,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setMerchantNo(String merchantNo) {
-        this.merchantNo = merchantNo;
+        this.merchantNo = merchantNo == null ? null : merchantNo.trim();
     }
 
     public String getOrderNo() {
@@ -217,7 +132,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
+        this.orderNo = orderNo == null ? null : orderNo.trim();
     }
 
     public String getTransactionAmount() {
@@ -225,14 +140,14 @@ public class UserImportVO implements Serializable {
     }
 
     public void setTransactionAmount(String transactionAmount) {
-        this.transactionAmount = transactionAmount;
+        this.transactionAmount = transactionAmount == null ? null : transactionAmount.trim();
     }
 
-    public String getPayTime() {
+    public Date getPayTime() {
         return payTime;
     }
 
-    public void setPayTime(String payTime) {
+    public void setPayTime(Date payTime) {
         this.payTime = payTime;
     }
 
@@ -241,7 +156,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSomplaintWay(String somplaintWay) {
-        this.somplaintWay = somplaintWay;
+        this.somplaintWay = somplaintWay == null ? null : somplaintWay.trim();
     }
 
     public String getReportType() {
@@ -249,7 +164,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setReportType(String reportType) {
-        this.reportType = reportType;
+        this.reportType = reportType == null ? null : reportType.trim();
     }
 
     public String getSomplaintReason() {
@@ -257,7 +172,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSomplaintReason(String somplaintReason) {
-        this.somplaintReason = somplaintReason;
+        this.somplaintReason = somplaintReason == null ? null : somplaintReason.trim();
     }
 
     public String getSomplaintBy() {
@@ -265,7 +180,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSomplaintBy(String somplaintBy) {
-        this.somplaintBy = somplaintBy;
+        this.somplaintBy = somplaintBy == null ? null : somplaintBy.trim();
     }
 
     public String getContactWay() {
@@ -273,7 +188,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setContactWay(String contactWay) {
-        this.contactWay = contactWay;
+        this.contactWay = contactWay == null ? null : contactWay.trim();
     }
 
     public String getLastModifiedBy() {
@@ -281,14 +196,14 @@ public class UserImportVO implements Serializable {
     }
 
     public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
+        this.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.trim();
     }
 
-    public String getLastModifiedTime() {
+    public Date getLastModifiedTime() {
         return lastModifiedTime;
     }
 
-    public void setLastModifiedTime(String lastModifiedTime) {
+    public void setLastModifiedTime(Date lastModifiedTime) {
         this.lastModifiedTime = lastModifiedTime;
     }
 
@@ -297,7 +212,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSomplaintType(String somplaintType) {
-        this.somplaintType = somplaintType;
+        this.somplaintType = somplaintType == null ? null : somplaintType.trim();
     }
 
     public String getBankOrderNo() {
@@ -305,7 +220,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setBankOrderNo(String bankOrderNo) {
-        this.bankOrderNo = bankOrderNo;
+        this.bankOrderNo = bankOrderNo == null ? null : bankOrderNo.trim();
     }
 
     public String getSomplaintUrl() {
@@ -313,7 +228,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSomplaintUrl(String somplaintUrl) {
-        this.somplaintUrl = somplaintUrl;
+        this.somplaintUrl = somplaintUrl == null ? null : somplaintUrl.trim();
     }
 
     public String getWorkOrderNo() {
@@ -321,14 +236,14 @@ public class UserImportVO implements Serializable {
     }
 
     public void setWorkOrderNo(String workOrderNo) {
-        this.workOrderNo = workOrderNo;
+        this.workOrderNo = workOrderNo == null ? null : workOrderNo.trim();
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
@@ -337,7 +252,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setChannel(String channel) {
-        this.channel = channel;
+        this.channel = channel == null ? null : channel.trim();
     }
 
     public String getComplaintNature() {
@@ -345,7 +260,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setComplaintNature(String complaintNature) {
-        this.complaintNature = complaintNature;
+        this.complaintNature = complaintNature == null ? null : complaintNature.trim();
     }
 
     public String getProcessContent() {
@@ -353,7 +268,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setProcessContent(String processContent) {
-        this.processContent = processContent;
+        this.processContent = processContent == null ? null : processContent.trim();
     }
 
     public String getOrderCode() {
@@ -361,7 +276,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setOrderCode(String orderCode) {
-        this.orderCode = orderCode;
+        this.orderCode = orderCode == null ? null : orderCode.trim();
     }
 
     public String getSomplaintDetail() {
@@ -369,7 +284,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSomplaintDetail(String somplaintDetail) {
-        this.somplaintDetail = somplaintDetail;
+        this.somplaintDetail = somplaintDetail == null ? null : somplaintDetail.trim();
     }
 
     public String getSupplementComment() {
@@ -377,7 +292,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setSupplementComment(String supplementComment) {
-        this.supplementComment = supplementComment;
+        this.supplementComment = supplementComment == null ? null : supplementComment.trim();
     }
 
     public String getYpMecNo() {
@@ -385,14 +300,14 @@ public class UserImportVO implements Serializable {
     }
 
     public void setYpMecNo(String ypMecNo) {
-        this.ypMecNo = ypMecNo;
+        this.ypMecNo = ypMecNo == null ? null : ypMecNo.trim();
     }
 
-    public String getPunishStatus() {
+    public Short getPunishStatus() {
         return punishStatus;
     }
 
-    public void setPunishStatus(String punishStatus) {
+    public void setPunishStatus(Short punishStatus) {
         this.punishStatus = punishStatus;
     }
 
@@ -401,7 +316,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setCrdNo(String crdNo) {
-        this.crdNo = crdNo;
+        this.crdNo = crdNo == null ? null : crdNo.trim();
     }
 
     public String getIdNo() {
@@ -409,7 +324,7 @@ public class UserImportVO implements Serializable {
     }
 
     public void setIdNo(String idNo) {
-        this.idNo = idNo;
+        this.idNo = idNo == null ? null : idNo.trim();
     }
 
     public String getUserId() {
@@ -417,6 +332,6 @@ public class UserImportVO implements Serializable {
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userId = userId == null ? null : userId.trim();
     }
 }

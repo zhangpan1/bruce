@@ -1,6 +1,8 @@
 package com.zhang.bruce.general;
 
-import java.util.Date;
+import com.yeepay.g3.utils.common.DateUtils;
+
+import java.util.Calendar;
 
 /**
  * @author bruce
@@ -10,7 +12,12 @@ import java.util.Date;
  */
 public class Split {
     public static void main(String[] args) {
-        System.out.println(DateUtils.getDateStringByFormat(new Date(), "yyyy年MM月dd日"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        System.out.println("startTime" + com.yeepay.g3.utils.common.DateUtils.toString(calendar.getTime(), com.yeepay.g3.utils.common.DateUtils.DATE_FORMAT_DATEONLY));
+        calendar.add(Calendar.MONTH, 1);
+        calendar.set(Calendar.DAY_OF_MONTH, 0);
+        System.out.println("endTime"+ com.yeepay.g3.utils.common.DateUtils.toString(calendar.getTime(), DateUtils.DATE_FORMAT_DATEONLY));
 
     }
 }

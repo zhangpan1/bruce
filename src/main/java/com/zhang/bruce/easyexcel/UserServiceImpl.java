@@ -1,19 +1,21 @@
 package com.zhang.bruce.easyexcel;
 
-import cn.hutool.core.date.DateUtil;
+import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.google.common.collect.Maps;
 import com.yeepay.g3.utils.common.DateUtils;
+import com.zhang.bruce.config.DataSourceConstants;
+import com.zhang.bruce.general.mysql.MerchantSomplaintMapper;
 import com.zhang.bruce.general.mysql.RTDomesticMecReqMonthMapper;
 import com.zhang.bruce.general.mysql.TDomesticMecReqMonthMapper;
 import org.apache.commons.compress.utils.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import java.math.BigDecimal;
 import java.text.ParseException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: xueqimiao
@@ -25,6 +27,9 @@ public class UserServiceImpl implements UserService {
     private TDomesticMecReqMonthMapper tDomesticMecReqMonthMapper;
     @Autowired
     private RTDomesticMecReqMonthMapper rtDomesticMecReqMonthMapper;
+
+    @Autowired
+    private MerchantSomplaintMapper merchantSomplaintMapper;
 
     @Override
     public List<UserModel> getUserList() {
@@ -41,25 +46,56 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUsers(List<UserImportVO> vos) {
         for (UserImportVO userImportVO : vos){
-            TDomesticMecReqMonth tDomesticMecReqMonth = new TDomesticMecReqMonth();
-            tDomesticMecReqMonth.setAmt(new BigDecimal(userImportVO.getAmt()));
-            tDomesticMecReqMonth.setProd(userImportVO.getProd());
-            tDomesticMecReqMonth.setBiz(userImportVO.getBiz());
-            tDomesticMecReqMonth.setPayWay(userImportVO.getPayWay());
-            tDomesticMecReqMonth.setMecNo(userImportVO.getMecNo());
-            tDomesticMecReqMonth.setTableName(userImportVO.getTableName());
-            tDomesticMecReqMonth.setTotalCount(Long.valueOf(userImportVO.getTotalCount()));
-            tDomesticMecReqMonth.setPayResult(userImportVO.getPayResult());
-            tDomesticMecReqMonth.setCategoryResult(userImportVO.getCategoryResult());
-            tDomesticMecReqMonth.setMonthStr(userImportVO.getMonthStr());
+            MerchantSomplaint merchantSomplaint = new MerchantSomplaint();
             try {
-                tDomesticMecReqMonth.setOccTm(DateUtils.parseDate(userImportVO.getOccTm(), com.zhang.bruce.general.DateUtils.FORMAT21));
-                tDomesticMecReqMonth.setCtTm(DateUtils.parseDate(userImportVO.getCtTm(), com.zhang.bruce.general.DateUtils.FORMAT21));
+                merchantSomplaint.setAcceptanceDate(DateUtils.parseDate(userImportVO.getAcceptanceDate(), com.zhang.bruce.general.DateUtils.FORMAT21));
+                merchantSomplaint.setAcceptanceTime(DateUtils.parseDate(userImportVO.getAcceptanceTime(), com.zhang.bruce.general.DateUtils.FORMAT21));
+                merchantSomplaint.setPayTime(DateUtils.parseDate(userImportVO.getPayTime(), com.zhang.bruce.general.DateUtils.FORMAT21));
+                merchantSomplaint.setLastModifiedTime(DateUtils.parseDate(userImportVO.getLastModifiedTime(), com.zhang.bruce.general.DateUtils.FORMAT21));
+                merchantSomplaint.setCreateTime(DateUtils.parseDate(userImportVO.getCreateTime(), com.zhang.bruce.general.DateUtils.FORMAT21));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-           tDomesticMecReqMonthMapper.insertSelective(tDomesticMecReqMonth);
-            Long result = tDomesticMecReqMonth.getId();
+
+            merchantSomplaint.setSomplaintSource(userImportVO.getSomplaintSource());
+            merchantSomplaint.setMerchantNo("10000460331");
+            merchantSomplaint.setOrderNo(userImportVO.getOrderNo());
+            merchantSomplaint.setTransactionAmount(userImportVO.getTransactionAmount());
+            merchantSomplaint.setSomplaintWay(userImportVO.getSomplaintWay());
+            merchantSomplaint.setReportType(userImportVO.getReportType());
+            merchantSomplaint.setSomplaintReason(userImportVO.getSomplaintReason());
+            merchantSomplaint.setSomplaintBy(userImportVO.getSomplaintBy());
+
+            merchantSomplaint.setContactWay(userImportVO.getContactWay());
+            merchantSomplaint.setLastModifiedBy(userImportVO.getLastModifiedBy());
+
+            merchantSomplaint.setSomplaintType(userImportVO.getSomplaintType());
+            merchantSomplaint.setBankOrderNo(userImportVO.getBankOrderNo());
+
+            merchantSomplaint.setSomplaintUrl(userImportVO.getSomplaintUrl());
+            merchantSomplaint.setWorkOrderNo(userImportVO.getWorkOrderNo());
+
+            merchantSomplaint.setChannel(userImportVO.getChannel());
+            merchantSomplaint.setComplaintNature(userImportVO.getComplaintNature());
+            merchantSomplaint.setProcessContent(userImportVO.getProcessContent());
+            merchantSomplaint.setOrderCode(userImportVO.getOrderCode());
+            merchantSomplaint.setSomplaintDetail(userImportVO.getSomplaintDetail());
+
+            merchantSomplaint.setSupplementComment(userImportVO.getSupplementComment());
+            merchantSomplaint.setYpMecNo(userImportVO.getYpMecNo());
+            merchantSomplaint.setPunishStatus(Short.valueOf(userImportVO.getPunishStatus()));
+            merchantSomplaint.setCrdNo(userImportVO.getCrdNo());
+
+            merchantSomplaint.setIdNo(userImportVO.getIdNo());
+            merchantSomplaint.setUserId(userImportVO.getUserId());
+            try {
+                DynamicDataSourceContextHolder.push(DataSourceConstants.BUSINESS);
+                merchantSomplaintMapper.insertSelective(merchantSomplaint);
+            }finally {
+                DynamicDataSourceContextHolder.poll();
+            }
+
+            Long result = merchantSomplaint.getId();
             System.out.println("result结果为 "+ result);
         }
         System.out.println("保存成功"+vos.size());

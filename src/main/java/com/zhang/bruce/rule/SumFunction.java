@@ -1,11 +1,8 @@
 package com.zhang.bruce.rule;
 
 import com.tcredit.streaming.core.utils.LoggerUtil;
-import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @description: some desc
@@ -13,7 +10,7 @@ import java.util.Set;
  * @date: 2022/7/14 5:55 下午
  */
 public class SumFunction {
-    @Test
+
     public void testSum() {
         System.out.println(getSumScore("1.11","0.02","0.03","0.04","0.05","0.06","960").toString());
     }

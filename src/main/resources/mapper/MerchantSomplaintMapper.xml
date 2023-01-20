@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.MerchantSomplaintMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.MerchantSomplaint" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="acceptance_date" property="acceptanceDate" jdbcType="DATE" />
+        <result column="acceptance_time" property="acceptanceTime" jdbcType="TIMESTAMP" />
+        <result column="somplaint_source" property="somplaintSource" jdbcType="VARCHAR" />
+        <result column="merchant_no" property="merchantNo" jdbcType="VARCHAR" />
+        <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+        <result column="transaction_amount" property="transactionAmount" jdbcType="VARCHAR" />
+        <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+        <result column="somplaint_way" property="somplaintWay" jdbcType="VARCHAR" />
+        <result column="report_type" property="reportType" jdbcType="VARCHAR" />
+        <result column="somplaint_reason" property="somplaintReason" jdbcType="VARCHAR" />
+        <result column="somplaint_by" property="somplaintBy" jdbcType="VARCHAR" />
+        <result column="contact_way" property="contactWay" jdbcType="VARCHAR" />
+        <result column="last_modified_by" property="lastModifiedBy" jdbcType="VARCHAR" />
+        <result column="last_modified_time" property="lastModifiedTime" jdbcType="TIMESTAMP" />
+        <result column="somplaint_type" property="somplaintType" jdbcType="VARCHAR" />
+        <result column="bank_order_no" property="bankOrderNo" jdbcType="VARCHAR" />
+        <result column="somplaint_url" property="somplaintUrl" jdbcType="VARCHAR" />
+        <result column="work_order_no" property="workOrderNo" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="channel" property="channel" jdbcType="VARCHAR" />
+        <result column="complaint_nature" property="complaintNature" jdbcType="VARCHAR" />
+        <result column="process_content" property="processContent" jdbcType="VARCHAR" />
+        <result column="order_code" property="orderCode" jdbcType="VARCHAR" />
+        <result column="somplaint_detail" property="somplaintDetail" jdbcType="VARCHAR" />
+        <result column="supplement_comment" property="supplementComment" jdbcType="VARCHAR" />
+        <result column="yp_mec_no" property="ypMecNo" jdbcType="VARCHAR" />
+        <result column="punish_status" property="punishStatus" jdbcType="SMALLINT" />
+        <result column="crd_no" property="crdNo" jdbcType="VARCHAR" />
+        <result column="id_no" property="idNo" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        id, acceptance_date, acceptance_time, somplaint_source, merchant_no, order_no, transaction_amount,
+        pay_time, somplaint_way, report_type, somplaint_reason, somplaint_by, contact_way,
+        last_modified_by, last_modified_time, somplaint_type, bank_order_no, somplaint_url,
+        work_order_no, create_time, channel, complaint_nature, process_content, order_code,
+        somplaint_detail, supplement_comment, yp_mec_no, punish_status, crd_no, id_no, user_id
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.MerchantSomplaintExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from merchant_somplaint
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from merchant_somplaint
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+        delete from merchant_somplaint
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <delete id="deleteByExample" parameterType="com.zhang.bruce.easyexcel.MerchantSomplaintExample" >
+        delete from merchant_somplaint
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.easyexcel.MerchantSomplaint" >
+        insert into merchant_somplaint (id, acceptance_date, acceptance_time,
+            somplaint_source, merchant_no, order_no,
+            transaction_amount, pay_time, somplaint_way,
+            report_type, somplaint_reason, somplaint_by,
+            contact_way, last_modified_by, last_modified_time,
+            somplaint_type, bank_order_no, somplaint_url,
+            work_order_no, create_time, channel,
+            complaint_nature, process_content, order_code,
+            somplaint_detail, supplement_comment, yp_mec_no,
+            punish_status, crd_no, id_no,
+            user_id)
+        values (#{id,jdbcType=BIGINT}, #{acceptanceDate,jdbcType=DATE}, #{acceptanceTime,jdbcType=TIMESTAMP},
+            #{somplaintSource,jdbcType=VARCHAR}, #{merchantNo,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR},
+            #{transactionAmount,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, #{somplaintWay,jdbcType=VARCHAR},
+            #{reportType,jdbcType=VARCHAR}, #{somplaintReason,jdbcType=VARCHAR}, #{somplaintBy,jdbcType=VARCHAR},
+            #{contactWay,jdbcType=VARCHAR}, #{lastModifiedBy,jdbcType=VARCHAR}, #{lastModifiedTime,jdbcType=TIMESTAMP},
+            #{somplaintType,jdbcType=VARCHAR}, #{bankOrderNo,jdbcType=VARCHAR}, #{somplaintUrl,jdbcType=VARCHAR},
+            #{workOrderNo,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{channel,jdbcType=VARCHAR},
+            #{complaintNature,jdbcType=VARCHAR}, #{processContent,jdbcType=VARCHAR}, #{orderCode,jdbcType=VARCHAR},
+            #{somplaintDetail,jdbcType=VARCHAR}, #{supplementComment,jdbcType=VARCHAR}, #{ypMecNo,jdbcType=VARCHAR},
+            #{punishStatus,jdbcType=SMALLINT}, #{crdNo,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR},
+            #{userId,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.MerchantSomplaint" >
+        insert into merchant_somplaint
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="acceptanceDate != null" >
+                acceptance_date,
+            </if>
+            <if test="acceptanceTime != null" >
+                acceptance_time,
+            </if>
+            <if test="somplaintSource != null" >
+                somplaint_source,
+            </if>
+            <if test="merchantNo != null" >
+                merchant_no,
+            </if>
+            <if test="orderNo != null" >
+                order_no,
+            </if>
+            <if test="transactionAmount != null" >
+                transaction_amount,
+            </if>
+            <if test="payTime != null" >
+                pay_time,
+            </if>
+            <if test="somplaintWay != null" >
+                somplaint_way,
+            </if>
+            <if test="reportType != null" >
+                report_type,
+            </if>
+            <if test="somplaintReason != null" >
+                somplaint_reason,
+            </if>
+            <if test="somplaintBy != null" >
+                somplaint_by,
+            </if>
+            <if test="contactWay != null" >
+                contact_way,
+            </if>
+            <if test="lastModifiedBy != null" >
+                last_modified_by,
+            </if>
+            <if test="lastModifiedTime != null" >
+                last_modified_time,
+            </if>
+            <if test="somplaintType != null" >
+                somplaint_type,
+            </if>
+            <if test="bankOrderNo != null" >
+                bank_order_no,
+            </if>
+            <if test="somplaintUrl != null" >
+                somplaint_url,
+            </if>
+            <if test="workOrderNo != null" >
+                work_order_no,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+            <if test="channel != null" >
+                channel,
+            </if>
+            <if test="complaintNature != null" >
+                complaint_nature,
+            </if>
+            <if test="processContent != null" >
+                process_content,
+            </if>
+            <if test="orderCode != null" >
+                order_code,
+            </if>
+            <if test="somplaintDetail != null" >
+                somplaint_detail,
+            </if>
+            <if test="supplementComment != null" >
+                supplement_comment,
+            </if>
+            <if test="ypMecNo != null" >
+                yp_mec_no,
+            </if>
+            <if test="punishStatus != null" >
+                punish_status,
+            </if>
+            <if test="crdNo != null" >
+                crd_no,
+            </if>
+            <if test="idNo != null" >
+                id_no,
+            </if>
+            <if test="userId != null" >
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="acceptanceDate != null" >
+                #{acceptanceDate,jdbcType=DATE},
+            </if>
+            <if test="acceptanceTime != null" >
+                #{acceptanceTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="somplaintSource != null" >
+                #{somplaintSource,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantNo != null" >
+                #{merchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="orderNo != null" >
+                #{orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="transactionAmount != null" >
+                #{transactionAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="payTime != null" >
+                #{payTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="somplaintWay != null" >
+                #{somplaintWay,jdbcType=VARCHAR},
+            </if>
+            <if test="reportType != null" >
+                #{reportType,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintReason != null" >
+                #{somplaintReason,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintBy != null" >
+                #{somplaintBy,jdbcType=VARCHAR},
+            </if>
+            <if test="contactWay != null" >
+                #{contactWay,jdbcType=VARCHAR},
+            </if>
+            <if test="lastModifiedBy != null" >
+                #{lastModifiedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastModifiedTime != null" >
+                #{lastModifiedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="somplaintType != null" >
+                #{somplaintType,jdbcType=VARCHAR},
+            </if>
+            <if test="bankOrderNo != null" >
+                #{bankOrderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintUrl != null" >
+                #{somplaintUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="workOrderNo != null" >
+                #{workOrderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="channel != null" >
+                #{channel,jdbcType=VARCHAR},
+            </if>
+            <if test="complaintNature != null" >
+                #{complaintNature,jdbcType=VARCHAR},
+            </if>
+            <if test="processContent != null" >
+                #{processContent,jdbcType=VARCHAR},
+            </if>
+            <if test="orderCode != null" >
+                #{orderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintDetail != null" >
+                #{somplaintDetail,jdbcType=VARCHAR},
+            </if>
+            <if test="supplementComment != null" >
+                #{supplementComment,jdbcType=VARCHAR},
+            </if>
+            <if test="ypMecNo != null" >
+                #{ypMecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="punishStatus != null" >
+                #{punishStatus,jdbcType=SMALLINT},
+            </if>
+            <if test="crdNo != null" >
+                #{crdNo,jdbcType=VARCHAR},
+            </if>
+            <if test="idNo != null" >
+                #{idNo,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.zhang.bruce.easyexcel.MerchantSomplaintExample" resultType="java.lang.Integer" >
+        select count(*) from merchant_somplaint
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update merchant_somplaint
+        <set >
+            <if test="record.id != null" >
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.acceptanceDate != null" >
+                acceptance_date = #{record.acceptanceDate,jdbcType=DATE},
+            </if>
+            <if test="record.acceptanceTime != null" >
+                acceptance_time = #{record.acceptanceTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.somplaintSource != null" >
+                somplaint_source = #{record.somplaintSource,jdbcType=VARCHAR},
+            </if>
+            <if test="record.merchantNo != null" >
+                merchant_no = #{record.merchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderNo != null" >
+                order_no = #{record.orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.transactionAmount != null" >
+                transaction_amount = #{record.transactionAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payTime != null" >
+                pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.somplaintWay != null" >
+                somplaint_way = #{record.somplaintWay,jdbcType=VARCHAR},
+            </if>
+            <if test="record.reportType != null" >
+                report_type = #{record.reportType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.somplaintReason != null" >
+                somplaint_reason = #{record.somplaintReason,jdbcType=VARCHAR},
+            </if>
+            <if test="record.somplaintBy != null" >
+                somplaint_by = #{record.somplaintBy,jdbcType=VARCHAR},
+            </if>
+            <if test="record.contactWay != null" >
+                contact_way = #{record.contactWay,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lastModifiedBy != null" >
+                last_modified_by = #{record.lastModifiedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lastModifiedTime != null" >
+                last_modified_time = #{record.lastModifiedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.somplaintType != null" >
+                somplaint_type = #{record.somplaintType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bankOrderNo != null" >
+                bank_order_no = #{record.bankOrderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.somplaintUrl != null" >
+                somplaint_url = #{record.somplaintUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.workOrderNo != null" >
+                work_order_no = #{record.workOrderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createTime != null" >
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.channel != null" >
+                channel = #{record.channel,jdbcType=VARCHAR},
+            </if>
+            <if test="record.complaintNature != null" >
+                complaint_nature = #{record.complaintNature,jdbcType=VARCHAR},
+            </if>
+            <if test="record.processContent != null" >
+                process_content = #{record.processContent,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderCode != null" >
+                order_code = #{record.orderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.somplaintDetail != null" >
+                somplaint_detail = #{record.somplaintDetail,jdbcType=VARCHAR},
+            </if>
+            <if test="record.supplementComment != null" >
+                supplement_comment = #{record.supplementComment,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ypMecNo != null" >
+                yp_mec_no = #{record.ypMecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.punishStatus != null" >
+                punish_status = #{record.punishStatus,jdbcType=SMALLINT},
+            </if>
+            <if test="record.crdNo != null" >
+                crd_no = #{record.crdNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.idNo != null" >
+                id_no = #{record.idNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userId != null" >
+                user_id = #{record.userId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update merchant_somplaint
+        set id = #{record.id,jdbcType=BIGINT},
+            acceptance_date = #{record.acceptanceDate,jdbcType=DATE},
+            acceptance_time = #{record.acceptanceTime,jdbcType=TIMESTAMP},
+            somplaint_source = #{record.somplaintSource,jdbcType=VARCHAR},
+            merchant_no = #{record.merchantNo,jdbcType=VARCHAR},
+            order_no = #{record.orderNo,jdbcType=VARCHAR},
+            transaction_amount = #{record.transactionAmount,jdbcType=VARCHAR},
+            pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+            somplaint_way = #{record.somplaintWay,jdbcType=VARCHAR},
+            report_type = #{record.reportType,jdbcType=VARCHAR},
+            somplaint_reason = #{record.somplaintReason,jdbcType=VARCHAR},
+            somplaint_by = #{record.somplaintBy,jdbcType=VARCHAR},
+            contact_way = #{record.contactWay,jdbcType=VARCHAR},
+            last_modified_by = #{record.lastModifiedBy,jdbcType=VARCHAR},
+            last_modified_time = #{record.lastModifiedTime,jdbcType=TIMESTAMP},
+            somplaint_type = #{record.somplaintType,jdbcType=VARCHAR},
+            bank_order_no = #{record.bankOrderNo,jdbcType=VARCHAR},
+            somplaint_url = #{record.somplaintUrl,jdbcType=VARCHAR},
+            work_order_no = #{record.workOrderNo,jdbcType=VARCHAR},
+            create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            channel = #{record.channel,jdbcType=VARCHAR},
+            complaint_nature = #{record.complaintNature,jdbcType=VARCHAR},
+            process_content = #{record.processContent,jdbcType=VARCHAR},
+            order_code = #{record.orderCode,jdbcType=VARCHAR},
+            somplaint_detail = #{record.somplaintDetail,jdbcType=VARCHAR},
+            supplement_comment = #{record.supplementComment,jdbcType=VARCHAR},
+            yp_mec_no = #{record.ypMecNo,jdbcType=VARCHAR},
+            punish_status = #{record.punishStatus,jdbcType=SMALLINT},
+            crd_no = #{record.crdNo,jdbcType=VARCHAR},
+            id_no = #{record.idNo,jdbcType=VARCHAR},
+            user_id = #{record.userId,jdbcType=VARCHAR}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhang.bruce.easyexcel.MerchantSomplaint" >
+        update merchant_somplaint
+        <set >
+            <if test="acceptanceDate != null" >
+                acceptance_date = #{acceptanceDate,jdbcType=DATE},
+            </if>
+            <if test="acceptanceTime != null" >
+                acceptance_time = #{acceptanceTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="somplaintSource != null" >
+                somplaint_source = #{somplaintSource,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantNo != null" >
+                merchant_no = #{merchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="orderNo != null" >
+                order_no = #{orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="transactionAmount != null" >
+                transaction_amount = #{transactionAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="payTime != null" >
+                pay_time = #{payTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="somplaintWay != null" >
+                somplaint_way = #{somplaintWay,jdbcType=VARCHAR},
+            </if>
+            <if test="reportType != null" >
+                report_type = #{reportType,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintReason != null" >
+                somplaint_reason = #{somplaintReason,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintBy != null" >
+                somplaint_by = #{somplaintBy,jdbcType=VARCHAR},
+            </if>
+            <if test="contactWay != null" >
+                contact_way = #{contactWay,jdbcType=VARCHAR},
+            </if>
+            <if test="lastModifiedBy != null" >
+                last_modified_by = #{lastModifiedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastModifiedTime != null" >
+                last_modified_time = #{lastModifiedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="somplaintType != null" >
+                somplaint_type = #{somplaintType,jdbcType=VARCHAR},
+            </if>
+            <if test="bankOrderNo != null" >
+                bank_order_no = #{bankOrderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintUrl != null" >
+                somplaint_url = #{somplaintUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="workOrderNo != null" >
+                work_order_no = #{workOrderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="channel != null" >
+                channel = #{channel,jdbcType=VARCHAR},
+            </if>
+            <if test="complaintNature != null" >
+                complaint_nature = #{complaintNature,jdbcType=VARCHAR},
+            </if>
+            <if test="processContent != null" >
+                process_content = #{processContent,jdbcType=VARCHAR},
+            </if>
+            <if test="orderCode != null" >
+                order_code = #{orderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="somplaintDetail != null" >
+                somplaint_detail = #{somplaintDetail,jdbcType=VARCHAR},
+            </if>
+            <if test="supplementComment != null" >
+                supplement_comment = #{supplementComment,jdbcType=VARCHAR},
+            </if>
+            <if test="ypMecNo != null" >
+                yp_mec_no = #{ypMecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="punishStatus != null" >
+                punish_status = #{punishStatus,jdbcType=SMALLINT},
+            </if>
+            <if test="crdNo != null" >
+                crd_no = #{crdNo,jdbcType=VARCHAR},
+            </if>
+            <if test="idNo != null" >
+                id_no = #{idNo,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.zhang.bruce.easyexcel.MerchantSomplaint" >
+        update merchant_somplaint
+        set acceptance_date = #{acceptanceDate,jdbcType=DATE},
+            acceptance_time = #{acceptanceTime,jdbcType=TIMESTAMP},
+            somplaint_source = #{somplaintSource,jdbcType=VARCHAR},
+            merchant_no = #{merchantNo,jdbcType=VARCHAR},
+            order_no = #{orderNo,jdbcType=VARCHAR},
+            transaction_amount = #{transactionAmount,jdbcType=VARCHAR},
+            pay_time = #{payTime,jdbcType=TIMESTAMP},
+            somplaint_way = #{somplaintWay,jdbcType=VARCHAR},
+            report_type = #{reportType,jdbcType=VARCHAR},
+            somplaint_reason = #{somplaintReason,jdbcType=VARCHAR},
+            somplaint_by = #{somplaintBy,jdbcType=VARCHAR},
+            contact_way = #{contactWay,jdbcType=VARCHAR},
+            last_modified_by = #{lastModifiedBy,jdbcType=VARCHAR},
+            last_modified_time = #{lastModifiedTime,jdbcType=TIMESTAMP},
+            somplaint_type = #{somplaintType,jdbcType=VARCHAR},
+            bank_order_no = #{bankOrderNo,jdbcType=VARCHAR},
+            somplaint_url = #{somplaintUrl,jdbcType=VARCHAR},
+            work_order_no = #{workOrderNo,jdbcType=VARCHAR},
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+            channel = #{channel,jdbcType=VARCHAR},
+            complaint_nature = #{complaintNature,jdbcType=VARCHAR},
+            process_content = #{processContent,jdbcType=VARCHAR},
+            order_code = #{orderCode,jdbcType=VARCHAR},
+            somplaint_detail = #{somplaintDetail,jdbcType=VARCHAR},
+            supplement_comment = #{supplementComment,jdbcType=VARCHAR},
+            yp_mec_no = #{ypMecNo,jdbcType=VARCHAR},
+            punish_status = #{punishStatus,jdbcType=SMALLINT},
+            crd_no = #{crdNo,jdbcType=VARCHAR},
+            id_no = #{idNo,jdbcType=VARCHAR},
+            user_id = #{userId,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

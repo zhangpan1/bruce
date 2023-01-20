@@ -1,6 +1,6 @@
 package com.zhang.bruce.java8.product.day01;
 
-import org.junit.Test;
+
 
 /**
  * @description: 策略模式
@@ -24,7 +24,7 @@ import org.junit.Test;
 public class StodeyDemo {
     // 业务场景和使用方法
 
-    @Test
+
     public void useIf(){
         // 业务类型
         String type = "A";

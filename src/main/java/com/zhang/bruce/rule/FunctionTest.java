@@ -9,7 +9,6 @@ import com.tcredit.streaming.core.bean.method.*;
 import com.tcredit.streaming.core.utils.LoggerUtil;
 import com.yeepay.g3.utils.common.encrypt.AES;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -22,7 +21,7 @@ import java.util.regex.Pattern;
  * Created by gengshunli ON 2019-03-31.<br>
  */
 public class FunctionTest {
-    @Test
+
     public void testOperCond() {
         System.out.println(operCondNan("232","<=","+∞"));
     }

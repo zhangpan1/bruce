@@ -4,7 +4,6 @@ package com.zhang.bruce.general;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
-
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -407,7 +406,16 @@ public class DateUtils {
         }
         return maxDate;
     }
-
+    /**
+     * 获取参数日期的前后 N天
+     *
+     */
+    public static Date getAfBeDayDate(Date date,Integer nDay){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE,nDay);
+        return calendar.getTime();
+    }
     /**
      * 获取指定时间点前后的时间段内日期列表
      */

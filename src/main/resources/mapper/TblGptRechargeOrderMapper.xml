@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.TblGptRechargeOrderMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TblGptRechargeOrder" >
+        <result column="ID" property="id" jdbcType="BIGINT" />
+        <result column="PRODUCT_CODE" property="productCode" jdbcType="VARCHAR" />
+        <result column="BUSINESS_CODE" property="businessCode" jdbcType="VARCHAR" />
+        <result column="SEQUENCE_ID" property="sequenceId" jdbcType="VARCHAR" />
+        <result column="REQUEST_ID" property="requestId" jdbcType="VARCHAR" />
+        <result column="MERCHANT_NO" property="merchantNo" jdbcType="VARCHAR" />
+        <result column="SIGN_NAME" property="signName" jdbcType="VARCHAR" />
+        <result column="SIGN_NAME_EN" property="signNameEn" jdbcType="VARCHAR" />
+        <result column="MEMBER_ID" property="memberId" jdbcType="VARCHAR" />
+        <result column="RECHARGE_TYPE" property="rechargeType" jdbcType="VARCHAR" />
+        <result column="IP_ADDRESS" property="ipAddress" jdbcType="VARCHAR" />
+        <result column="IP_AREA" property="ipArea" jdbcType="VARCHAR" />
+        <result column="IP_PROXY" property="ipProxy" jdbcType="VARCHAR" />
+        <result column="PAYER_TYPE" property="payerType" jdbcType="VARCHAR" />
+        <result column="PAYER_NAME" property="payerName" jdbcType="VARCHAR" />
+        <result column="PAYER_NAME_DIGEST" property="payerNameDigest" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CARD_ID" property="payerBankCardId" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CARD_ID_DIGEST" property="payerBankCardIdDigest" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_NAME" property="payerBankName" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CARD_AREA" property="payerBankCardArea" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CARD_NAME_BS" property="payerBankCardNameBs" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CARD_TYPE_BS" property="payerBankCardTypeBs" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_NAME_BS" property="payerBankNameBs" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CODE" property="payerBankCode" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CODE_TYPE" property="payerBankCodeType" jdbcType="VARCHAR" />
+        <result column="PAYER_COUNTRY_CODE" property="payerCountryCode" jdbcType="VARCHAR" />
+        <result column="PAYER_COUNTRY_NAME_EN" property="payerCountryNameEn" jdbcType="VARCHAR" />
+        <result column="PAYER_COUNTRY_NAME_ZH" property="payerCountryNameZh" jdbcType="VARCHAR" />
+        <result column="PAYER_COUNTRY_ALPH2_CODE" property="payerCountryAlph2Code" jdbcType="VARCHAR" />
+        <result column="PAYER_COUNTRY_ALPH3_CODE" property="payerCountryAlph3Code" jdbcType="VARCHAR" />
+        <result column="RECEIVER_BANK_CODE" property="receiverBankCode" jdbcType="VARCHAR" />
+        <result column="RECEIVER_BANK_CARD_ID" property="receiverBankCardId" jdbcType="VARCHAR" />
+        <result column="RECEIVER_BANK_CARD_AREA" property="receiverBankCardArea" jdbcType="VARCHAR" />
+        <result column="RECEIVER_BANK_NAME_BS" property="receiverBankNameBs" jdbcType="VARCHAR" />
+        <result column="RECEIVER_BANK_CARD_NAME_BS" property="receiverBankCardNameBs" jdbcType="VARCHAR" />
+        <result column="RECEIVER_BANK_CARD_TYPE_BS" property="receiverBankCardTypeBs" jdbcType="VARCHAR" />
+        <result column="CURRENCY" property="currency" jdbcType="VARCHAR" />
+        <result column="AMOUNT" property="amount" jdbcType="DECIMAL" />
+        <result column="CNY_AMOUNT" property="cnyAmount" jdbcType="DECIMAL" />
+        <result column="TARGET_CURRENCY" property="targetCurrency" jdbcType="VARCHAR" />
+        <result column="TARGET_AMOUNT" property="targetAmount" jdbcType="DECIMAL" />
+        <result column="TARGET_CNY_AMOUNT" property="targetCnyAmount" jdbcType="DECIMAL" />
+        <result column="NOTIFY_URL" property="notifyUrl" jdbcType="VARCHAR" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="OCCUR_TIME" property="occurTime" jdbcType="TIMESTAMP" />
+        <result column="BLACK_TM" property="blackTm" jdbcType="VARCHAR" />
+        <result column="BLACK_RESULT" property="blackResult" jdbcType="VARCHAR" />
+        <result column="BLACK_RESULT_CODE" property="blackResultCode" jdbcType="VARCHAR" />
+        <result column="WHITE_RESULT" property="whiteResult" jdbcType="VARCHAR" />
+        <result column="TOTAL_TM" property="totalTm" jdbcType="VARCHAR" />
+        <result column="RULE_TM" property="ruleTm" jdbcType="VARCHAR" />
+        <result column="RULE_RESULT" property="ruleResult" jdbcType="VARCHAR" />
+        <result column="TRIGER_RULE" property="trigerRule" jdbcType="VARCHAR" />
+        <result column="RULE_CODES" property="ruleCodes" jdbcType="VARCHAR" />
+        <result column="SUPPORT_OPERATE_CODE" property="supportOperateCode" jdbcType="VARCHAR" />
+        <result column="BLOCK_TYPE" property="blockType" jdbcType="VARCHAR" />
+        <result column="ERROR_CODE" property="errorCode" jdbcType="VARCHAR" />
+        <result column="ERROR_MSG" property="errorMsg" jdbcType="VARCHAR" />
+        <result column="NOTIFY_STATUS" property="notifyStatus" jdbcType="VARCHAR" />
+        <result column="NOTIFY_NUM" property="notifyNum" jdbcType="INTEGER" />
+        <result column="NOTIFY_RESULT_CODE" property="notifyResultCode" jdbcType="VARCHAR" />
+        <result column="NOTIFY_RESULT_MSG" property="notifyResultMsg" jdbcType="VARCHAR" />
+        <result column="PAY_RESULT" property="payResult" jdbcType="VARCHAR" />
+        <result column="GOODS_INFO" property="goodsInfo" jdbcType="LONGVARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        ID, PRODUCT_CODE, BUSINESS_CODE, SEQUENCE_ID, REQUEST_ID, MERCHANT_NO, SIGN_NAME,
+        SIGN_NAME_EN, MEMBER_ID, RECHARGE_TYPE, IP_ADDRESS, IP_AREA, IP_PROXY, PAYER_TYPE,
+        PAYER_NAME, PAYER_NAME_DIGEST, PAYER_BANK_CARD_ID, PAYER_BANK_CARD_ID_DIGEST, PAYER_BANK_NAME,
+        PAYER_BANK_CARD_AREA, PAYER_BANK_CARD_NAME_BS, PAYER_BANK_CARD_TYPE_BS, PAYER_BANK_NAME_BS,
+        PAYER_BANK_CODE, PAYER_BANK_CODE_TYPE, PAYER_COUNTRY_CODE, PAYER_COUNTRY_NAME_EN,
+        PAYER_COUNTRY_NAME_ZH, PAYER_COUNTRY_ALPH2_CODE, PAYER_COUNTRY_ALPH3_CODE, RECEIVER_BANK_CODE,
+        RECEIVER_BANK_CARD_ID, RECEIVER_BANK_CARD_AREA, RECEIVER_BANK_NAME_BS, RECEIVER_BANK_CARD_NAME_BS,
+        RECEIVER_BANK_CARD_TYPE_BS, CURRENCY, AMOUNT, CNY_AMOUNT, TARGET_CURRENCY, TARGET_AMOUNT,
+        TARGET_CNY_AMOUNT, NOTIFY_URL, REMARK, OCCUR_TIME, BLACK_TM, BLACK_RESULT, BLACK_RESULT_CODE,
+        WHITE_RESULT, TOTAL_TM, RULE_TM, RULE_RESULT, TRIGER_RULE, RULE_CODES, SUPPORT_OPERATE_CODE,
+        BLOCK_TYPE, ERROR_CODE, ERROR_MSG, NOTIFY_STATUS, NOTIFY_NUM, NOTIFY_RESULT_CODE,
+        NOTIFY_RESULT_MSG, PAY_RESULT, GOODS_INFO, CREATE_TIME, UPDATE_TIME
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TblGptRechargeOrderExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from TBL_GPT_RECHARGE_ORDER
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <delete id="deleteByExample" parameterType="com.zhang.bruce.easyexcel.TblGptRechargeOrderExample" >
+        delete from TBL_GPT_RECHARGE_ORDER
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.easyexcel.TblGptRechargeOrder" >
+        insert into TBL_GPT_RECHARGE_ORDER (ID, PRODUCT_CODE, BUSINESS_CODE,
+            SEQUENCE_ID, REQUEST_ID, MERCHANT_NO,
+            SIGN_NAME, SIGN_NAME_EN, MEMBER_ID,
+            RECHARGE_TYPE, IP_ADDRESS, IP_AREA,
+            IP_PROXY, PAYER_TYPE, PAYER_NAME,
+            PAYER_NAME_DIGEST, PAYER_BANK_CARD_ID, PAYER_BANK_CARD_ID_DIGEST,
+            PAYER_BANK_NAME, PAYER_BANK_CARD_AREA, PAYER_BANK_CARD_NAME_BS,
+            PAYER_BANK_CARD_TYPE_BS, PAYER_BANK_NAME_BS,
+            PAYER_BANK_CODE, PAYER_BANK_CODE_TYPE, PAYER_COUNTRY_CODE,
+            PAYER_COUNTRY_NAME_EN, PAYER_COUNTRY_NAME_ZH,
+            PAYER_COUNTRY_ALPH2_CODE, PAYER_COUNTRY_ALPH3_CODE,
+            RECEIVER_BANK_CODE, RECEIVER_BANK_CARD_ID,
+            RECEIVER_BANK_CARD_AREA, RECEIVER_BANK_NAME_BS,
+            RECEIVER_BANK_CARD_NAME_BS, RECEIVER_BANK_CARD_TYPE_BS,
+            CURRENCY, AMOUNT, CNY_AMOUNT,
+            TARGET_CURRENCY, TARGET_AMOUNT, TARGET_CNY_AMOUNT,
+            NOTIFY_URL, REMARK, OCCUR_TIME,
+            BLACK_TM, BLACK_RESULT, BLACK_RESULT_CODE,
+            WHITE_RESULT, TOTAL_TM, RULE_TM,
+            RULE_RESULT, TRIGER_RULE, RULE_CODES,
+            SUPPORT_OPERATE_CODE, BLOCK_TYPE, ERROR_CODE,
+            ERROR_MSG, NOTIFY_STATUS, NOTIFY_NUM,
+            NOTIFY_RESULT_CODE, NOTIFY_RESULT_MSG, PAY_RESULT,
+            GOODS_INFO, CREATE_TIME, UPDATE_TIME
+            )
+        values (#{id,jdbcType=BIGINT}, #{productCode,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR},
+            #{sequenceId,jdbcType=VARCHAR}, #{requestId,jdbcType=VARCHAR}, #{merchantNo,jdbcType=VARCHAR},
+            #{signName,jdbcType=VARCHAR}, #{signNameEn,jdbcType=VARCHAR}, #{memberId,jdbcType=VARCHAR},
+            #{rechargeType,jdbcType=VARCHAR}, #{ipAddress,jdbcType=VARCHAR}, #{ipArea,jdbcType=VARCHAR},
+            #{ipProxy,jdbcType=VARCHAR}, #{payerType,jdbcType=VARCHAR}, #{payerName,jdbcType=VARCHAR},
+            #{payerNameDigest,jdbcType=VARCHAR}, #{payerBankCardId,jdbcType=VARCHAR}, #{payerBankCardIdDigest,jdbcType=VARCHAR},
+            #{payerBankName,jdbcType=VARCHAR}, #{payerBankCardArea,jdbcType=VARCHAR}, #{payerBankCardNameBs,jdbcType=VARCHAR},
+            #{payerBankCardTypeBs,jdbcType=VARCHAR}, #{payerBankNameBs,jdbcType=VARCHAR},
+            #{payerBankCode,jdbcType=VARCHAR}, #{payerBankCodeType,jdbcType=VARCHAR}, #{payerCountryCode,jdbcType=VARCHAR},
+            #{payerCountryNameEn,jdbcType=VARCHAR}, #{payerCountryNameZh,jdbcType=VARCHAR},
+            #{payerCountryAlph2Code,jdbcType=VARCHAR}, #{payerCountryAlph3Code,jdbcType=VARCHAR},
+            #{receiverBankCode,jdbcType=VARCHAR}, #{receiverBankCardId,jdbcType=VARCHAR},
+            #{receiverBankCardArea,jdbcType=VARCHAR}, #{receiverBankNameBs,jdbcType=VARCHAR},
+            #{receiverBankCardNameBs,jdbcType=VARCHAR}, #{receiverBankCardTypeBs,jdbcType=VARCHAR},
+            #{currency,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{cnyAmount,jdbcType=DECIMAL},
+            #{targetCurrency,jdbcType=VARCHAR}, #{targetAmount,jdbcType=DECIMAL}, #{targetCnyAmount,jdbcType=DECIMAL},
+            #{notifyUrl,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{occurTime,jdbcType=TIMESTAMP},
+            #{blackTm,jdbcType=VARCHAR}, #{blackResult,jdbcType=VARCHAR}, #{blackResultCode,jdbcType=VARCHAR},
+            #{whiteResult,jdbcType=VARCHAR}, #{totalTm,jdbcType=VARCHAR}, #{ruleTm,jdbcType=VARCHAR},
+            #{ruleResult,jdbcType=VARCHAR}, #{trigerRule,jdbcType=VARCHAR}, #{ruleCodes,jdbcType=VARCHAR},
+            #{supportOperateCode,jdbcType=VARCHAR}, #{blockType,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR},
+            #{errorMsg,jdbcType=VARCHAR}, #{notifyStatus,jdbcType=VARCHAR}, #{notifyNum,jdbcType=INTEGER},
+            #{notifyResultCode,jdbcType=VARCHAR}, #{notifyResultMsg,jdbcType=VARCHAR}, #{payResult,jdbcType=VARCHAR},
+            #{goodsInfo,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+            )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TblGptRechargeOrder" >
+        insert into TBL_GPT_RECHARGE_ORDER
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            <if test="productCode != null" >
+                PRODUCT_CODE,
+            </if>
+            <if test="businessCode != null" >
+                BUSINESS_CODE,
+            </if>
+            <if test="sequenceId != null" >
+                SEQUENCE_ID,
+            </if>
+            <if test="requestId != null" >
+                REQUEST_ID,
+            </if>
+            <if test="merchantNo != null" >
+                MERCHANT_NO,
+            </if>
+            <if test="signName != null" >
+                SIGN_NAME,
+            </if>
+            <if test="signNameEn != null" >
+                SIGN_NAME_EN,
+            </if>
+            <if test="memberId != null" >
+                MEMBER_ID,
+            </if>
+            <if test="rechargeType != null" >
+                RECHARGE_TYPE,
+            </if>
+            <if test="ipAddress != null" >
+                IP_ADDRESS,
+            </if>
+            <if test="ipArea != null" >
+                IP_AREA,
+            </if>
+            <if test="ipProxy != null" >
+                IP_PROXY,
+            </if>
+            <if test="payerType != null" >
+                PAYER_TYPE,
+            </if>
+            <if test="payerName != null" >
+                PAYER_NAME,
+            </if>
+            <if test="payerNameDigest != null" >
+                PAYER_NAME_DIGEST,
+            </if>
+            <if test="payerBankCardId != null" >
+                PAYER_BANK_CARD_ID,
+            </if>
+            <if test="payerBankCardIdDigest != null" >
+                PAYER_BANK_CARD_ID_DIGEST,
+            </if>
+            <if test="payerBankName != null" >
+                PAYER_BANK_NAME,
+            </if>
+            <if test="payerBankCardArea != null" >
+                PAYER_BANK_CARD_AREA,
+            </if>
+            <if test="payerBankCardNameBs != null" >
+                PAYER_BANK_CARD_NAME_BS,
+            </if>
+            <if test="payerBankCardTypeBs != null" >
+                PAYER_BANK_CARD_TYPE_BS,
+            </if>
+            <if test="payerBankNameBs != null" >
+                PAYER_BANK_NAME_BS,
+            </if>
+            <if test="payerBankCode != null" >
+                PAYER_BANK_CODE,
+            </if>
+            <if test="payerBankCodeType != null" >
+                PAYER_BANK_CODE_TYPE,
+            </if>
+            <if test="payerCountryCode != null" >
+                PAYER_COUNTRY_CODE,
+            </if>
+            <if test="payerCountryNameEn != null" >
+                PAYER_COUNTRY_NAME_EN,
+            </if>
+            <if test="payerCountryNameZh != null" >
+                PAYER_COUNTRY_NAME_ZH,
+            </if>
+            <if test="payerCountryAlph2Code != null" >
+                PAYER_COUNTRY_ALPH2_CODE,
+            </if>
+            <if test="payerCountryAlph3Code != null" >
+                PAYER_COUNTRY_ALPH3_CODE,
+            </if>
+            <if test="receiverBankCode != null" >
+                RECEIVER_BANK_CODE,
+            </if>
+            <if test="receiverBankCardId != null" >
+                RECEIVER_BANK_CARD_ID,
+            </if>
+            <if test="receiverBankCardArea != null" >
+                RECEIVER_BANK_CARD_AREA,
+            </if>
+            <if test="receiverBankNameBs != null" >
+                RECEIVER_BANK_NAME_BS,
+            </if>
+            <if test="receiverBankCardNameBs != null" >
+                RECEIVER_BANK_CARD_NAME_BS,
+            </if>
+            <if test="receiverBankCardTypeBs != null" >
+                RECEIVER_BANK_CARD_TYPE_BS,
+            </if>
+            <if test="currency != null" >
+                CURRENCY,
+            </if>
+            <if test="amount != null" >
+                AMOUNT,
+            </if>
+            <if test="cnyAmount != null" >
+                CNY_AMOUNT,
+            </if>
+            <if test="targetCurrency != null" >
+                TARGET_CURRENCY,
+            </if>
+            <if test="targetAmount != null" >
+                TARGET_AMOUNT,
+            </if>
+            <if test="targetCnyAmount != null" >
+                TARGET_CNY_AMOUNT,
+            </if>
+            <if test="notifyUrl != null" >
+                NOTIFY_URL,
+            </if>
+            <if test="remark != null" >
+                REMARK,
+            </if>
+            <if test="occurTime != null" >
+                OCCUR_TIME,
+            </if>
+            <if test="blackTm != null" >
+                BLACK_TM,
+            </if>
+            <if test="blackResult != null" >
+                BLACK_RESULT,
+            </if>
+            <if test="blackResultCode != null" >
+                BLACK_RESULT_CODE,
+            </if>
+            <if test="whiteResult != null" >
+                WHITE_RESULT,
+            </if>
+            <if test="totalTm != null" >
+                TOTAL_TM,
+            </if>
+            <if test="ruleTm != null" >
+                RULE_TM,
+            </if>
+            <if test="ruleResult != null" >
+                RULE_RESULT,
+            </if>
+            <if test="trigerRule != null" >
+                TRIGER_RULE,
+            </if>
+            <if test="ruleCodes != null" >
+                RULE_CODES,
+            </if>
+            <if test="supportOperateCode != null" >
+                SUPPORT_OPERATE_CODE,
+            </if>
+            <if test="blockType != null" >
+                BLOCK_TYPE,
+            </if>
+            <if test="errorCode != null" >
+                ERROR_CODE,
+            </if>
+            <if test="errorMsg != null" >
+                ERROR_MSG,
+            </if>
+            <if test="notifyStatus != null" >
+                NOTIFY_STATUS,
+            </if>
+            <if test="notifyNum != null" >
+                NOTIFY_NUM,
+            </if>
+            <if test="notifyResultCode != null" >
+                NOTIFY_RESULT_CODE,
+            </if>
+            <if test="notifyResultMsg != null" >
+                NOTIFY_RESULT_MSG,
+            </if>
+            <if test="payResult != null" >
+                PAY_RESULT,
+            </if>
+            <if test="goodsInfo != null" >
+                GOODS_INFO,
+            </if>
+            <if test="createTime != null" >
+                CREATE_TIME,
+            </if>
+            <if test="updateTime != null" >
+                UPDATE_TIME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="productCode != null" >
+                #{productCode,jdbcType=VARCHAR},
+            </if>
+            <if test="businessCode != null" >
+                #{businessCode,jdbcType=VARCHAR},
+            </if>
+            <if test="sequenceId != null" >
+                #{sequenceId,jdbcType=VARCHAR},
+            </if>
+            <if test="requestId != null" >
+                #{requestId,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantNo != null" >
+                #{merchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="signName != null" >
+                #{signName,jdbcType=VARCHAR},
+            </if>
+            <if test="signNameEn != null" >
+                #{signNameEn,jdbcType=VARCHAR},
+            </if>
+            <if test="memberId != null" >
+                #{memberId,jdbcType=VARCHAR},
+            </if>
+            <if test="rechargeType != null" >
+                #{rechargeType,jdbcType=VARCHAR},
+            </if>
+            <if test="ipAddress != null" >
+                #{ipAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="ipArea != null" >
+                #{ipArea,jdbcType=VARCHAR},
+            </if>
+            <if test="ipProxy != null" >
+                #{ipProxy,jdbcType=VARCHAR},
+            </if>
+            <if test="payerType != null" >
+                #{payerType,jdbcType=VARCHAR},
+            </if>
+            <if test="payerName != null" >
+                #{payerName,jdbcType=VARCHAR},
+            </if>
+            <if test="payerNameDigest != null" >
+                #{payerNameDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankCardId != null" >
+                #{payerBankCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankCardIdDigest != null" >
+                #{payerBankCardIdDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankName != null" >
+                #{payerBankName,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankCardArea != null" >
+                #{payerBankCardArea,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankCardNameBs != null" >
+                #{payerBankCardNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankCardTypeBs != null" >
+                #{payerBankCardTypeBs,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankNameBs != null" >
+                #{payerBankNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankCode != null" >
+                #{payerBankCode,jdbcType=VARCHAR},
+            </if>
+            <if test="payerBankCodeType != null" >
+                #{payerBankCodeType,jdbcType=VARCHAR},
+            </if>
+            <if test="payerCountryCode != null" >
+                #{payerCountryCode,jdbcType=VARCHAR},
+            </if>
+            <if test="payerCountryNameEn != null" >
+                #{payerCountryNameEn,jdbcType=VARCHAR},
+            </if>
+            <if test="payerCountryNameZh != null" >
+                #{payerCountryNameZh,jdbcType=VARCHAR},
+            </if>
+            <if test="payerCountryAlph2Code != null" >
+                #{payerCountryAlph2Code,jdbcType=VARCHAR},
+            </if>
+            <if test="payerCountryAlph3Code != null" >
+                #{payerCountryAlph3Code,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverBankCode != null" >
+                #{receiverBankCode,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverBankCardId != null" >
+                #{receiverBankCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverBankCardArea != null" >
+                #{receiverBankCardArea,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverBankNameBs != null" >
+                #{receiverBankNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverBankCardNameBs != null" >
+                #{receiverBankCardNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverBankCardTypeBs != null" >
+                #{receiverBankCardTypeBs,jdbcType=VARCHAR},
+            </if>
+            <if test="currency != null" >
+                #{currency,jdbcType=VARCHAR},
+            </if>
+            <if test="amount != null" >
+                #{amount,jdbcType=DECIMAL},
+            </if>
+            <if test="cnyAmount != null" >
+                #{cnyAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="targetCurrency != null" >
+                #{targetCurrency,jdbcType=VARCHAR},
+            </if>
+            <if test="targetAmount != null" >
+                #{targetAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="targetCnyAmount != null" >
+                #{targetCnyAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="notifyUrl != null" >
+                #{notifyUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null" >
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="occurTime != null" >
+                #{occurTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="blackTm != null" >
+                #{blackTm,jdbcType=VARCHAR},
+            </if>
+            <if test="blackResult != null" >
+                #{blackResult,jdbcType=VARCHAR},
+            </if>
+            <if test="blackResultCode != null" >
+                #{blackResultCode,jdbcType=VARCHAR},
+            </if>
+            <if test="whiteResult != null" >
+                #{whiteResult,jdbcType=VARCHAR},
+            </if>
+            <if test="totalTm != null" >
+                #{totalTm,jdbcType=VARCHAR},
+            </if>
+            <if test="ruleTm != null" >
+                #{ruleTm,jdbcType=VARCHAR},
+            </if>
+            <if test="ruleResult != null" >
+                #{ruleResult,jdbcType=VARCHAR},
+            </if>
+            <if test="trigerRule != null" >
+                #{trigerRule,jdbcType=VARCHAR},
+            </if>
+            <if test="ruleCodes != null" >
+                #{ruleCodes,jdbcType=VARCHAR},
+            </if>
+            <if test="supportOperateCode != null" >
+                #{supportOperateCode,jdbcType=VARCHAR},
+            </if>
+            <if test="blockType != null" >
+                #{blockType,jdbcType=VARCHAR},
+            </if>
+            <if test="errorCode != null" >
+                #{errorCode,jdbcType=VARCHAR},
+            </if>
+            <if test="errorMsg != null" >
+                #{errorMsg,jdbcType=VARCHAR},
+            </if>
+            <if test="notifyStatus != null" >
+                #{notifyStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="notifyNum != null" >
+                #{notifyNum,jdbcType=INTEGER},
+            </if>
+            <if test="notifyResultCode != null" >
+                #{notifyResultCode,jdbcType=VARCHAR},
+            </if>
+            <if test="notifyResultMsg != null" >
+                #{notifyResultMsg,jdbcType=VARCHAR},
+            </if>
+            <if test="payResult != null" >
+                #{payResult,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsInfo != null" >
+                #{goodsInfo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null" >
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.zhang.bruce.easyexcel.TblGptRechargeOrderExample" resultType="java.lang.Integer" >
+        select count(*) from TBL_GPT_RECHARGE_ORDER
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update TBL_GPT_RECHARGE_ORDER
+        <set >
+            <if test="record.id != null" >
+                ID = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.productCode != null" >
+                PRODUCT_CODE = #{record.productCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.businessCode != null" >
+                BUSINESS_CODE = #{record.businessCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sequenceId != null" >
+                SEQUENCE_ID = #{record.sequenceId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.requestId != null" >
+                REQUEST_ID = #{record.requestId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.merchantNo != null" >
+                MERCHANT_NO = #{record.merchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.signName != null" >
+                SIGN_NAME = #{record.signName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.signNameEn != null" >
+                SIGN_NAME_EN = #{record.signNameEn,jdbcType=VARCHAR},
+            </if>
+            <if test="record.memberId != null" >
+                MEMBER_ID = #{record.memberId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rechargeType != null" >
+                RECHARGE_TYPE = #{record.rechargeType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ipAddress != null" >
+                IP_ADDRESS = #{record.ipAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ipArea != null" >
+                IP_AREA = #{record.ipArea,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ipProxy != null" >
+                IP_PROXY = #{record.ipProxy,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerType != null" >
+                PAYER_TYPE = #{record.payerType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerName != null" >
+                PAYER_NAME = #{record.payerName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerNameDigest != null" >
+                PAYER_NAME_DIGEST = #{record.payerNameDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankCardId != null" >
+                PAYER_BANK_CARD_ID = #{record.payerBankCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankCardIdDigest != null" >
+                PAYER_BANK_CARD_ID_DIGEST = #{record.payerBankCardIdDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankName != null" >
+                PAYER_BANK_NAME = #{record.payerBankName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankCardArea != null" >
+                PAYER_BANK_CARD_AREA = #{record.payerBankCardArea,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankCardNameBs != null" >
+                PAYER_BANK_CARD_NAME_BS = #{record.payerBankCardNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankCardTypeBs != null" >
+                PAYER_BANK_CARD_TYPE_BS = #{record.payerBankCardTypeBs,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankNameBs != null" >
+                PAYER_BANK_NAME_BS = #{record.payerBankNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankCode != null" >
+                PAYER_BANK_CODE = #{record.payerBankCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerBankCodeType != null" >
+                PAYER_BANK_CODE_TYPE = #{record.payerBankCodeType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerCountryCode != null" >
+                PAYER_COUNTRY_CODE = #{record.payerCountryCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerCountryNameEn != null" >
+                PAYER_COUNTRY_NAME_EN = #{record.payerCountryNameEn,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerCountryNameZh != null" >
+                PAYER_COUNTRY_NAME_ZH = #{record.payerCountryNameZh,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerCountryAlph2Code != null" >
+                PAYER_COUNTRY_ALPH2_CODE = #{record.payerCountryAlph2Code,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payerCountryAlph3Code != null" >
+                PAYER_COUNTRY_ALPH3_CODE = #{record.payerCountryAlph3Code,jdbcType=VARCHAR},
+            </if>
+            <if test="record.receiverBankCode != null" >
+                RECEIVER_BANK_CODE = #{record.receiverBankCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.receiverBankCardId != null" >
+                RECEIVER_BANK_CARD_ID = #{record.receiverBankCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.receiverBankCardArea != null" >
+                RECEIVER_BANK_CARD_AREA = #{record.receiverBankCardArea,jdbcType=VARCHAR},
+            </if>
+            <if test="record.receiverBankNameBs != null" >
+                RECEIVER_BANK_NAME_BS = #{record.receiverBankNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="record.receiverBankCardNameBs != null" >
+                RECEIVER_BANK_CARD_NAME_BS = #{record.receiverBankCardNameBs,jdbcType=VARCHAR},
+            </if>
+            <if test="record.receiverBankCardTypeBs != null" >
+                RECEIVER_BANK_CARD_TYPE_BS = #{record.receiverBankCardTypeBs,jdbcType=VARCHAR},
+            </if>
+            <if test="record.currency != null" >
+                CURRENCY = #{record.currency,jdbcType=VARCHAR},
+            </if>
+            <if test="record.amount != null" >
+                AMOUNT = #{record.amount,jdbcType=DECIMAL},
+            </if>
+            <if test="record.cnyAmount != null" >
+                CNY_AMOUNT = #{record.cnyAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="record.targetCurrency != null" >
+                TARGET_CURRENCY = #{record.targetCurrency,jdbcType=VARCHAR},
+            </if>
+            <if test="record.targetAmount != null" >
+                TARGET_AMOUNT = #{record.targetAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="record.targetCnyAmount != null" >
+                TARGET_CNY_AMOUNT = #{record.targetCnyAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="record.notifyUrl != null" >
+                NOTIFY_URL = #{record.notifyUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.remark != null" >
+                REMARK = #{record.remark,jdbcType=VARCHAR},
+            </if>
+            <if test="record.occurTime != null" >
+                OCCUR_TIME = #{record.occurTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.blackTm != null" >
+                BLACK_TM = #{record.blackTm,jdbcType=VARCHAR},
+            </if>
+            <if test="record.blackResult != null" >
+                BLACK_RESULT = #{record.blackResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.blackResultCode != null" >
+                BLACK_RESULT_CODE = #{record.blackResultCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.whiteResult != null" >
+                WHITE_RESULT = #{record.whiteResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.totalTm != null" >
+                TOTAL_TM = #{record.totalTm,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ruleTm != null" >
+                RULE_TM = #{record.ruleTm,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ruleResult != null" >
+                RULE_RESULT = #{record.ruleResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.trigerRule != null" >
+                TRIGER_RULE = #{record.trigerRule,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ruleCodes != null" >
+                RULE_CODES = #{record.ruleCodes,jdbcType=VARCHAR},
+            </if>
+            <if test="record.supportOperateCode != null" >
+                SUPPORT_OPERATE_CODE = #{record.supportOperateCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.blockType != null" >
+                BLOCK_TYPE = #{record.blockType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.errorCode != null" >
+                ERROR_CODE = #{record.errorCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.errorMsg != null" >
+                ERROR_MSG = #{record.errorMsg,jdbcType=VARCHAR},
+            </if>
+            <if test="record.notifyStatus != null" >
+                NOTIFY_STATUS = #{record.notifyStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="record.notifyNum != null" >
+                NOTIFY_NUM = #{record.notifyNum,jdbcType=INTEGER},
+            </if>
+            <if test="record.notifyResultCode != null" >
+                NOTIFY_RESULT_CODE = #{record.notifyResultCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.notifyResultMsg != null" >
+                NOTIFY_RESULT_MSG = #{record.notifyResultMsg,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payResult != null" >
+                PAY_RESULT = #{record.payResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.goodsInfo != null" >
+                GOODS_INFO = #{record.goodsInfo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="record.createTime != null" >
+                CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.updateTime != null" >
+                UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update TBL_GPT_RECHARGE_ORDER
+        set ID = #{record.id,jdbcType=BIGINT},
+            PRODUCT_CODE = #{record.productCode,jdbcType=VARCHAR},
+            BUSINESS_CODE = #{record.businessCode,jdbcType=VARCHAR},
+            SEQUENCE_ID = #{record.sequenceId,jdbcType=VARCHAR},
+            REQUEST_ID = #{record.requestId,jdbcType=VARCHAR},
+            MERCHANT_NO = #{record.merchantNo,jdbcType=VARCHAR},
+            SIGN_NAME = #{record.signName,jdbcType=VARCHAR},
+            SIGN_NAME_EN = #{record.signNameEn,jdbcType=VARCHAR},
+            MEMBER_ID = #{record.memberId,jdbcType=VARCHAR},
+            RECHARGE_TYPE = #{record.rechargeType,jdbcType=VARCHAR},
+            IP_ADDRESS = #{record.ipAddress,jdbcType=VARCHAR},
+            IP_AREA = #{record.ipArea,jdbcType=VARCHAR},
+            IP_PROXY = #{record.ipProxy,jdbcType=VARCHAR},
+            PAYER_TYPE = #{record.payerType,jdbcType=VARCHAR},
+            PAYER_NAME = #{record.payerName,jdbcType=VARCHAR},
+            PAYER_NAME_DIGEST = #{record.payerNameDigest,jdbcType=VARCHAR},
+            PAYER_BANK_CARD_ID = #{record.payerBankCardId,jdbcType=VARCHAR},
+            PAYER_BANK_CARD_ID_DIGEST = #{record.payerBankCardIdDigest,jdbcType=VARCHAR},
+            PAYER_BANK_NAME = #{record.payerBankName,jdbcType=VARCHAR},
+            PAYER_BANK_CARD_AREA = #{record.payerBankCardArea,jdbcType=VARCHAR},
+            PAYER_BANK_CARD_NAME_BS = #{record.payerBankCardNameBs,jdbcType=VARCHAR},
+            PAYER_BANK_CARD_TYPE_BS = #{record.payerBankCardTypeBs,jdbcType=VARCHAR},
+            PAYER_BANK_NAME_BS = #{record.payerBankNameBs,jdbcType=VARCHAR},
+            PAYER_BANK_CODE = #{record.payerBankCode,jdbcType=VARCHAR},
+            PAYER_BANK_CODE_TYPE = #{record.payerBankCodeType,jdbcType=VARCHAR},
+            PAYER_COUNTRY_CODE = #{record.payerCountryCode,jdbcType=VARCHAR},
+            PAYER_COUNTRY_NAME_EN = #{record.payerCountryNameEn,jdbcType=VARCHAR},
+            PAYER_COUNTRY_NAME_ZH = #{record.payerCountryNameZh,jdbcType=VARCHAR},
+            PAYER_COUNTRY_ALPH2_CODE = #{record.payerCountryAlph2Code,jdbcType=VARCHAR},
+            PAYER_COUNTRY_ALPH3_CODE = #{record.payerCountryAlph3Code,jdbcType=VARCHAR},
+            RECEIVER_BANK_CODE = #{record.receiverBankCode,jdbcType=VARCHAR},
+            RECEIVER_BANK_CARD_ID = #{record.receiverBankCardId,jdbcType=VARCHAR},
+            RECEIVER_BANK_CARD_AREA = #{record.receiverBankCardArea,jdbcType=VARCHAR},
+            RECEIVER_BANK_NAME_BS = #{record.receiverBankNameBs,jdbcType=VARCHAR},
+            RECEIVER_BANK_CARD_NAME_BS = #{record.receiverBankCardNameBs,jdbcType=VARCHAR},
+            RECEIVER_BANK_CARD_TYPE_BS = #{record.receiverBankCardTypeBs,jdbcType=VARCHAR},
+            CURRENCY = #{record.currency,jdbcType=VARCHAR},
+            AMOUNT = #{record.amount,jdbcType=DECIMAL},
+            CNY_AMOUNT = #{record.cnyAmount,jdbcType=DECIMAL},
+            TARGET_CURRENCY = #{record.targetCurrency,jdbcType=VARCHAR},
+            TARGET_AMOUNT = #{record.targetAmount,jdbcType=DECIMAL},
+            TARGET_CNY_AMOUNT = #{record.targetCnyAmount,jdbcType=DECIMAL},
+            NOTIFY_URL = #{record.notifyUrl,jdbcType=VARCHAR},
+            REMARK = #{record.remark,jdbcType=VARCHAR},
+            OCCUR_TIME = #{record.occurTime,jdbcType=TIMESTAMP},
+            BLACK_TM = #{record.blackTm,jdbcType=VARCHAR},
+            BLACK_RESULT = #{record.blackResult,jdbcType=VARCHAR},
+            BLACK_RESULT_CODE = #{record.blackResultCode,jdbcType=VARCHAR},
+            WHITE_RESULT = #{record.whiteResult,jdbcType=VARCHAR},
+            TOTAL_TM = #{record.totalTm,jdbcType=VARCHAR},
+            RULE_TM = #{record.ruleTm,jdbcType=VARCHAR},
+            RULE_RESULT = #{record.ruleResult,jdbcType=VARCHAR},
+            TRIGER_RULE = #{record.trigerRule,jdbcType=VARCHAR},
+            RULE_CODES = #{record.ruleCodes,jdbcType=VARCHAR},
+            SUPPORT_OPERATE_CODE = #{record.supportOperateCode,jdbcType=VARCHAR},
+            BLOCK_TYPE = #{record.blockType,jdbcType=VARCHAR},
+            ERROR_CODE = #{record.errorCode,jdbcType=VARCHAR},
+            ERROR_MSG = #{record.errorMsg,jdbcType=VARCHAR},
+            NOTIFY_STATUS = #{record.notifyStatus,jdbcType=VARCHAR},
+            NOTIFY_NUM = #{record.notifyNum,jdbcType=INTEGER},
+            NOTIFY_RESULT_CODE = #{record.notifyResultCode,jdbcType=VARCHAR},
+            NOTIFY_RESULT_MSG = #{record.notifyResultMsg,jdbcType=VARCHAR},
+            PAY_RESULT = #{record.payResult,jdbcType=VARCHAR},
+            GOODS_INFO = #{record.goodsInfo,jdbcType=LONGVARCHAR},
+            CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+            UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+</mapper>
