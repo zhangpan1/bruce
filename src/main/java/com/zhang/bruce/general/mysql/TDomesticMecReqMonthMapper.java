@@ -16,7 +16,7 @@ public interface TDomesticMecReqMonthMapper {
 
     int insert(TDomesticMecReqMonth record);
 
-    Long insertSelective(TDomesticMecReqMonth record);
+    int insertSelective(TDomesticMecReqMonth record);
 
     List<TDomesticMecReqMonth> selectByExample(TDomesticMecReqMonthExample example);
 

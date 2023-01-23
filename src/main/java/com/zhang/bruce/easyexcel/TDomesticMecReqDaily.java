@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 复盘报告-按照商编统计月度交易结果
+ * 复盘报告-按照商编统计当月交易结果
  *
  * @author wcyong
  *
  * @date 2023-01-01
  */
-public class TDomesticMecReqMonth {
+public class TDomesticMecReqDaily {
     /**
      * 数据库id增增
      */

@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TDomesticMecReqMonthExample {
+public class TDomesticMecReqDailyExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TDomesticMecReqMonthExample() {
+    public TDomesticMecReqDailyExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -66,7 +66,7 @@ public class TDomesticMecReqMonthExample {
     }
 
     /**
-     * 复盘报告-按照商编统计月度交易结果
+     * 复盘报告-按照商编统计当月交易结果
      *
      * @author wcyong
      *
@@ -982,7 +982,7 @@ public class TDomesticMecReqMonthExample {
     }
 
     /**
-     * 复盘报告-按照商编统计月度交易结果
+     * 复盘报告-按照商编统计当月交易结果
      *
      * @author wcyong
      *
