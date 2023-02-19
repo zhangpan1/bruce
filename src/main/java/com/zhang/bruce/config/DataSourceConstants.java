@@ -22,5 +22,9 @@ public class DataSourceConstants {
      * gpt交易表
      */
     public static final String BUSINESS = "BUSINESS";
+    /**
+     * LOCAL
+     */
+    public static final String LOCAL = "TEST";
 
 }

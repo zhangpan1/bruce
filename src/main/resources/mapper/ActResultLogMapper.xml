@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.ActResultLogMapper" >
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.excel.ActResultLogDO" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="onlineseqid" property="onlineseqid" jdbcType="VARCHAR" />
+        <result column="businessid" property="businessid" jdbcType="VARCHAR" />
+        <result column="becifno" property="becifno" jdbcType="VARCHAR" />
+        <result column="ivisresult" property="ivisresult" jdbcType="VARCHAR" />
+        <result column="createdby" property="createdby" jdbcType="VARCHAR" />
+        <result column="createddate" property="createddate" jdbcType="DATE" />
+        <result column="updateby" property="updateby" jdbcType="VARCHAR" />
+        <result column="updateddate" property="updateddate" jdbcType="DATE" />
+        <result column="risklevel" property="risklevel" jdbcType="VARCHAR" />
+    </resultMap>
+
+
+    <insert id="importToDb" parameterType="java.util.List">
+        insert into act_result_log_bat (onlineseqid,businessid,becifno,ivisresult,createdby,createddate,updateby,updateddate,risklevel)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.onlineseqid},#{item.businessid},#{item.becifno},#{item.ivisresult},#{item.createdby},#{item.createddate},
+            #{item.updateby},#{item.updateddate},#{item.risklevel}
+            )
+        </foreach>
+    </insert>
+
+    <select id="selectList"  parameterType="java.util.Map" resultMap="BaseResultMap" >
+        select
+         *
+        from ACT_RESULT_LOG
+limit 300
+    </select>
+</mapper>

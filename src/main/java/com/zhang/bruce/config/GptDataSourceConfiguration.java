@@ -71,6 +71,7 @@ public class GptDataSourceConfiguration {
 
         DataSource fkjsDs = getDataSource(druidPooledDataSourceFactory(), DataSourceConstants.FKJS);
         DataSource businessDs = getDataSource(druidPooledDataSourceFactory(), DataSourceConstants.GPTBUSINESS);
+        DataSource localDs = getDataSource(druidPooledDataSourceFactory(), DataSourceConstants.LOCAL);
         DataSource yunDs = getDataSource(druidPooledDataSourceFactory(), DataSourceConstants.BUSINESS);
 
 
@@ -81,6 +82,7 @@ public class GptDataSourceConfiguration {
                 sourceHashMap.put(DataSourceConstants.BUSINESS, yunDs);
                 sourceHashMap.put(DataSourceConstants.FKJS, fkjsDs);
                 sourceHashMap.put(DataSourceConstants.GPTBUSINESS, businessDs);
+                sourceHashMap.put(DataSourceConstants.LOCAL, localDs);
                 return sourceHashMap;
             }
         };
