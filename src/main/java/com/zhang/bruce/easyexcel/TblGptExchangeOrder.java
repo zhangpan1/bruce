@@ -8,7 +8,7 @@ import java.util.Date;
  *
  * @author wcyong
  *
- * @date 2023-01-18
+ * @date 2023-02-05
  */
 public class TblGptExchangeOrder {
     private Long id;
@@ -28,6 +28,10 @@ public class TblGptExchangeOrder {
     private String signNameEn;
 
     private String memberId;
+
+    private String merchantKyc;
+
+    private String merchantKycSub;
 
     private String ipAddress;
 
@@ -163,6 +167,22 @@ public class TblGptExchangeOrder {
 
     public void setMemberId(String memberId) {
         this.memberId = memberId == null ? null : memberId.trim();
+    }
+
+    public String getMerchantKyc() {
+        return merchantKyc;
+    }
+
+    public void setMerchantKyc(String merchantKyc) {
+        this.merchantKyc = merchantKyc == null ? null : merchantKyc.trim();
+    }
+
+    public String getMerchantKycSub() {
+        return merchantKycSub;
+    }
+
+    public void setMerchantKycSub(String merchantKycSub) {
+        this.merchantKycSub = merchantKycSub == null ? null : merchantKycSub.trim();
     }
 
     public String getIpAddress() {

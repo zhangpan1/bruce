@@ -1,6 +1,5 @@
 package com.zhang.bruce.springchain.business;
 
-import com.yeepay.doorgod.utils.encryptaes.DoorgodAESUtils;
 import com.yeepay.g3.utils.common.encrypt.AES;
 
 /**
@@ -11,7 +10,7 @@ import com.yeepay.g3.utils.common.encrypt.AES;
 public class Shuliang {
     public static void main(String[] args) {
         System.out.println(AES.decryptFromBase64("cmG3zuMnxveL3TJ08SBXQQ==", "I am a fool, OK?"));
-        System.out.println(AES.encryptToBase64("zp6525213", "I am a fool, OK?"));
+        System.out.println(AES.encryptToBase64("123456", "I am a fool, OK?"));
     }
     //System.out.println(AES.decryptFromBase64("cmG3zuMnxveL3TJ08SBXQQ==", "I am a fool, OK?"));
 }

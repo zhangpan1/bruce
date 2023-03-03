@@ -70,7 +70,7 @@ public class TblGptDeclareOrderDetailExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-18
+     * @date 2023-02-05
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -240,6 +240,76 @@ public class TblGptDeclareOrderDetailExample {
 
         public Criteria andOrderIdNotBetween(String value1, String value2) {
             addCriterion("ORDER_ID not between", value1, value2, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdIsNull() {
+            addCriterion("PARENT_REQUEST_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdIsNotNull() {
+            addCriterion("PARENT_REQUEST_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID =", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID <>", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdGreaterThan(String value) {
+            addCriterion("PARENT_REQUEST_ID >", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdGreaterThanOrEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID >=", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdLessThan(String value) {
+            addCriterion("PARENT_REQUEST_ID <", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdLessThanOrEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID <=", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdLike(String value) {
+            addCriterion("PARENT_REQUEST_ID like", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotLike(String value) {
+            addCriterion("PARENT_REQUEST_ID not like", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdIn(List<String> values) {
+            addCriterion("PARENT_REQUEST_ID in", values, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotIn(List<String> values) {
+            addCriterion("PARENT_REQUEST_ID not in", values, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdBetween(String value1, String value2) {
+            addCriterion("PARENT_REQUEST_ID between", value1, value2, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotBetween(String value1, String value2) {
+            addCriterion("PARENT_REQUEST_ID not between", value1, value2, "parentRequestId");
             return (Criteria) this;
         }
 
@@ -4253,76 +4323,6 @@ public class TblGptDeclareOrderDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andDeclareStatusIsNull() {
-            addCriterion("DECLARE_STATUS is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusIsNotNull() {
-            addCriterion("DECLARE_STATUS is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusEqualTo(String value) {
-            addCriterion("DECLARE_STATUS =", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusNotEqualTo(String value) {
-            addCriterion("DECLARE_STATUS <>", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusGreaterThan(String value) {
-            addCriterion("DECLARE_STATUS >", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusGreaterThanOrEqualTo(String value) {
-            addCriterion("DECLARE_STATUS >=", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusLessThan(String value) {
-            addCriterion("DECLARE_STATUS <", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusLessThanOrEqualTo(String value) {
-            addCriterion("DECLARE_STATUS <=", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusLike(String value) {
-            addCriterion("DECLARE_STATUS like", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusNotLike(String value) {
-            addCriterion("DECLARE_STATUS not like", value, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusIn(List<String> values) {
-            addCriterion("DECLARE_STATUS in", values, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusNotIn(List<String> values) {
-            addCriterion("DECLARE_STATUS not in", values, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusBetween(String value1, String value2) {
-            addCriterion("DECLARE_STATUS between", value1, value2, "declareStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeclareStatusNotBetween(String value1, String value2) {
-            addCriterion("DECLARE_STATUS not between", value1, value2, "declareStatus");
-            return (Criteria) this;
-        }
-
         public Criteria andGoodsInfoIsNull() {
             addCriterion("GOODS_INFO is null");
             return (Criteria) this;
@@ -4526,7 +4526,7 @@ public class TblGptDeclareOrderDetailExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-18
+     * @date 2023-02-05
      */
     public static class Criterion {
         private String condition;

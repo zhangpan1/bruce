@@ -24,18 +24,29 @@ public class TestDemo {
         long start = System.currentTimeMillis();
         try {
             List<Long> resultList = Lists.newArrayList();
-            CountDownLatch countDownLatch = new CountDownLatch(4);
-            for (int i = 0; i < 4; i++) {
-                QUERY_POOL.execute(() -> {
+            resultList.add(1L);
+            CountDownLatch countDownLatch = new CountDownLatch(resultList.size());
+            for (Long x : resultList) {
+                // 线程池执行
+                QUERY_POOL.execute(()->{
                     try {
-                        resultList.addAll(doHandler());
-                    } finally {
+                        Thread.sleep(20000);
+                        System.out.println("执行了20s");
+                    }catch (Exception e){
+                    }finally {
                         countDownLatch.countDown();
                     }
                 });
-
             }
-            countDownLatch.await();
+            try {
+                // 让当前线程处于阻塞状态，直到锁存器计数为零
+                countDownLatch.await();
+            } catch (InterruptedException e) {
+                throw new RuntimeException("线程执行失败");
+            }finally {
+                resultList.clear();
+                System.out.println("清空了");
+            }
             System.out.println("结果：" + resultList + "耗时：" + (System.currentTimeMillis() - start));
         } catch (Exception e) {
             System.out.println("发生异常");

@@ -1,10 +1,7 @@
 package com.zhang.bruce.java8;
 
-import com.beust.jcommander.internal.Lists;
-import com.yeepay.g3.utils.common.StringUtils;
-
+import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @description: some desc
@@ -13,16 +10,20 @@ import java.util.stream.Collectors;
  */
 public class TestDD {
     public static void main(String[] args) {
-        List<Us> us= Lists.newArrayList();
-        extracted(us);
-
-        List<Us> cf1 = us.stream().filter(x -> (StringUtils.isBlank(x.getId()))).collect(Collectors.toList());
-        List<String> cf2 = us.stream().filter(x -> (StringUtils.isNotEmpty(x.getId()))).map(Us::getId).distinct().collect(Collectors.toList());
-        int total = cf1.size() + cf2.size();
-        System.out.println(total);
+        System.out.println(isCorrectAmount(new BigDecimal(-1)));
 
 
     }
+    public static boolean isCorrectAmount(BigDecimal bigDecimal){
+        BigDecimal amountMax = new BigDecimal("9999999999999.99");
+        BigDecimal amountMin = new BigDecimal("1");
+        BigDecimal amount = new BigDecimal("-1");
+        if(bigDecimal.compareTo(amount) == 0 || (bigDecimal.compareTo(amountMax) < 1 && bigDecimal.compareTo(amountMin) == 1 )){
+            return true;
+        }
+        return false;
+    }
+
 
     private static void extracted(List<Us> us) {
         Us us1 = new Us();
@@ -46,6 +47,9 @@ public class TestDD {
 class Us{
     String url;
     String id ;
+
+    Us() {
+    }
 
     public String getUrl() {
         return url;
@@ -71,3 +75,4 @@ class Us{
                 '}';
     }
 }
+

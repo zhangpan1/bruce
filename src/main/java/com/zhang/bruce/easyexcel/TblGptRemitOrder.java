@@ -8,7 +8,7 @@ import java.util.Date;
  *
  * @author wcyong
  *
- * @date 2023-01-19
+ * @date 2023-02-05
  */
 public class TblGptRemitOrder {
     private Long id;

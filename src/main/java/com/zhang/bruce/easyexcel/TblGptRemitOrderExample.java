@@ -70,7 +70,7 @@ public class TblGptRemitOrderExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-19
+     * @date 2023-02-05
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -5436,7 +5436,7 @@ public class TblGptRemitOrderExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-19
+     * @date 2023-02-05
      */
     public static class Criterion {
         private String condition;

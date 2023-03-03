@@ -12,6 +12,8 @@
         <result column="SIGN_NAME" property="signName" jdbcType="VARCHAR" />
         <result column="SIGN_NAME_EN" property="signNameEn" jdbcType="VARCHAR" />
         <result column="MEMBER_ID" property="memberId" jdbcType="VARCHAR" />
+        <result column="MERCHANT_KYC" property="merchantKyc" jdbcType="VARCHAR" />
+        <result column="MERCHANT_KYC_SUB" property="merchantKycSub" jdbcType="VARCHAR" />
         <result column="IP_ADDRESS" property="ipAddress" jdbcType="VARCHAR" />
         <result column="IP_AREA" property="ipArea" jdbcType="VARCHAR" />
         <result column="IP_PROXY" property="ipProxy" jdbcType="VARCHAR" />
@@ -24,12 +26,12 @@
         <result column="OCCUR_TIME" property="occurTime" jdbcType="TIMESTAMP" />
         <result column="COMPLETE_TIME" property="completeTime" jdbcType="TIMESTAMP" />
         <result column="BLACK_TM" property="blackTm" jdbcType="VARCHAR" />
-        <result column="BLACK_RESULT" property="blackResult" jdbcType="VARCHAR" />
+        <result column="BLACK_RESULT" property="blackResult" jdbcType="LONGVARCHAR" />
         <result column="BLACK_RESULT_CODE" property="blackResultCode" jdbcType="VARCHAR" />
         <result column="WHITE_RESULT" property="whiteResult" jdbcType="VARCHAR" />
         <result column="TOTAL_TM" property="totalTm" jdbcType="VARCHAR" />
         <result column="RULE_TM" property="ruleTm" jdbcType="VARCHAR" />
-        <result column="RULE_RESULT" property="ruleResult" jdbcType="VARCHAR" />
+        <result column="RULE_RESULT" property="ruleResult" jdbcType="LONGVARCHAR" />
         <result column="TRIGER_RULE" property="trigerRule" jdbcType="VARCHAR" />
         <result column="RULE_CODES" property="ruleCodes" jdbcType="VARCHAR" />
         <result column="SUPPORT_OPERATE_CODE" property="supportOperateCode" jdbcType="VARCHAR" />
@@ -108,11 +110,12 @@
 
     <sql id="Base_Column_List" >
         ID, PRODUCT_CODE, BUSINESS_CODE, SEQUENCE_ID, REQUEST_ID, MERCHANT_NO, SIGN_NAME,
-        SIGN_NAME_EN, MEMBER_ID, IP_ADDRESS, IP_AREA, IP_PROXY, CURRENCY, AMOUNT, CNY_AMOUNT,
-        TARGET_CURRENCY, TARGET_AMOUNT, REMARK, OCCUR_TIME, COMPLETE_TIME, BLACK_TM, BLACK_RESULT,
-        BLACK_RESULT_CODE, WHITE_RESULT, TOTAL_TM, RULE_TM, RULE_RESULT, TRIGER_RULE, RULE_CODES,
-        SUPPORT_OPERATE_CODE, BLOCK_TYPE, ERROR_CODE, ERROR_MSG, NOTIFY_STATUS, NOTIFY_NUM,
-        NOTIFY_RESULT_CODE, NOTIFY_RESULT_MSG, PAY_RESULT, GOODS_INFO, CREATE_TIME, UPDATE_TIME
+        SIGN_NAME_EN, MEMBER_ID, MERCHANT_KYC, MERCHANT_KYC_SUB, IP_ADDRESS, IP_AREA, IP_PROXY,
+        CURRENCY, AMOUNT, CNY_AMOUNT, TARGET_CURRENCY, TARGET_AMOUNT, REMARK, OCCUR_TIME,
+        COMPLETE_TIME, BLACK_TM, BLACK_RESULT, BLACK_RESULT_CODE, WHITE_RESULT, TOTAL_TM,
+        RULE_TM, RULE_RESULT, TRIGER_RULE, RULE_CODES, SUPPORT_OPERATE_CODE, BLOCK_TYPE,
+        ERROR_CODE, ERROR_MSG, NOTIFY_STATUS, NOTIFY_NUM, NOTIFY_RESULT_CODE, NOTIFY_RESULT_MSG,
+        PAY_RESULT, GOODS_INFO, CREATE_TIME, UPDATE_TIME
     </sql>
 
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TblGptExchangeOrderExample" >
@@ -141,31 +144,33 @@
         insert into TBL_GPT_EXCHANGE_ORDER (ID, PRODUCT_CODE, BUSINESS_CODE,
             SEQUENCE_ID, REQUEST_ID, MERCHANT_NO,
             SIGN_NAME, SIGN_NAME_EN, MEMBER_ID,
-            IP_ADDRESS, IP_AREA, IP_PROXY,
-            CURRENCY, AMOUNT, CNY_AMOUNT,
-            TARGET_CURRENCY, TARGET_AMOUNT, REMARK,
-            OCCUR_TIME, COMPLETE_TIME, BLACK_TM,
-            BLACK_RESULT, BLACK_RESULT_CODE, WHITE_RESULT,
-            TOTAL_TM, RULE_TM, RULE_RESULT,
-            TRIGER_RULE, RULE_CODES, SUPPORT_OPERATE_CODE,
-            BLOCK_TYPE, ERROR_CODE, ERROR_MSG,
-            NOTIFY_STATUS, NOTIFY_NUM, NOTIFY_RESULT_CODE,
-            NOTIFY_RESULT_MSG, PAY_RESULT, GOODS_INFO,
-            CREATE_TIME, UPDATE_TIME)
+            MERCHANT_KYC, MERCHANT_KYC_SUB, IP_ADDRESS,
+            IP_AREA, IP_PROXY, CURRENCY,
+            AMOUNT, CNY_AMOUNT, TARGET_CURRENCY,
+            TARGET_AMOUNT, REMARK, OCCUR_TIME,
+            COMPLETE_TIME, BLACK_TM, BLACK_RESULT,
+            BLACK_RESULT_CODE, WHITE_RESULT, TOTAL_TM,
+            RULE_TM, RULE_RESULT, TRIGER_RULE,
+            RULE_CODES, SUPPORT_OPERATE_CODE, BLOCK_TYPE,
+            ERROR_CODE, ERROR_MSG, NOTIFY_STATUS,
+            NOTIFY_NUM, NOTIFY_RESULT_CODE, NOTIFY_RESULT_MSG,
+            PAY_RESULT, GOODS_INFO, CREATE_TIME,
+            UPDATE_TIME)
         values (#{id,jdbcType=BIGINT}, #{productCode,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR},
             #{sequenceId,jdbcType=VARCHAR}, #{requestId,jdbcType=VARCHAR}, #{merchantNo,jdbcType=VARCHAR},
             #{signName,jdbcType=VARCHAR}, #{signNameEn,jdbcType=VARCHAR}, #{memberId,jdbcType=VARCHAR},
-            #{ipAddress,jdbcType=VARCHAR}, #{ipArea,jdbcType=VARCHAR}, #{ipProxy,jdbcType=VARCHAR},
-            #{currency,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{cnyAmount,jdbcType=DECIMAL},
-            #{targetCurrency,jdbcType=VARCHAR}, #{targetAmount,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR},
-            #{occurTime,jdbcType=TIMESTAMP}, #{completeTime,jdbcType=TIMESTAMP}, #{blackTm,jdbcType=VARCHAR},
-            #{blackResult,jdbcType=VARCHAR}, #{blackResultCode,jdbcType=VARCHAR}, #{whiteResult,jdbcType=VARCHAR},
-            #{totalTm,jdbcType=VARCHAR}, #{ruleTm,jdbcType=VARCHAR}, #{ruleResult,jdbcType=VARCHAR},
-            #{trigerRule,jdbcType=VARCHAR}, #{ruleCodes,jdbcType=VARCHAR}, #{supportOperateCode,jdbcType=VARCHAR},
-            #{blockType,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR},
-            #{notifyStatus,jdbcType=VARCHAR}, #{notifyNum,jdbcType=INTEGER}, #{notifyResultCode,jdbcType=VARCHAR},
-            #{notifyResultMsg,jdbcType=VARCHAR}, #{payResult,jdbcType=VARCHAR}, #{goodsInfo,jdbcType=LONGVARCHAR},
-            #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+            #{merchantKyc,jdbcType=VARCHAR}, #{merchantKycSub,jdbcType=VARCHAR}, #{ipAddress,jdbcType=VARCHAR},
+            #{ipArea,jdbcType=VARCHAR}, #{ipProxy,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR},
+            #{amount,jdbcType=DECIMAL}, #{cnyAmount,jdbcType=DECIMAL}, #{targetCurrency,jdbcType=VARCHAR},
+            #{targetAmount,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{occurTime,jdbcType=TIMESTAMP},
+            #{completeTime,jdbcType=TIMESTAMP}, #{blackTm,jdbcType=VARCHAR}, #{blackResult,jdbcType=LONGVARCHAR},
+            #{blackResultCode,jdbcType=VARCHAR}, #{whiteResult,jdbcType=VARCHAR}, #{totalTm,jdbcType=VARCHAR},
+            #{ruleTm,jdbcType=VARCHAR}, #{ruleResult,jdbcType=LONGVARCHAR}, #{trigerRule,jdbcType=VARCHAR},
+            #{ruleCodes,jdbcType=VARCHAR}, #{supportOperateCode,jdbcType=VARCHAR}, #{blockType,jdbcType=VARCHAR},
+            #{errorCode,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR}, #{notifyStatus,jdbcType=VARCHAR},
+            #{notifyNum,jdbcType=INTEGER}, #{notifyResultCode,jdbcType=VARCHAR}, #{notifyResultMsg,jdbcType=VARCHAR},
+            #{payResult,jdbcType=VARCHAR}, #{goodsInfo,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+            #{updateTime,jdbcType=TIMESTAMP})
     </insert>
 
     <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TblGptExchangeOrder" >
@@ -197,6 +202,12 @@
             </if>
             <if test="memberId != null" >
                 MEMBER_ID,
+            </if>
+            <if test="merchantKyc != null" >
+                MERCHANT_KYC,
+            </if>
+            <if test="merchantKycSub != null" >
+                MERCHANT_KYC_SUB,
             </if>
             <if test="ipAddress != null" >
                 IP_ADDRESS,
@@ -323,6 +334,12 @@
             <if test="memberId != null" >
                 #{memberId,jdbcType=VARCHAR},
             </if>
+            <if test="merchantKyc != null" >
+                #{merchantKyc,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantKycSub != null" >
+                #{merchantKycSub,jdbcType=VARCHAR},
+            </if>
             <if test="ipAddress != null" >
                 #{ipAddress,jdbcType=VARCHAR},
             </if>
@@ -360,7 +377,7 @@
                 #{blackTm,jdbcType=VARCHAR},
             </if>
             <if test="blackResult != null" >
-                #{blackResult,jdbcType=VARCHAR},
+                #{blackResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="blackResultCode != null" >
                 #{blackResultCode,jdbcType=VARCHAR},
@@ -375,7 +392,7 @@
                 #{ruleTm,jdbcType=VARCHAR},
             </if>
             <if test="ruleResult != null" >
-                #{ruleResult,jdbcType=VARCHAR},
+                #{ruleResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="trigerRule != null" >
                 #{trigerRule,jdbcType=VARCHAR},
@@ -459,6 +476,12 @@
             <if test="record.memberId != null" >
                 MEMBER_ID = #{record.memberId,jdbcType=VARCHAR},
             </if>
+            <if test="record.merchantKyc != null" >
+                MERCHANT_KYC = #{record.merchantKyc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.merchantKycSub != null" >
+                MERCHANT_KYC_SUB = #{record.merchantKycSub,jdbcType=VARCHAR},
+            </if>
             <if test="record.ipAddress != null" >
                 IP_ADDRESS = #{record.ipAddress,jdbcType=VARCHAR},
             </if>
@@ -496,7 +519,7 @@
                 BLACK_TM = #{record.blackTm,jdbcType=VARCHAR},
             </if>
             <if test="record.blackResult != null" >
-                BLACK_RESULT = #{record.blackResult,jdbcType=VARCHAR},
+                BLACK_RESULT = #{record.blackResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="record.blackResultCode != null" >
                 BLACK_RESULT_CODE = #{record.blackResultCode,jdbcType=VARCHAR},
@@ -511,7 +534,7 @@
                 RULE_TM = #{record.ruleTm,jdbcType=VARCHAR},
             </if>
             <if test="record.ruleResult != null" >
-                RULE_RESULT = #{record.ruleResult,jdbcType=VARCHAR},
+                RULE_RESULT = #{record.ruleResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="record.trigerRule != null" >
                 TRIGER_RULE = #{record.trigerRule,jdbcType=VARCHAR},
@@ -572,6 +595,8 @@
             SIGN_NAME = #{record.signName,jdbcType=VARCHAR},
             SIGN_NAME_EN = #{record.signNameEn,jdbcType=VARCHAR},
             MEMBER_ID = #{record.memberId,jdbcType=VARCHAR},
+            MERCHANT_KYC = #{record.merchantKyc,jdbcType=VARCHAR},
+            MERCHANT_KYC_SUB = #{record.merchantKycSub,jdbcType=VARCHAR},
             IP_ADDRESS = #{record.ipAddress,jdbcType=VARCHAR},
             IP_AREA = #{record.ipArea,jdbcType=VARCHAR},
             IP_PROXY = #{record.ipProxy,jdbcType=VARCHAR},
@@ -584,12 +609,12 @@
             OCCUR_TIME = #{record.occurTime,jdbcType=TIMESTAMP},
             COMPLETE_TIME = #{record.completeTime,jdbcType=TIMESTAMP},
             BLACK_TM = #{record.blackTm,jdbcType=VARCHAR},
-            BLACK_RESULT = #{record.blackResult,jdbcType=VARCHAR},
+            BLACK_RESULT = #{record.blackResult,jdbcType=LONGVARCHAR},
             BLACK_RESULT_CODE = #{record.blackResultCode,jdbcType=VARCHAR},
             WHITE_RESULT = #{record.whiteResult,jdbcType=VARCHAR},
             TOTAL_TM = #{record.totalTm,jdbcType=VARCHAR},
             RULE_TM = #{record.ruleTm,jdbcType=VARCHAR},
-            RULE_RESULT = #{record.ruleResult,jdbcType=VARCHAR},
+            RULE_RESULT = #{record.ruleResult,jdbcType=LONGVARCHAR},
             TRIGER_RULE = #{record.trigerRule,jdbcType=VARCHAR},
             RULE_CODES = #{record.ruleCodes,jdbcType=VARCHAR},
             SUPPORT_OPERATE_CODE = #{record.supportOperateCode,jdbcType=VARCHAR},

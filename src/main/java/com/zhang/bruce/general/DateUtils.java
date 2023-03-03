@@ -594,6 +594,13 @@ public class DateUtils {
         String dateStr = simpleDateFormat.format(date);
         return dateStr;
     }
+    public static Date getDate(Date date,int days){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DAY_OF_MONTH, days);
+        Date time = c.getTime();
+        return time;
+    }
     /**
      * @return 将日期字符串yyyyMMdd 转换为 一周的第几天，如果跟今天日期相等则返回今天，如
      * 果跟明天日期相等，则返回明天，否则返回周几

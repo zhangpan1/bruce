@@ -5,6 +5,7 @@
     <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TblGptTdOrderDetail" >
         <result column="ID" property="id" jdbcType="BIGINT" />
         <result column="ORDER_ID" property="orderId" jdbcType="VARCHAR" />
+        <result column="PARENT_REQUEST_ID" property="parentRequestId" jdbcType="VARCHAR" />
         <result column="PRODUCT_CODE" property="productCode" jdbcType="VARCHAR" />
         <result column="BUSINESS_CODE" property="businessCode" jdbcType="VARCHAR" />
         <result column="SEQUENCE_ID" property="sequenceId" jdbcType="VARCHAR" />
@@ -30,6 +31,7 @@
         <result column="PAYER_ID_CARD_AREA" property="payerIdCardArea" jdbcType="VARCHAR" />
         <result column="PAYER_TYPE" property="payerType" jdbcType="VARCHAR" />
         <result column="PAYER_BANK_CARD_ID" property="payerBankCardId" jdbcType="VARCHAR" />
+        <result column="PAYER_BANK_CARD_ID_DIGEST" property="payerBankCardIdDigest" jdbcType="VARCHAR" />
         <result column="PAYER_BANK_NAME" property="payerBankName" jdbcType="VARCHAR" />
         <result column="PAYER_BANK_CARD_AREA" property="payerBankCardArea" jdbcType="VARCHAR" />
         <result column="PAYER_BANK_CARD_NAME_BS" property="payerBankCardNameBs" jdbcType="VARCHAR" />
@@ -41,6 +43,7 @@
         <result column="RECEIVER_ID_CARD_DIGEST" property="receiverIdCardDigest" jdbcType="VARCHAR" />
         <result column="RECEIVER_ID_CARD_AREA" property="receiverIdCardArea" jdbcType="VARCHAR" />
         <result column="RECEIVER_BANK_CARD_ID" property="receiverBankCardId" jdbcType="VARCHAR" />
+        <result column="RECEIVER_BANK_CARD_ID_DIGEST" property="receiverBankCardIdDigest" jdbcType="VARCHAR" />
         <result column="RECEIVER_BANK_CARD_AREA" property="receiverBankCardArea" jdbcType="VARCHAR" />
         <result column="RECEIVER_BANK_NAME" property="receiverBankName" jdbcType="VARCHAR" />
         <result column="RECEIVER_BANK_CARD_NAME_BS" property="receiverBankCardNameBs" jdbcType="VARCHAR" />
@@ -59,18 +62,18 @@
         <result column="UPLOAD_TIME" property="uploadTime" jdbcType="TIMESTAMP" />
         <result column="EXCHANGE_REASON" property="exchangeReason" jdbcType="VARCHAR" />
         <result column="TRADE_PLATFORM" property="tradePlatform" jdbcType="VARCHAR" />
-        <result column="TRADE_PARAM" property="tradeParam" jdbcType="VARCHAR" />
+        <result column="TRADE_PARAM" property="tradeParam" jdbcType="LONGVARCHAR" />
         <result column="LOGISTICS_COMPANY" property="logisticsCompany" jdbcType="VARCHAR" />
         <result column="LOGISTICS_NO" property="logisticsNo" jdbcType="VARCHAR" />
         <result column="STATUS" property="status" jdbcType="VARCHAR" />
         <result column="REMARK" property="remark" jdbcType="VARCHAR" />
         <result column="BLACK_TM" property="blackTm" jdbcType="VARCHAR" />
-        <result column="BLACK_RESULT" property="blackResult" jdbcType="VARCHAR" />
+        <result column="BLACK_RESULT" property="blackResult" jdbcType="LONGVARCHAR" />
         <result column="BLACK_RESULT_CODE" property="blackResultCode" jdbcType="VARCHAR" />
         <result column="WHITE_RESULT" property="whiteResult" jdbcType="VARCHAR" />
         <result column="TOTAL_TM" property="totalTm" jdbcType="VARCHAR" />
         <result column="RULE_TM" property="ruleTm" jdbcType="VARCHAR" />
-        <result column="RULE_RESULT" property="ruleResult" jdbcType="VARCHAR" />
+        <result column="RULE_RESULT" property="ruleResult" jdbcType="LONGVARCHAR" />
         <result column="TRIGER_RULE" property="trigerRule" jdbcType="VARCHAR" />
         <result column="RULE_CODES" property="ruleCodes" jdbcType="VARCHAR" />
         <result column="SUPPORT_OPERATE_CODE" property="supportOperateCode" jdbcType="VARCHAR" />
@@ -85,7 +88,6 @@
         <result column="GOODS_INFO" property="goodsInfo" jdbcType="LONGVARCHAR" />
         <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
         <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
-        <result column="PAYER_BANK_CARD_ID_DIGEST" property="payerBankCardIdDigest" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Example_Where_Clause" >
@@ -149,21 +151,22 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        ID, ORDER_ID, PRODUCT_CODE, BUSINESS_CODE, SEQUENCE_ID, REQUEST_ID, MERCHANT_NO,
-        SIGN_NAME, SIGN_NAME_EN, MERCHANT_KYC, MERCHANT_KYC_SUB, IP_ADDRESS, IP_AREA, IP_PROXY,
-        SELLER_ID, SELLER_WEBSITE, SELLER_WEBSITE_DOMAIN, GOODS_NAME, GOODS_TYPE, GOODS_QUANTITY,
-        PAYER_NAME, PAYER_NAME_DIGEST, PAYER_ID_CARD, PAYER_ID_CARD_DIGEST, PAYER_ID_CARD_AREA,
-        PAYER_TYPE, PAYER_BANK_CARD_ID, PAYER_BANK_NAME, PAYER_BANK_CARD_AREA, PAYER_BANK_CARD_NAME_BS,
-        PAYER_BANK_CARD_TYPE_BS, PAYER_BANK_NAME_BS, RECEIVER_NAME, RECEIVER_NAME_DIGEST,
-        RECEIVER_ID_CARD, RECEIVER_ID_CARD_DIGEST, RECEIVER_ID_CARD_AREA, RECEIVER_BANK_CARD_ID,
-        RECEIVER_BANK_CARD_AREA, RECEIVER_BANK_NAME, RECEIVER_BANK_CARD_NAME_BS, RECEIVER_BANK_CARD_TYPE_BS,
-        RECEIVER_BANK_NAME_BS, RECEIVER_PHONE, RECEIVER_PHONE_DIGEST, RECEIVER_PHONE_AREA,
-        RECEIVER_PHONE_RISK, RECEIVER_PHONE_ALT, CURRENCY, AMOUNT, CNY_AMOUNT, OCCUR_TIME,
-        COMPLETE_TIME, UPLOAD_TIME, EXCHANGE_REASON, TRADE_PLATFORM, TRADE_PARAM, LOGISTICS_COMPANY,
-        LOGISTICS_NO, STATUS, REMARK, BLACK_TM, BLACK_RESULT, BLACK_RESULT_CODE, WHITE_RESULT,
-        TOTAL_TM, RULE_TM, RULE_RESULT, TRIGER_RULE, RULE_CODES, SUPPORT_OPERATE_CODE, BLOCK_TYPE,
-        ERROR_CODE, ERROR_MSG, NOTIFY_STATUS, NOTIFY_NUM, NOTIFY_RESULT_CODE, NOTIFY_RESULT_MSG,
-        PAY_RESULT, GOODS_INFO, CREATE_TIME, UPDATE_TIME, PAYER_BANK_CARD_ID_DIGEST
+        ID, ORDER_ID, PARENT_REQUEST_ID, PRODUCT_CODE, BUSINESS_CODE, SEQUENCE_ID, REQUEST_ID,
+        MERCHANT_NO, SIGN_NAME, SIGN_NAME_EN, MERCHANT_KYC, MERCHANT_KYC_SUB, IP_ADDRESS,
+        IP_AREA, IP_PROXY, SELLER_ID, SELLER_WEBSITE, SELLER_WEBSITE_DOMAIN, GOODS_NAME,
+        GOODS_TYPE, GOODS_QUANTITY, PAYER_NAME, PAYER_NAME_DIGEST, PAYER_ID_CARD, PAYER_ID_CARD_DIGEST,
+        PAYER_ID_CARD_AREA, PAYER_TYPE, PAYER_BANK_CARD_ID, PAYER_BANK_CARD_ID_DIGEST, PAYER_BANK_NAME,
+        PAYER_BANK_CARD_AREA, PAYER_BANK_CARD_NAME_BS, PAYER_BANK_CARD_TYPE_BS, PAYER_BANK_NAME_BS,
+        RECEIVER_NAME, RECEIVER_NAME_DIGEST, RECEIVER_ID_CARD, RECEIVER_ID_CARD_DIGEST, RECEIVER_ID_CARD_AREA,
+        RECEIVER_BANK_CARD_ID, RECEIVER_BANK_CARD_ID_DIGEST, RECEIVER_BANK_CARD_AREA, RECEIVER_BANK_NAME,
+        RECEIVER_BANK_CARD_NAME_BS, RECEIVER_BANK_CARD_TYPE_BS, RECEIVER_BANK_NAME_BS, RECEIVER_PHONE,
+        RECEIVER_PHONE_DIGEST, RECEIVER_PHONE_AREA, RECEIVER_PHONE_RISK, RECEIVER_PHONE_ALT,
+        CURRENCY, AMOUNT, CNY_AMOUNT, OCCUR_TIME, COMPLETE_TIME, UPLOAD_TIME, EXCHANGE_REASON,
+        TRADE_PLATFORM, TRADE_PARAM, LOGISTICS_COMPANY, LOGISTICS_NO, STATUS, REMARK, BLACK_TM,
+        BLACK_RESULT, BLACK_RESULT_CODE, WHITE_RESULT, TOTAL_TM, RULE_TM, RULE_RESULT, TRIGER_RULE,
+        RULE_CODES, SUPPORT_OPERATE_CODE, BLOCK_TYPE, ERROR_CODE, ERROR_MSG, NOTIFY_STATUS,
+        NOTIFY_NUM, NOTIFY_RESULT_CODE, NOTIFY_RESULT_MSG, PAY_RESULT, GOODS_INFO, CREATE_TIME,
+        UPDATE_TIME
     </sql>
 
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TblGptTdOrderDetailExample" >
@@ -189,66 +192,68 @@
     </delete>
 
     <insert id="insert" parameterType="com.zhang.bruce.easyexcel.TblGptTdOrderDetail" >
-        insert into TBL_GPT_TD_ORDER_DETAIL (ID, ORDER_ID, PRODUCT_CODE,
-            BUSINESS_CODE, SEQUENCE_ID, REQUEST_ID,
-            MERCHANT_NO, SIGN_NAME, SIGN_NAME_EN,
-            MERCHANT_KYC, MERCHANT_KYC_SUB, IP_ADDRESS,
-            IP_AREA, IP_PROXY, SELLER_ID,
-            SELLER_WEBSITE, SELLER_WEBSITE_DOMAIN, GOODS_NAME,
-            GOODS_TYPE, GOODS_QUANTITY, PAYER_NAME,
-            PAYER_NAME_DIGEST, PAYER_ID_CARD, PAYER_ID_CARD_DIGEST,
-            PAYER_ID_CARD_AREA, PAYER_TYPE, PAYER_BANK_CARD_ID,
+        insert into TBL_GPT_TD_ORDER_DETAIL (ID, ORDER_ID, PARENT_REQUEST_ID,
+            PRODUCT_CODE, BUSINESS_CODE, SEQUENCE_ID,
+            REQUEST_ID, MERCHANT_NO, SIGN_NAME,
+            SIGN_NAME_EN, MERCHANT_KYC, MERCHANT_KYC_SUB,
+            IP_ADDRESS, IP_AREA, IP_PROXY,
+            SELLER_ID, SELLER_WEBSITE, SELLER_WEBSITE_DOMAIN,
+            GOODS_NAME, GOODS_TYPE, GOODS_QUANTITY,
+            PAYER_NAME, PAYER_NAME_DIGEST, PAYER_ID_CARD,
+            PAYER_ID_CARD_DIGEST, PAYER_ID_CARD_AREA, PAYER_TYPE,
+            PAYER_BANK_CARD_ID, PAYER_BANK_CARD_ID_DIGEST,
             PAYER_BANK_NAME, PAYER_BANK_CARD_AREA, PAYER_BANK_CARD_NAME_BS,
             PAYER_BANK_CARD_TYPE_BS, PAYER_BANK_NAME_BS,
             RECEIVER_NAME, RECEIVER_NAME_DIGEST, RECEIVER_ID_CARD,
             RECEIVER_ID_CARD_DIGEST, RECEIVER_ID_CARD_AREA,
-            RECEIVER_BANK_CARD_ID, RECEIVER_BANK_CARD_AREA,
-            RECEIVER_BANK_NAME, RECEIVER_BANK_CARD_NAME_BS,
-            RECEIVER_BANK_CARD_TYPE_BS, RECEIVER_BANK_NAME_BS,
-            RECEIVER_PHONE, RECEIVER_PHONE_DIGEST, RECEIVER_PHONE_AREA,
-            RECEIVER_PHONE_RISK, RECEIVER_PHONE_ALT,
-            CURRENCY, AMOUNT, CNY_AMOUNT,
-            OCCUR_TIME, COMPLETE_TIME, UPLOAD_TIME,
-            EXCHANGE_REASON, TRADE_PLATFORM, TRADE_PARAM,
-            LOGISTICS_COMPANY, LOGISTICS_NO, STATUS,
-            REMARK, BLACK_TM, BLACK_RESULT,
-            BLACK_RESULT_CODE, WHITE_RESULT, TOTAL_TM,
-            RULE_TM, RULE_RESULT, TRIGER_RULE,
-            RULE_CODES, SUPPORT_OPERATE_CODE, BLOCK_TYPE,
-            ERROR_CODE, ERROR_MSG, NOTIFY_STATUS,
-            NOTIFY_NUM, NOTIFY_RESULT_CODE, NOTIFY_RESULT_MSG,
-            PAY_RESULT, GOODS_INFO, CREATE_TIME,
-            UPDATE_TIME, PAYER_BANK_CARD_ID_DIGEST)
-        values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR},
-            #{businessCode,jdbcType=VARCHAR}, #{sequenceId,jdbcType=VARCHAR}, #{requestId,jdbcType=VARCHAR},
-            #{merchantNo,jdbcType=VARCHAR}, #{signName,jdbcType=VARCHAR}, #{signNameEn,jdbcType=VARCHAR},
-            #{merchantKyc,jdbcType=VARCHAR}, #{merchantKycSub,jdbcType=VARCHAR}, #{ipAddress,jdbcType=VARCHAR},
-            #{ipArea,jdbcType=VARCHAR}, #{ipProxy,jdbcType=VARCHAR}, #{sellerId,jdbcType=VARCHAR},
-            #{sellerWebsite,jdbcType=VARCHAR}, #{sellerWebsiteDomain,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR},
-            #{goodsType,jdbcType=VARCHAR}, #{goodsQuantity,jdbcType=INTEGER}, #{payerName,jdbcType=VARCHAR},
-            #{payerNameDigest,jdbcType=VARCHAR}, #{payerIdCard,jdbcType=VARCHAR}, #{payerIdCardDigest,jdbcType=VARCHAR},
-            #{payerIdCardArea,jdbcType=VARCHAR}, #{payerType,jdbcType=VARCHAR}, #{payerBankCardId,jdbcType=VARCHAR},
+            RECEIVER_BANK_CARD_ID, RECEIVER_BANK_CARD_ID_DIGEST,
+            RECEIVER_BANK_CARD_AREA, RECEIVER_BANK_NAME,
+            RECEIVER_BANK_CARD_NAME_BS, RECEIVER_BANK_CARD_TYPE_BS,
+            RECEIVER_BANK_NAME_BS, RECEIVER_PHONE, RECEIVER_PHONE_DIGEST,
+            RECEIVER_PHONE_AREA, RECEIVER_PHONE_RISK,
+            RECEIVER_PHONE_ALT, CURRENCY, AMOUNT,
+            CNY_AMOUNT, OCCUR_TIME, COMPLETE_TIME,
+            UPLOAD_TIME, EXCHANGE_REASON, TRADE_PLATFORM,
+            TRADE_PARAM, LOGISTICS_COMPANY, LOGISTICS_NO,
+            STATUS, REMARK, BLACK_TM,
+            BLACK_RESULT, BLACK_RESULT_CODE, WHITE_RESULT,
+            TOTAL_TM, RULE_TM, RULE_RESULT,
+            TRIGER_RULE, RULE_CODES, SUPPORT_OPERATE_CODE,
+            BLOCK_TYPE, ERROR_CODE, ERROR_MSG,
+            NOTIFY_STATUS, NOTIFY_NUM, NOTIFY_RESULT_CODE,
+            NOTIFY_RESULT_MSG, PAY_RESULT, GOODS_INFO,
+            CREATE_TIME, UPDATE_TIME)
+        values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=VARCHAR}, #{parentRequestId,jdbcType=VARCHAR},
+            #{productCode,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR}, #{sequenceId,jdbcType=VARCHAR},
+            #{requestId,jdbcType=VARCHAR}, #{merchantNo,jdbcType=VARCHAR}, #{signName,jdbcType=VARCHAR},
+            #{signNameEn,jdbcType=VARCHAR}, #{merchantKyc,jdbcType=VARCHAR}, #{merchantKycSub,jdbcType=VARCHAR},
+            #{ipAddress,jdbcType=VARCHAR}, #{ipArea,jdbcType=VARCHAR}, #{ipProxy,jdbcType=VARCHAR},
+            #{sellerId,jdbcType=VARCHAR}, #{sellerWebsite,jdbcType=VARCHAR}, #{sellerWebsiteDomain,jdbcType=VARCHAR},
+            #{goodsName,jdbcType=VARCHAR}, #{goodsType,jdbcType=VARCHAR}, #{goodsQuantity,jdbcType=INTEGER},
+            #{payerName,jdbcType=VARCHAR}, #{payerNameDigest,jdbcType=VARCHAR}, #{payerIdCard,jdbcType=VARCHAR},
+            #{payerIdCardDigest,jdbcType=VARCHAR}, #{payerIdCardArea,jdbcType=VARCHAR}, #{payerType,jdbcType=VARCHAR},
+            #{payerBankCardId,jdbcType=VARCHAR}, #{payerBankCardIdDigest,jdbcType=VARCHAR},
             #{payerBankName,jdbcType=VARCHAR}, #{payerBankCardArea,jdbcType=VARCHAR}, #{payerBankCardNameBs,jdbcType=VARCHAR},
             #{payerBankCardTypeBs,jdbcType=VARCHAR}, #{payerBankNameBs,jdbcType=VARCHAR},
             #{receiverName,jdbcType=VARCHAR}, #{receiverNameDigest,jdbcType=VARCHAR}, #{receiverIdCard,jdbcType=VARCHAR},
             #{receiverIdCardDigest,jdbcType=VARCHAR}, #{receiverIdCardArea,jdbcType=VARCHAR},
-            #{receiverBankCardId,jdbcType=VARCHAR}, #{receiverBankCardArea,jdbcType=VARCHAR},
-            #{receiverBankName,jdbcType=VARCHAR}, #{receiverBankCardNameBs,jdbcType=VARCHAR},
-            #{receiverBankCardTypeBs,jdbcType=VARCHAR}, #{receiverBankNameBs,jdbcType=VARCHAR},
-            #{receiverPhone,jdbcType=VARCHAR}, #{receiverPhoneDigest,jdbcType=VARCHAR}, #{receiverPhoneArea,jdbcType=VARCHAR},
-            #{receiverPhoneRisk,jdbcType=VARCHAR}, #{receiverPhoneAlt,jdbcType=VARCHAR},
-            #{currency,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{cnyAmount,jdbcType=DECIMAL},
-            #{occurTime,jdbcType=TIMESTAMP}, #{completeTime,jdbcType=TIMESTAMP}, #{uploadTime,jdbcType=TIMESTAMP},
-            #{exchangeReason,jdbcType=VARCHAR}, #{tradePlatform,jdbcType=VARCHAR}, #{tradeParam,jdbcType=VARCHAR},
-            #{logisticsCompany,jdbcType=VARCHAR}, #{logisticsNo,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
-            #{remark,jdbcType=VARCHAR}, #{blackTm,jdbcType=VARCHAR}, #{blackResult,jdbcType=VARCHAR},
-            #{blackResultCode,jdbcType=VARCHAR}, #{whiteResult,jdbcType=VARCHAR}, #{totalTm,jdbcType=VARCHAR},
-            #{ruleTm,jdbcType=VARCHAR}, #{ruleResult,jdbcType=VARCHAR}, #{trigerRule,jdbcType=VARCHAR},
-            #{ruleCodes,jdbcType=VARCHAR}, #{supportOperateCode,jdbcType=VARCHAR}, #{blockType,jdbcType=VARCHAR},
-            #{errorCode,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR}, #{notifyStatus,jdbcType=VARCHAR},
-            #{notifyNum,jdbcType=INTEGER}, #{notifyResultCode,jdbcType=VARCHAR}, #{notifyResultMsg,jdbcType=VARCHAR},
-            #{payResult,jdbcType=VARCHAR}, #{goodsInfo,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=TIMESTAMP},
-            #{updateTime,jdbcType=TIMESTAMP}, #{payerBankCardIdDigest,jdbcType=VARCHAR})
+            #{receiverBankCardId,jdbcType=VARCHAR}, #{receiverBankCardIdDigest,jdbcType=VARCHAR},
+            #{receiverBankCardArea,jdbcType=VARCHAR}, #{receiverBankName,jdbcType=VARCHAR},
+            #{receiverBankCardNameBs,jdbcType=VARCHAR}, #{receiverBankCardTypeBs,jdbcType=VARCHAR},
+            #{receiverBankNameBs,jdbcType=VARCHAR}, #{receiverPhone,jdbcType=VARCHAR}, #{receiverPhoneDigest,jdbcType=VARCHAR},
+            #{receiverPhoneArea,jdbcType=VARCHAR}, #{receiverPhoneRisk,jdbcType=VARCHAR},
+            #{receiverPhoneAlt,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL},
+            #{cnyAmount,jdbcType=DECIMAL}, #{occurTime,jdbcType=TIMESTAMP}, #{completeTime,jdbcType=TIMESTAMP},
+            #{uploadTime,jdbcType=TIMESTAMP}, #{exchangeReason,jdbcType=VARCHAR}, #{tradePlatform,jdbcType=VARCHAR},
+            #{tradeParam,jdbcType=LONGVARCHAR}, #{logisticsCompany,jdbcType=VARCHAR}, #{logisticsNo,jdbcType=VARCHAR},
+            #{status,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{blackTm,jdbcType=VARCHAR},
+            #{blackResult,jdbcType=LONGVARCHAR}, #{blackResultCode,jdbcType=VARCHAR}, #{whiteResult,jdbcType=VARCHAR},
+            #{totalTm,jdbcType=VARCHAR}, #{ruleTm,jdbcType=VARCHAR}, #{ruleResult,jdbcType=LONGVARCHAR},
+            #{trigerRule,jdbcType=VARCHAR}, #{ruleCodes,jdbcType=VARCHAR}, #{supportOperateCode,jdbcType=VARCHAR},
+            #{blockType,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, #{errorMsg,jdbcType=VARCHAR},
+            #{notifyStatus,jdbcType=VARCHAR}, #{notifyNum,jdbcType=INTEGER}, #{notifyResultCode,jdbcType=VARCHAR},
+            #{notifyResultMsg,jdbcType=VARCHAR}, #{payResult,jdbcType=VARCHAR}, #{goodsInfo,jdbcType=LONGVARCHAR},
+            #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
     </insert>
 
     <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TblGptTdOrderDetail" >
@@ -259,6 +264,9 @@
             </if>
             <if test="orderId != null" >
                 ORDER_ID,
+            </if>
+            <if test="parentRequestId != null" >
+                PARENT_REQUEST_ID,
             </if>
             <if test="productCode != null" >
                 PRODUCT_CODE,
@@ -335,6 +343,9 @@
             <if test="payerBankCardId != null" >
                 PAYER_BANK_CARD_ID,
             </if>
+            <if test="payerBankCardIdDigest != null" >
+                PAYER_BANK_CARD_ID_DIGEST,
+            </if>
             <if test="payerBankName != null" >
                 PAYER_BANK_NAME,
             </if>
@@ -367,6 +378,9 @@
             </if>
             <if test="receiverBankCardId != null" >
                 RECEIVER_BANK_CARD_ID,
+            </if>
+            <if test="receiverBankCardIdDigest != null" >
+                RECEIVER_BANK_CARD_ID_DIGEST,
             </if>
             <if test="receiverBankCardArea != null" >
                 RECEIVER_BANK_CARD_AREA,
@@ -500,9 +514,6 @@
             <if test="updateTime != null" >
                 UPDATE_TIME,
             </if>
-            <if test="payerBankCardIdDigest != null" >
-                PAYER_BANK_CARD_ID_DIGEST,
-            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="id != null" >
@@ -510,6 +521,9 @@
             </if>
             <if test="orderId != null" >
                 #{orderId,jdbcType=VARCHAR},
+            </if>
+            <if test="parentRequestId != null" >
+                #{parentRequestId,jdbcType=VARCHAR},
             </if>
             <if test="productCode != null" >
                 #{productCode,jdbcType=VARCHAR},
@@ -586,6 +600,9 @@
             <if test="payerBankCardId != null" >
                 #{payerBankCardId,jdbcType=VARCHAR},
             </if>
+            <if test="payerBankCardIdDigest != null" >
+                #{payerBankCardIdDigest,jdbcType=VARCHAR},
+            </if>
             <if test="payerBankName != null" >
                 #{payerBankName,jdbcType=VARCHAR},
             </if>
@@ -618,6 +635,9 @@
             </if>
             <if test="receiverBankCardId != null" >
                 #{receiverBankCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverBankCardIdDigest != null" >
+                #{receiverBankCardIdDigest,jdbcType=VARCHAR},
             </if>
             <if test="receiverBankCardArea != null" >
                 #{receiverBankCardArea,jdbcType=VARCHAR},
@@ -674,7 +694,7 @@
                 #{tradePlatform,jdbcType=VARCHAR},
             </if>
             <if test="tradeParam != null" >
-                #{tradeParam,jdbcType=VARCHAR},
+                #{tradeParam,jdbcType=LONGVARCHAR},
             </if>
             <if test="logisticsCompany != null" >
                 #{logisticsCompany,jdbcType=VARCHAR},
@@ -692,7 +712,7 @@
                 #{blackTm,jdbcType=VARCHAR},
             </if>
             <if test="blackResult != null" >
-                #{blackResult,jdbcType=VARCHAR},
+                #{blackResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="blackResultCode != null" >
                 #{blackResultCode,jdbcType=VARCHAR},
@@ -707,7 +727,7 @@
                 #{ruleTm,jdbcType=VARCHAR},
             </if>
             <if test="ruleResult != null" >
-                #{ruleResult,jdbcType=VARCHAR},
+                #{ruleResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="trigerRule != null" >
                 #{trigerRule,jdbcType=VARCHAR},
@@ -751,9 +771,6 @@
             <if test="updateTime != null" >
                 #{updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="payerBankCardIdDigest != null" >
-                #{payerBankCardIdDigest,jdbcType=VARCHAR},
-            </if>
         </trim>
     </insert>
 
@@ -772,6 +789,9 @@
             </if>
             <if test="record.orderId != null" >
                 ORDER_ID = #{record.orderId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.parentRequestId != null" >
+                PARENT_REQUEST_ID = #{record.parentRequestId,jdbcType=VARCHAR},
             </if>
             <if test="record.productCode != null" >
                 PRODUCT_CODE = #{record.productCode,jdbcType=VARCHAR},
@@ -848,6 +868,9 @@
             <if test="record.payerBankCardId != null" >
                 PAYER_BANK_CARD_ID = #{record.payerBankCardId,jdbcType=VARCHAR},
             </if>
+            <if test="record.payerBankCardIdDigest != null" >
+                PAYER_BANK_CARD_ID_DIGEST = #{record.payerBankCardIdDigest,jdbcType=VARCHAR},
+            </if>
             <if test="record.payerBankName != null" >
                 PAYER_BANK_NAME = #{record.payerBankName,jdbcType=VARCHAR},
             </if>
@@ -880,6 +903,9 @@
             </if>
             <if test="record.receiverBankCardId != null" >
                 RECEIVER_BANK_CARD_ID = #{record.receiverBankCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.receiverBankCardIdDigest != null" >
+                RECEIVER_BANK_CARD_ID_DIGEST = #{record.receiverBankCardIdDigest,jdbcType=VARCHAR},
             </if>
             <if test="record.receiverBankCardArea != null" >
                 RECEIVER_BANK_CARD_AREA = #{record.receiverBankCardArea,jdbcType=VARCHAR},
@@ -936,7 +962,7 @@
                 TRADE_PLATFORM = #{record.tradePlatform,jdbcType=VARCHAR},
             </if>
             <if test="record.tradeParam != null" >
-                TRADE_PARAM = #{record.tradeParam,jdbcType=VARCHAR},
+                TRADE_PARAM = #{record.tradeParam,jdbcType=LONGVARCHAR},
             </if>
             <if test="record.logisticsCompany != null" >
                 LOGISTICS_COMPANY = #{record.logisticsCompany,jdbcType=VARCHAR},
@@ -954,7 +980,7 @@
                 BLACK_TM = #{record.blackTm,jdbcType=VARCHAR},
             </if>
             <if test="record.blackResult != null" >
-                BLACK_RESULT = #{record.blackResult,jdbcType=VARCHAR},
+                BLACK_RESULT = #{record.blackResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="record.blackResultCode != null" >
                 BLACK_RESULT_CODE = #{record.blackResultCode,jdbcType=VARCHAR},
@@ -969,7 +995,7 @@
                 RULE_TM = #{record.ruleTm,jdbcType=VARCHAR},
             </if>
             <if test="record.ruleResult != null" >
-                RULE_RESULT = #{record.ruleResult,jdbcType=VARCHAR},
+                RULE_RESULT = #{record.ruleResult,jdbcType=LONGVARCHAR},
             </if>
             <if test="record.trigerRule != null" >
                 TRIGER_RULE = #{record.trigerRule,jdbcType=VARCHAR},
@@ -1013,9 +1039,6 @@
             <if test="record.updateTime != null" >
                 UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="record.payerBankCardIdDigest != null" >
-                PAYER_BANK_CARD_ID_DIGEST = #{record.payerBankCardIdDigest,jdbcType=VARCHAR},
-            </if>
         </set>
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
@@ -1026,6 +1049,7 @@
         update TBL_GPT_TD_ORDER_DETAIL
         set ID = #{record.id,jdbcType=BIGINT},
             ORDER_ID = #{record.orderId,jdbcType=VARCHAR},
+            PARENT_REQUEST_ID = #{record.parentRequestId,jdbcType=VARCHAR},
             PRODUCT_CODE = #{record.productCode,jdbcType=VARCHAR},
             BUSINESS_CODE = #{record.businessCode,jdbcType=VARCHAR},
             SEQUENCE_ID = #{record.sequenceId,jdbcType=VARCHAR},
@@ -1051,6 +1075,7 @@
             PAYER_ID_CARD_AREA = #{record.payerIdCardArea,jdbcType=VARCHAR},
             PAYER_TYPE = #{record.payerType,jdbcType=VARCHAR},
             PAYER_BANK_CARD_ID = #{record.payerBankCardId,jdbcType=VARCHAR},
+            PAYER_BANK_CARD_ID_DIGEST = #{record.payerBankCardIdDigest,jdbcType=VARCHAR},
             PAYER_BANK_NAME = #{record.payerBankName,jdbcType=VARCHAR},
             PAYER_BANK_CARD_AREA = #{record.payerBankCardArea,jdbcType=VARCHAR},
             PAYER_BANK_CARD_NAME_BS = #{record.payerBankCardNameBs,jdbcType=VARCHAR},
@@ -1062,6 +1087,7 @@
             RECEIVER_ID_CARD_DIGEST = #{record.receiverIdCardDigest,jdbcType=VARCHAR},
             RECEIVER_ID_CARD_AREA = #{record.receiverIdCardArea,jdbcType=VARCHAR},
             RECEIVER_BANK_CARD_ID = #{record.receiverBankCardId,jdbcType=VARCHAR},
+            RECEIVER_BANK_CARD_ID_DIGEST = #{record.receiverBankCardIdDigest,jdbcType=VARCHAR},
             RECEIVER_BANK_CARD_AREA = #{record.receiverBankCardArea,jdbcType=VARCHAR},
             RECEIVER_BANK_NAME = #{record.receiverBankName,jdbcType=VARCHAR},
             RECEIVER_BANK_CARD_NAME_BS = #{record.receiverBankCardNameBs,jdbcType=VARCHAR},
@@ -1080,18 +1106,18 @@
             UPLOAD_TIME = #{record.uploadTime,jdbcType=TIMESTAMP},
             EXCHANGE_REASON = #{record.exchangeReason,jdbcType=VARCHAR},
             TRADE_PLATFORM = #{record.tradePlatform,jdbcType=VARCHAR},
-            TRADE_PARAM = #{record.tradeParam,jdbcType=VARCHAR},
+            TRADE_PARAM = #{record.tradeParam,jdbcType=LONGVARCHAR},
             LOGISTICS_COMPANY = #{record.logisticsCompany,jdbcType=VARCHAR},
             LOGISTICS_NO = #{record.logisticsNo,jdbcType=VARCHAR},
             STATUS = #{record.status,jdbcType=VARCHAR},
             REMARK = #{record.remark,jdbcType=VARCHAR},
             BLACK_TM = #{record.blackTm,jdbcType=VARCHAR},
-            BLACK_RESULT = #{record.blackResult,jdbcType=VARCHAR},
+            BLACK_RESULT = #{record.blackResult,jdbcType=LONGVARCHAR},
             BLACK_RESULT_CODE = #{record.blackResultCode,jdbcType=VARCHAR},
             WHITE_RESULT = #{record.whiteResult,jdbcType=VARCHAR},
             TOTAL_TM = #{record.totalTm,jdbcType=VARCHAR},
             RULE_TM = #{record.ruleTm,jdbcType=VARCHAR},
-            RULE_RESULT = #{record.ruleResult,jdbcType=VARCHAR},
+            RULE_RESULT = #{record.ruleResult,jdbcType=LONGVARCHAR},
             TRIGER_RULE = #{record.trigerRule,jdbcType=VARCHAR},
             RULE_CODES = #{record.ruleCodes,jdbcType=VARCHAR},
             SUPPORT_OPERATE_CODE = #{record.supportOperateCode,jdbcType=VARCHAR},
@@ -1105,8 +1131,7 @@
             PAY_RESULT = #{record.payResult,jdbcType=VARCHAR},
             GOODS_INFO = #{record.goodsInfo,jdbcType=LONGVARCHAR},
             CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-            UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
-            PAYER_BANK_CARD_ID_DIGEST = #{record.payerBankCardIdDigest,jdbcType=VARCHAR}
+            UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>

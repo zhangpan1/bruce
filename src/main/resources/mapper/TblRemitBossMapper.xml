@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.TblRemitBossMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TblRemitBoss" >
+        <result column="ID" property="id" jdbcType="BIGINT" />
+        <result column="PROD" property="prod" jdbcType="VARCHAR" />
+        <result column="BIZ" property="biz" jdbcType="VARCHAR" />
+        <result column="MEC_NO" property="mecNo" jdbcType="VARCHAR" />
+        <result column="REQ_ID" property="reqId" jdbcType="VARCHAR" />
+        <result column="SEQ_ID" property="seqId" jdbcType="VARCHAR" />
+        <result column="FILE_URL" property="fileUrl" jdbcType="VARCHAR" />
+        <result column="OCC_TM" property="occTm" jdbcType="TIMESTAMP" />
+        <result column="ORD_AMT" property="ordAmt" jdbcType="DECIMAL" />
+        <result column="REF_AMT" property="refAmt" jdbcType="DECIMAL" />
+        <result column="DVD_AMT" property="dvdAmt" jdbcType="DECIMAL" />
+        <result column="DVD_DETAIL" property="dvdDetail" jdbcType="LONGVARCHAR" />
+        <result column="DEAL_STATUS" property="dealStatus" jdbcType="VARCHAR" />
+        <result column="PARSE_INFO" property="parseInfo" jdbcType="VARCHAR" />
+        <result column="CT_TM" property="ctTm" jdbcType="TIMESTAMP" />
+        <result column="MF_TM" property="mfTm" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        ID, PROD, BIZ, MEC_NO, REQ_ID, SEQ_ID, FILE_URL, OCC_TM, ORD_AMT, REF_AMT, DVD_AMT,
+        DVD_DETAIL, DEAL_STATUS, PARSE_INFO, CT_TM, MF_TM
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TblRemitBossExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from TBL_REMIT_BOSS
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <delete id="deleteByExample" parameterType="com.zhang.bruce.easyexcel.TblRemitBossExample" >
+        delete from TBL_REMIT_BOSS
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.easyexcel.TblRemitBoss" >
+        insert into TBL_REMIT_BOSS (ID, PROD, BIZ,
+            MEC_NO, REQ_ID, SEQ_ID,
+            FILE_URL, OCC_TM, ORD_AMT,
+            REF_AMT, DVD_AMT, DVD_DETAIL,
+            DEAL_STATUS, PARSE_INFO, CT_TM,
+            MF_TM)
+        values (#{id,jdbcType=BIGINT}, #{prod,jdbcType=VARCHAR}, #{biz,jdbcType=VARCHAR},
+            #{mecNo,jdbcType=VARCHAR}, #{reqId,jdbcType=VARCHAR}, #{seqId,jdbcType=VARCHAR},
+            #{fileUrl,jdbcType=VARCHAR}, #{occTm,jdbcType=TIMESTAMP}, #{ordAmt,jdbcType=DECIMAL},
+            #{refAmt,jdbcType=DECIMAL}, #{dvdAmt,jdbcType=DECIMAL}, #{dvdDetail,jdbcType=LONGVARCHAR},
+            #{dealStatus,jdbcType=VARCHAR}, #{parseInfo,jdbcType=VARCHAR}, #{ctTm,jdbcType=TIMESTAMP},
+            #{mfTm,jdbcType=TIMESTAMP})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TblRemitBoss" >
+        insert into TBL_REMIT_BOSS
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            <if test="prod != null" >
+                PROD,
+            </if>
+            <if test="biz != null" >
+                BIZ,
+            </if>
+            <if test="mecNo != null" >
+                MEC_NO,
+            </if>
+            <if test="reqId != null" >
+                REQ_ID,
+            </if>
+            <if test="seqId != null" >
+                SEQ_ID,
+            </if>
+            <if test="fileUrl != null" >
+                FILE_URL,
+            </if>
+            <if test="occTm != null" >
+                OCC_TM,
+            </if>
+            <if test="ordAmt != null" >
+                ORD_AMT,
+            </if>
+            <if test="refAmt != null" >
+                REF_AMT,
+            </if>
+            <if test="dvdAmt != null" >
+                DVD_AMT,
+            </if>
+            <if test="dvdDetail != null" >
+                DVD_DETAIL,
+            </if>
+            <if test="dealStatus != null" >
+                DEAL_STATUS,
+            </if>
+            <if test="parseInfo != null" >
+                PARSE_INFO,
+            </if>
+            <if test="ctTm != null" >
+                CT_TM,
+            </if>
+            <if test="mfTm != null" >
+                MF_TM,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="prod != null" >
+                #{prod,jdbcType=VARCHAR},
+            </if>
+            <if test="biz != null" >
+                #{biz,jdbcType=VARCHAR},
+            </if>
+            <if test="mecNo != null" >
+                #{mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="reqId != null" >
+                #{reqId,jdbcType=VARCHAR},
+            </if>
+            <if test="seqId != null" >
+                #{seqId,jdbcType=VARCHAR},
+            </if>
+            <if test="fileUrl != null" >
+                #{fileUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="occTm != null" >
+                #{occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ordAmt != null" >
+                #{ordAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="refAmt != null" >
+                #{refAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="dvdAmt != null" >
+                #{dvdAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="dvdDetail != null" >
+                #{dvdDetail,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="dealStatus != null" >
+                #{dealStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="parseInfo != null" >
+                #{parseInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="ctTm != null" >
+                #{ctTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="mfTm != null" >
+                #{mfTm,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.zhang.bruce.easyexcel.TblRemitBossExample" resultType="java.lang.Integer" >
+        select count(*) from TBL_REMIT_BOSS
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update TBL_REMIT_BOSS
+        <set >
+            <if test="record.id != null" >
+                ID = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.prod != null" >
+                PROD = #{record.prod,jdbcType=VARCHAR},
+            </if>
+            <if test="record.biz != null" >
+                BIZ = #{record.biz,jdbcType=VARCHAR},
+            </if>
+            <if test="record.mecNo != null" >
+                MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.reqId != null" >
+                REQ_ID = #{record.reqId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.seqId != null" >
+                SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.fileUrl != null" >
+                FILE_URL = #{record.fileUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.occTm != null" >
+                OCC_TM = #{record.occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.ordAmt != null" >
+                ORD_AMT = #{record.ordAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="record.refAmt != null" >
+                REF_AMT = #{record.refAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="record.dvdAmt != null" >
+                DVD_AMT = #{record.dvdAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="record.dvdDetail != null" >
+                DVD_DETAIL = #{record.dvdDetail,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="record.dealStatus != null" >
+                DEAL_STATUS = #{record.dealStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="record.parseInfo != null" >
+                PARSE_INFO = #{record.parseInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ctTm != null" >
+                CT_TM = #{record.ctTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.mfTm != null" >
+                MF_TM = #{record.mfTm,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update TBL_REMIT_BOSS
+        set ID = #{record.id,jdbcType=BIGINT},
+            PROD = #{record.prod,jdbcType=VARCHAR},
+            BIZ = #{record.biz,jdbcType=VARCHAR},
+            MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            REQ_ID = #{record.reqId,jdbcType=VARCHAR},
+            SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+            FILE_URL = #{record.fileUrl,jdbcType=VARCHAR},
+            OCC_TM = #{record.occTm,jdbcType=TIMESTAMP},
+            ORD_AMT = #{record.ordAmt,jdbcType=DECIMAL},
+            REF_AMT = #{record.refAmt,jdbcType=DECIMAL},
+            DVD_AMT = #{record.dvdAmt,jdbcType=DECIMAL},
+            DVD_DETAIL = #{record.dvdDetail,jdbcType=LONGVARCHAR},
+            DEAL_STATUS = #{record.dealStatus,jdbcType=VARCHAR},
+            PARSE_INFO = #{record.parseInfo,jdbcType=VARCHAR},
+            CT_TM = #{record.ctTm,jdbcType=TIMESTAMP},
+            MF_TM = #{record.mfTm,jdbcType=TIMESTAMP}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+</mapper>

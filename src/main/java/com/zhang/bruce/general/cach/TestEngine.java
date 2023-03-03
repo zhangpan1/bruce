@@ -11,6 +11,7 @@ import com.tcredit.streaming.core.bean.method.DistinctedListObject;
 import com.tcredit.streaming.core.bean.method.MergeableMapObject;
 import com.tcredit.streaming.core.bean.method.SumNumber;
 import com.tcredit.streaming.core.model.DSPayOrder;
+import com.tcredit.streaming.core.model.DefaultModel;
 import com.tcredit.streaming.core.model.OfflineDSPayOrder;
 import com.tcredit.streaming.core.norm.define.*;
 import com.tcredit.streaming.core.utils.LoggerUtil;
@@ -19,85 +20,49 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static java.util.Objects.isNull;
+
 
 public class TestEngine {
     public static void main(String[] args) throws Exception {
         List<Object> list = new ArrayList<Object>();
-        DSPayOrder obj = new DSPayOrder();
-        obj.setIp("10.7.1.21");
-        obj.setColCustUserId("100200300");
-        obj.setProduct("FE");
-        obj.setContactPhone("123899");
-        obj.setPayCustCardNo("8984548545894");
-        obj.setTransTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2018-04-25 19:12:32"));
-        obj.setComamt(8900L);
-        obj.setStatus("SUCCESS");
-
-        DSPayOrder obj1 = new DSPayOrder();
-        obj1.setContactPhone("123899");
-        obj1.setPayCustCardNo("8984548545894");
-        obj.setIp("10.7.1.21");
-        obj.setColCustUserId("100200300");
-        obj.setProduct("NOCARDPAY");
-        obj1.setTransTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2018-04-24 12:12:32"));
-        obj1.setComamt(8900L);
-        obj1.setStatus("SUCCESS");
-        list.add(obj1);
-        list.add(obj);
-        Map<Class<?>, List<Object>> a = new HashMap<Class<?>, List<Object>>();
-        a.put(DSPayOrder.class, list);
+        DefaultModel obj = new DefaultModel();
+        obj.setTradeTableName("TBL_MERCHANT_CHECKLIST");
+        obj.put("merchantNo","10088811547");
+        obj.put("occurTime","2023-02-15 18:22:11");
+        obj.put("ruleCode","MEC_R_D_021");
+        DefaultModel obj1 = new DefaultModel();
+        obj1.setTradeTableName("TBL_MERCHANT_CHECKLIST");
+        obj1.put("merchantNo","10088811547");
+        obj1.put("occurTime","2023-02-15 20:22:11");
+        obj1.put("ruleCode","MEC_R_D_021");
+        DefaultModel obj2 = new DefaultModel();
+        obj2.setTradeTableName("TBL_MERCHANT_CHECKLIST");
+        obj2.put("merchantNo","10088811547");
+        obj2.put("occurTime","2023-02-15 21:22:11");
+        obj2.put("ruleCode","MEC_R_D_021");
 
         List<Object> list1 = new ArrayList<Object>();
-        OfflineDSPayOrder offlineDSPayOrder = new OfflineDSPayOrder();
-        offlineDSPayOrder.setCardNo("89845485458943");
-        offlineDSPayOrder.setIp("10.7.1.21");
-        offlineDSPayOrder.setMerchantId("100200300");
-        offlineDSPayOrder.setTransTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2022-11-13 09:12:32"));
-        offlineDSPayOrder.setTransType("SALE");
-        offlineDSPayOrder.setStatus("1");
-        offlineDSPayOrder.setProductId("OFFLINE");
-        offlineDSPayOrder.setTransAmount(1999L);
-
-        OfflineDSPayOrder offlineDSPayOrder1 = new OfflineDSPayOrder();
-        offlineDSPayOrder1.setCardNo("89845485458943");
-        offlineDSPayOrder1.setIp("10.7.1.21");
-        offlineDSPayOrder1.setMerchantId("100200300");
-        offlineDSPayOrder1.setTransTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2022-11-13 11:12:32"));
-        offlineDSPayOrder1.setTransType("SALE");
-        offlineDSPayOrder1.setStatus("1");
-        offlineDSPayOrder1.setProductId("OFFLINE");
-        offlineDSPayOrder1.setTransAmount(2000L);
-        list1.add(offlineDSPayOrder1);
-
-        OfflineDSPayOrder offlineDSPayOrder3 = new OfflineDSPayOrder();
-        offlineDSPayOrder3.setCardNo("89845485458943");
-        offlineDSPayOrder3.setIp("10.7.1.21");
-        offlineDSPayOrder3.setMerchantId("100200300");
-        offlineDSPayOrder3.setTransTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2022-11-13 10:12:32"));
-        offlineDSPayOrder3.setTransType("SALE");
-        offlineDSPayOrder3.setStatus("1");
-        offlineDSPayOrder1.setProductId("OFFNEW");
-        offlineDSPayOrder1.setTransAmount(3000L);
-        list1.add(offlineDSPayOrder3);
-        list1.add(offlineDSPayOrder);
-        list1.add(offlineDSPayOrder1);
+        list1.add(obj);
+        list1.add(obj1);
+        list1.add(obj2);
         Map<Class<?>, List<Object>> a1 = new HashMap<Class<?>, List<Object>>();
-        a1.put(OfflineDSPayOrder.class, list1);
-        Set<CachedRecord> calc = task3().calc(a1);
+        a1.put(DefaultModel.class, list1);
+        Set<CachedRecord> calc = task4().calc(a1);
         System.out.println(JSON.toJSONString(calc, SerializerFeature.DisableCircularReferenceDetect));
+
+
 
         Iterator it = calc.iterator();
         while (it.hasNext()) {
             CachedRecord cachedRecord = (CachedRecord) it.next();
-            TimedItems timedItems = (TimedItems) cachedRecord.get("同卡近【72】小时内在【OFFLINE|OFFNEW|OFFPAY】下累积线下成功交易金额");
-            System.out.println("分割线");
-            System.out.println(JSON.toJSONString(timedItems, SerializerFeature.DisableCircularReferenceDetect));
-            String transtime = "1668357028000";
-            String duration = "72ph";
-            String p = "OFFLINE";
-            String x = "amount";
+            TimedItems timedItems = (TimedItems) cachedRecord.get("同商户近X小时触发规则次数");
+            String transtime = "1676534169437";
+            String duration = "24ph";
             System.out.println("二次割线");
-            System.out.println(getMergeMapByKey(timedItems,transtime,duration,p,x));
+            System.out.println(getCacheMap(timedItems,transtime,duration));
+
+            System.out.println(getCountFromMapByKeySplit(getCacheMap(timedItems,transtime,duration),"MEC_R_D_021"));
 
         }
 
@@ -268,5 +233,142 @@ public class TestEngine {
                         return new MergeableMapObject(order.getProductId(),new SumNumber(order.getTransAmount()));
                     }
                 }).init();
+    }
+    public static NormDefine task4(){
+        return NormDefineBuilder.createNorm("同商户近X小时触发规则次数").selectCachedRecord("mchid", "PAY.REMIT")
+                .setObjectType(DefaultModel.class).setObjectKey(new Key() {
+                    public String key(Object obj) {
+                        DefaultModel order = (DefaultModel) obj;
+                        return (String)order.get("merchantNo");
+                    }
+                }).setFilter(new Filter() {
+                    public boolean filt(Object obj) {
+                        DefaultModel order = (DefaultModel) obj;
+                        String merchantno = (String)order.get("merchantNo");
+                        String  occurTime = (String)order.get("occurTime");
+                        String tradeTableName  = (String)order.get("tradeTableName");
+                        return ( notNull(merchantno)  && notNull(occurTime) &&
+                                "TBL_MERCHANT_CHECKLIST".equals(tradeTableName)
+                        );
+                    }
+                }).setExpireMode("73ph").setObjectDate(new DateItem() {
+                    public Date getDate(Object obj) {
+                        DefaultModel order = (DefaultModel) obj;
+                        String  occurTime = (String)order.get("occurTime");
+                        return parseToDate(occurTime,"yyyy-MM-dd HH:mm:ss");
+                    }
+                }).setMethod(new Method() {
+                    public Mergeable invoke(Object obj) {
+                        DefaultModel order = (DefaultModel) obj;
+                        String ruleCode = (String)order.get("ruleCode");
+                        MergeableMapObject map = new MergeableMapObject();
+                        if(notNull(ruleCode)){
+                            for(String value : ruleCode.split(",")){
+                                map.put(value,new CountNumber(1L));
+                            }
+                        }
+                        return map;
+                    }
+                }).init();
+    }
+    static Date parseToDate(Object time,Object formate) {
+        try {
+            LoggerUtil.getLogger().debug("time == {}", time);
+            LoggerUtil.getLogger().debug("formate == {}", formate);
+
+            String timeStr = "";
+            if (time instanceof String) {
+                timeStr = time.toString();
+            }else{
+                return null;
+            }
+            String formateStr = "";
+            if (formate instanceof String) {
+                formateStr = formate.toString();
+            }else{
+                return null;
+            }
+
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(formateStr);
+            Date date = null;
+            date = simpleDateFormat.parse(timeStr);
+            return date;
+
+
+        } catch (Exception e) {
+
+            LoggerUtil.getLogger().error("全局方法出现异常", e);
+            return null;
+        }
+    }
+
+    static ConvenientHashMap getCacheMap(Object obj, Object transtime, String duration) {
+        try {
+            LoggerUtil.getLogger().debug("obj == {}", obj);
+            LoggerUtil.getLogger().debug("transtime == {}", transtime);
+            LoggerUtil.getLogger().debug("duration == {}", duration);
+            /**
+             * 获取MergeableMapObject对象中的ConvenientHashMap
+             */
+            ConvenientHashMap map = new ConvenientHashMap();
+            if (obj == null || !(obj instanceof TimedItems)) {
+                return map;
+            }
+            TimedItems tt = (TimedItems) obj;
+            Object o = null;
+            if (transtime == null || duration == null) {
+                o = tt.getRaw();
+            } else {
+                o = tt.getRaw(transtime, duration);
+            }
+            if (o instanceof MergeableMapObject) {
+                return (ConvenientHashMap)((MergeableMapObject) o).getMap();
+            }
+            return map;
+        } catch (Exception e) {
+
+            LoggerUtil.getLogger().error("全局方法出现异常", e);
+            return null;
+        }
+    }
+
+    static long getCountFromMapByKeySplit(Object obj, String key){
+        try {
+            long value = 0;
+            if (isNull(key)) return value;
+            if (obj instanceof ConvenientHashMap) {
+                ConvenientHashMap map = (ConvenientHashMap) obj;
+                if ("all".equalsIgnoreCase(key.trim())) {
+                    Iterator entries = map.entrySet().iterator();
+                    while (entries.hasNext()) {
+                        Map.Entry entry = (Map.Entry) entries.next();
+                        if (entry != null && entry.getValue() != null && entry.getValue() instanceof SumNumber) {
+                            value += ((SumNumber) entry.getValue()).getCount();
+                        } else if (entry != null && entry.getValue() != null && entry.getValue() instanceof CountNumber) {
+                            value += ((CountNumber) entry.getValue()).getCount();
+                        } else if (entry != null && entry.getValue() != null && entry.getValue() instanceof DistinctedListObject) {
+                            value += ((DistinctedListObject) entry.getValue()).getSet().size();
+                        }
+                    }
+                } else {
+                    String[] keyArray = key.trim().split(",");
+                    for (String keyStr : keyArray) {
+                        Object o = map.get(keyStr);
+                        if (o != null && o instanceof SumNumber) {
+                            value += ((SumNumber) o).getCount();
+                        } else if (o != null && o instanceof CountNumber) {
+                            value += ((CountNumber) o).getCount();
+                        } else if (o != null && o instanceof DistinctedListObject) {
+                            value += ((DistinctedListObject) o).getSet().size();
+                        }
+                    }
+                }
+            }
+            return value;
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("getCountFromMapByKeySplit 全局方法出现异常", e);
+            return 0;
+        }
     }
 }

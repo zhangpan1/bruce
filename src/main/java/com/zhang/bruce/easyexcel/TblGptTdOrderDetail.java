@@ -8,12 +8,14 @@ import java.util.Date;
  *
  * @author wcyong
  *
- * @date 2023-01-19
+ * @date 2023-02-05
  */
 public class TblGptTdOrderDetail {
     private Long id;
 
     private String orderId;
+
+    private String parentRequestId;
 
     private String productCode;
 
@@ -65,6 +67,8 @@ public class TblGptTdOrderDetail {
 
     private String payerBankCardId;
 
+    private String payerBankCardIdDigest;
+
     private String payerBankName;
 
     private String payerBankCardArea;
@@ -86,6 +90,8 @@ public class TblGptTdOrderDetail {
     private String receiverIdCardArea;
 
     private String receiverBankCardId;
+
+    private String receiverBankCardIdDigest;
 
     private String receiverBankCardArea;
 
@@ -175,8 +181,6 @@ public class TblGptTdOrderDetail {
 
     private Date updateTime;
 
-    private String payerBankCardIdDigest;
-
     public Long getId() {
         return id;
     }
@@ -191,6 +195,14 @@ public class TblGptTdOrderDetail {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId == null ? null : orderId.trim();
+    }
+
+    public String getParentRequestId() {
+        return parentRequestId;
+    }
+
+    public void setParentRequestId(String parentRequestId) {
+        this.parentRequestId = parentRequestId == null ? null : parentRequestId.trim();
     }
 
     public String getProductCode() {
@@ -393,6 +405,14 @@ public class TblGptTdOrderDetail {
         this.payerBankCardId = payerBankCardId == null ? null : payerBankCardId.trim();
     }
 
+    public String getPayerBankCardIdDigest() {
+        return payerBankCardIdDigest;
+    }
+
+    public void setPayerBankCardIdDigest(String payerBankCardIdDigest) {
+        this.payerBankCardIdDigest = payerBankCardIdDigest == null ? null : payerBankCardIdDigest.trim();
+    }
+
     public String getPayerBankName() {
         return payerBankName;
     }
@@ -479,6 +499,14 @@ public class TblGptTdOrderDetail {
 
     public void setReceiverBankCardId(String receiverBankCardId) {
         this.receiverBankCardId = receiverBankCardId == null ? null : receiverBankCardId.trim();
+    }
+
+    public String getReceiverBankCardIdDigest() {
+        return receiverBankCardIdDigest;
+    }
+
+    public void setReceiverBankCardIdDigest(String receiverBankCardIdDigest) {
+        this.receiverBankCardIdDigest = receiverBankCardIdDigest == null ? null : receiverBankCardIdDigest.trim();
     }
 
     public String getReceiverBankCardArea() {
@@ -831,13 +859,5 @@ public class TblGptTdOrderDetail {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getPayerBankCardIdDigest() {
-        return payerBankCardIdDigest;
-    }
-
-    public void setPayerBankCardIdDigest(String payerBankCardIdDigest) {
-        this.payerBankCardIdDigest = payerBankCardIdDigest == null ? null : payerBankCardIdDigest.trim();
     }
 }

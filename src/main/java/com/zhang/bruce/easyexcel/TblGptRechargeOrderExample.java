@@ -70,7 +70,7 @@ public class TblGptRechargeOrderExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-18
+     * @date 2023-02-05
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -730,6 +730,146 @@ public class TblGptRechargeOrderExample {
 
         public Criteria andMemberIdNotBetween(String value1, String value2) {
             addCriterion("MEMBER_ID not between", value1, value2, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycIsNull() {
+            addCriterion("MERCHANT_KYC is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycIsNotNull() {
+            addCriterion("MERCHANT_KYC is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycEqualTo(String value) {
+            addCriterion("MERCHANT_KYC =", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycNotEqualTo(String value) {
+            addCriterion("MERCHANT_KYC <>", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycGreaterThan(String value) {
+            addCriterion("MERCHANT_KYC >", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycGreaterThanOrEqualTo(String value) {
+            addCriterion("MERCHANT_KYC >=", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycLessThan(String value) {
+            addCriterion("MERCHANT_KYC <", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycLessThanOrEqualTo(String value) {
+            addCriterion("MERCHANT_KYC <=", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycLike(String value) {
+            addCriterion("MERCHANT_KYC like", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycNotLike(String value) {
+            addCriterion("MERCHANT_KYC not like", value, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycIn(List<String> values) {
+            addCriterion("MERCHANT_KYC in", values, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycNotIn(List<String> values) {
+            addCriterion("MERCHANT_KYC not in", values, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycBetween(String value1, String value2) {
+            addCriterion("MERCHANT_KYC between", value1, value2, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycNotBetween(String value1, String value2) {
+            addCriterion("MERCHANT_KYC not between", value1, value2, "merchantKyc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubIsNull() {
+            addCriterion("MERCHANT_KYC_SUB is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubIsNotNull() {
+            addCriterion("MERCHANT_KYC_SUB is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubEqualTo(String value) {
+            addCriterion("MERCHANT_KYC_SUB =", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubNotEqualTo(String value) {
+            addCriterion("MERCHANT_KYC_SUB <>", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubGreaterThan(String value) {
+            addCriterion("MERCHANT_KYC_SUB >", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubGreaterThanOrEqualTo(String value) {
+            addCriterion("MERCHANT_KYC_SUB >=", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubLessThan(String value) {
+            addCriterion("MERCHANT_KYC_SUB <", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubLessThanOrEqualTo(String value) {
+            addCriterion("MERCHANT_KYC_SUB <=", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubLike(String value) {
+            addCriterion("MERCHANT_KYC_SUB like", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubNotLike(String value) {
+            addCriterion("MERCHANT_KYC_SUB not like", value, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubIn(List<String> values) {
+            addCriterion("MERCHANT_KYC_SUB in", values, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubNotIn(List<String> values) {
+            addCriterion("MERCHANT_KYC_SUB not in", values, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubBetween(String value1, String value2) {
+            addCriterion("MERCHANT_KYC_SUB between", value1, value2, "merchantKycSub");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantKycSubNotBetween(String value1, String value2) {
+            addCriterion("MERCHANT_KYC_SUB not between", value1, value2, "merchantKycSub");
             return (Criteria) this;
         }
 
@@ -4656,7 +4796,7 @@ public class TblGptRechargeOrderExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-18
+     * @date 2023-02-05
      */
     public static class Criterion {
         private String condition;

@@ -70,7 +70,7 @@ public class TblGptTdOrderDetailExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-19
+     * @date 2023-02-05
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -240,6 +240,76 @@ public class TblGptTdOrderDetailExample {
 
         public Criteria andOrderIdNotBetween(String value1, String value2) {
             addCriterion("ORDER_ID not between", value1, value2, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdIsNull() {
+            addCriterion("PARENT_REQUEST_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdIsNotNull() {
+            addCriterion("PARENT_REQUEST_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID =", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID <>", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdGreaterThan(String value) {
+            addCriterion("PARENT_REQUEST_ID >", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdGreaterThanOrEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID >=", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdLessThan(String value) {
+            addCriterion("PARENT_REQUEST_ID <", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdLessThanOrEqualTo(String value) {
+            addCriterion("PARENT_REQUEST_ID <=", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdLike(String value) {
+            addCriterion("PARENT_REQUEST_ID like", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotLike(String value) {
+            addCriterion("PARENT_REQUEST_ID not like", value, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdIn(List<String> values) {
+            addCriterion("PARENT_REQUEST_ID in", values, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotIn(List<String> values) {
+            addCriterion("PARENT_REQUEST_ID not in", values, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdBetween(String value1, String value2) {
+            addCriterion("PARENT_REQUEST_ID between", value1, value2, "parentRequestId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentRequestIdNotBetween(String value1, String value2) {
+            addCriterion("PARENT_REQUEST_ID not between", value1, value2, "parentRequestId");
             return (Criteria) this;
         }
 
@@ -1983,6 +2053,76 @@ public class TblGptTdOrderDetailExample {
             return (Criteria) this;
         }
 
+        public Criteria andPayerBankCardIdDigestIsNull() {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestIsNotNull() {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestEqualTo(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST =", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestNotEqualTo(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST <>", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestGreaterThan(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST >", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestGreaterThanOrEqualTo(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST >=", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestLessThan(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST <", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestLessThanOrEqualTo(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST <=", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestLike(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST like", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestNotLike(String value) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST not like", value, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestIn(List<String> values) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST in", values, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestNotIn(List<String> values) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST not in", values, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestBetween(String value1, String value2) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST between", value1, value2, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayerBankCardIdDigestNotBetween(String value1, String value2) {
+            addCriterion("PAYER_BANK_CARD_ID_DIGEST not between", value1, value2, "payerBankCardIdDigest");
+            return (Criteria) this;
+        }
+
         public Criteria andPayerBankNameIsNull() {
             addCriterion("PAYER_BANK_NAME is null");
             return (Criteria) this;
@@ -2750,6 +2890,76 @@ public class TblGptTdOrderDetailExample {
 
         public Criteria andReceiverBankCardIdNotBetween(String value1, String value2) {
             addCriterion("RECEIVER_BANK_CARD_ID not between", value1, value2, "receiverBankCardId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestIsNull() {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestIsNotNull() {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestEqualTo(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST =", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestNotEqualTo(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST <>", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestGreaterThan(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST >", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestGreaterThanOrEqualTo(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST >=", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestLessThan(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST <", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestLessThanOrEqualTo(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST <=", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestLike(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST like", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestNotLike(String value) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST not like", value, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestIn(List<String> values) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST in", values, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestNotIn(List<String> values) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST not in", values, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestBetween(String value1, String value2) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST between", value1, value2, "receiverBankCardIdDigest");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiverBankCardIdDigestNotBetween(String value1, String value2) {
+            addCriterion("RECEIVER_BANK_CARD_ID_DIGEST not between", value1, value2, "receiverBankCardIdDigest");
             return (Criteria) this;
         }
 
@@ -5752,76 +5962,6 @@ public class TblGptTdOrderDetailExample {
             addCriterion("UPDATE_TIME not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
-
-        public Criteria andPayerBankCardIdDigestIsNull() {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestIsNotNull() {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestEqualTo(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST =", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestNotEqualTo(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST <>", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestGreaterThan(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST >", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestGreaterThanOrEqualTo(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST >=", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestLessThan(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST <", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestLessThanOrEqualTo(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST <=", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestLike(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST like", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestNotLike(String value) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST not like", value, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestIn(List<String> values) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST in", values, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestNotIn(List<String> values) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST not in", values, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestBetween(String value1, String value2) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST between", value1, value2, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayerBankCardIdDigestNotBetween(String value1, String value2) {
-            addCriterion("PAYER_BANK_CARD_ID_DIGEST not between", value1, value2, "payerBankCardIdDigest");
-            return (Criteria) this;
-        }
     }
 
     public static class Criteria extends GeneratedCriteria {
@@ -5836,7 +5976,7 @@ public class TblGptTdOrderDetailExample {
      *
      * @author wcyong
      *
-     * @date 2023-01-19
+     * @date 2023-02-05
      */
     public static class Criterion {
         private String condition;

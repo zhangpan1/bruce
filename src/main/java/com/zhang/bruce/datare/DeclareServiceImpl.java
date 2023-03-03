@@ -166,7 +166,6 @@ public class DeclareServiceImpl implements DeclareService {
 
             gptTdOrderDetail.setPayerBankCardTypeBs("借记卡");
             String reveName = SMUtils.encrypt("李大飙");
-            gptTdOrderDetail.setDeclareStatus("0");
 
             String ph = SMUtils.encrypt("13185609813");
 

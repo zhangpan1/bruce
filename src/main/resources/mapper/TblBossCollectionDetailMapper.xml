@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.TblBossCollectionDetailMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TblBossCollectionDetail" >
+        <result column="ID" property="id" jdbcType="BIGINT" />
+        <result column="PROD" property="prod" jdbcType="VARCHAR" />
+        <result column="BIZ" property="biz" jdbcType="VARCHAR" />
+        <result column="MEC_NO" property="mecNo" jdbcType="VARCHAR" />
+        <result column="REQ_ID" property="reqId" jdbcType="VARCHAR" />
+        <result column="SEQ_ID" property="seqId" jdbcType="VARCHAR" />
+        <result column="COO_REQ_ID" property="cooReqId" jdbcType="VARCHAR" />
+        <result column="AMT" property="amt" jdbcType="DECIMAL" />
+        <result column="PROD_NAME" property="prodName" jdbcType="VARCHAR" />
+        <result column="PAY_WAY" property="payWay" jdbcType="VARCHAR" />
+        <result column="CRD_NO" property="crdNo" jdbcType="VARCHAR" />
+        <result column="CRD_TYPE" property="crdType" jdbcType="VARCHAR" />
+        <result column="BNK_ID" property="bnkId" jdbcType="VARCHAR" />
+        <result column="USR_ID" property="usrId" jdbcType="VARCHAR" />
+        <result column="GOODS_NM" property="goodsNm" jdbcType="VARCHAR" />
+        <result column="OCC_TM" property="occTm" jdbcType="TIMESTAMP" />
+        <result column="CT_TM" property="ctTm" jdbcType="TIMESTAMP" />
+        <result column="MF_TM" property="mfTm" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        ID, PROD, BIZ, MEC_NO, REQ_ID, SEQ_ID, COO_REQ_ID, AMT, PROD_NAME, PAY_WAY, CRD_NO,
+        CRD_TYPE, BNK_ID, USR_ID, GOODS_NM, OCC_TM, CT_TM, MF_TM
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TblBossCollectionDetailExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from TBL_BOSS_COLLECTION_DETAIL
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <delete id="deleteByExample" parameterType="com.zhang.bruce.easyexcel.TblBossCollectionDetailExample" >
+        delete from TBL_BOSS_COLLECTION_DETAIL
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.easyexcel.TblBossCollectionDetail" >
+        insert into TBL_BOSS_COLLECTION_DETAIL (ID, PROD, BIZ,
+            MEC_NO, REQ_ID, SEQ_ID,
+            COO_REQ_ID, AMT, PROD_NAME,
+            PAY_WAY, CRD_NO, CRD_TYPE,
+            BNK_ID, USR_ID, GOODS_NM,
+            OCC_TM, CT_TM, MF_TM
+            )
+        values (#{id,jdbcType=BIGINT}, #{prod,jdbcType=VARCHAR}, #{biz,jdbcType=VARCHAR},
+            #{mecNo,jdbcType=VARCHAR}, #{reqId,jdbcType=VARCHAR}, #{seqId,jdbcType=VARCHAR},
+            #{cooReqId,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, #{prodName,jdbcType=VARCHAR},
+            #{payWay,jdbcType=VARCHAR}, #{crdNo,jdbcType=VARCHAR}, #{crdType,jdbcType=VARCHAR},
+            #{bnkId,jdbcType=VARCHAR}, #{usrId,jdbcType=VARCHAR}, #{goodsNm,jdbcType=VARCHAR},
+            #{occTm,jdbcType=TIMESTAMP}, #{ctTm,jdbcType=TIMESTAMP}, #{mfTm,jdbcType=TIMESTAMP}
+            )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TblBossCollectionDetail" >
+        insert into TBL_BOSS_COLLECTION_DETAIL
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            <if test="prod != null" >
+                PROD,
+            </if>
+            <if test="biz != null" >
+                BIZ,
+            </if>
+            <if test="mecNo != null" >
+                MEC_NO,
+            </if>
+            <if test="reqId != null" >
+                REQ_ID,
+            </if>
+            <if test="seqId != null" >
+                SEQ_ID,
+            </if>
+            <if test="cooReqId != null" >
+                COO_REQ_ID,
+            </if>
+            <if test="amt != null" >
+                AMT,
+            </if>
+            <if test="prodName != null" >
+                PROD_NAME,
+            </if>
+            <if test="payWay != null" >
+                PAY_WAY,
+            </if>
+            <if test="crdNo != null" >
+                CRD_NO,
+            </if>
+            <if test="crdType != null" >
+                CRD_TYPE,
+            </if>
+            <if test="bnkId != null" >
+                BNK_ID,
+            </if>
+            <if test="usrId != null" >
+                USR_ID,
+            </if>
+            <if test="goodsNm != null" >
+                GOODS_NM,
+            </if>
+            <if test="occTm != null" >
+                OCC_TM,
+            </if>
+            <if test="ctTm != null" >
+                CT_TM,
+            </if>
+            <if test="mfTm != null" >
+                MF_TM,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="prod != null" >
+                #{prod,jdbcType=VARCHAR},
+            </if>
+            <if test="biz != null" >
+                #{biz,jdbcType=VARCHAR},
+            </if>
+            <if test="mecNo != null" >
+                #{mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="reqId != null" >
+                #{reqId,jdbcType=VARCHAR},
+            </if>
+            <if test="seqId != null" >
+                #{seqId,jdbcType=VARCHAR},
+            </if>
+            <if test="cooReqId != null" >
+                #{cooReqId,jdbcType=VARCHAR},
+            </if>
+            <if test="amt != null" >
+                #{amt,jdbcType=DECIMAL},
+            </if>
+            <if test="prodName != null" >
+                #{prodName,jdbcType=VARCHAR},
+            </if>
+            <if test="payWay != null" >
+                #{payWay,jdbcType=VARCHAR},
+            </if>
+            <if test="crdNo != null" >
+                #{crdNo,jdbcType=VARCHAR},
+            </if>
+            <if test="crdType != null" >
+                #{crdType,jdbcType=VARCHAR},
+            </if>
+            <if test="bnkId != null" >
+                #{bnkId,jdbcType=VARCHAR},
+            </if>
+            <if test="usrId != null" >
+                #{usrId,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsNm != null" >
+                #{goodsNm,jdbcType=VARCHAR},
+            </if>
+            <if test="occTm != null" >
+                #{occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ctTm != null" >
+                #{ctTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="mfTm != null" >
+                #{mfTm,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.zhang.bruce.easyexcel.TblBossCollectionDetailExample" resultType="java.lang.Integer" >
+        select count(*) from TBL_BOSS_COLLECTION_DETAIL
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update TBL_BOSS_COLLECTION_DETAIL
+        <set >
+            <if test="record.id != null" >
+                ID = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.prod != null" >
+                PROD = #{record.prod,jdbcType=VARCHAR},
+            </if>
+            <if test="record.biz != null" >
+                BIZ = #{record.biz,jdbcType=VARCHAR},
+            </if>
+            <if test="record.mecNo != null" >
+                MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.reqId != null" >
+                REQ_ID = #{record.reqId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.seqId != null" >
+                SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.cooReqId != null" >
+                COO_REQ_ID = #{record.cooReqId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.amt != null" >
+                AMT = #{record.amt,jdbcType=DECIMAL},
+            </if>
+            <if test="record.prodName != null" >
+                PROD_NAME = #{record.prodName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payWay != null" >
+                PAY_WAY = #{record.payWay,jdbcType=VARCHAR},
+            </if>
+            <if test="record.crdNo != null" >
+                CRD_NO = #{record.crdNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.crdType != null" >
+                CRD_TYPE = #{record.crdType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bnkId != null" >
+                BNK_ID = #{record.bnkId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.usrId != null" >
+                USR_ID = #{record.usrId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.goodsNm != null" >
+                GOODS_NM = #{record.goodsNm,jdbcType=VARCHAR},
+            </if>
+            <if test="record.occTm != null" >
+                OCC_TM = #{record.occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.ctTm != null" >
+                CT_TM = #{record.ctTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.mfTm != null" >
+                MF_TM = #{record.mfTm,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update TBL_BOSS_COLLECTION_DETAIL
+        set ID = #{record.id,jdbcType=BIGINT},
+            PROD = #{record.prod,jdbcType=VARCHAR},
+            BIZ = #{record.biz,jdbcType=VARCHAR},
+            MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            REQ_ID = #{record.reqId,jdbcType=VARCHAR},
+            SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+            COO_REQ_ID = #{record.cooReqId,jdbcType=VARCHAR},
+            AMT = #{record.amt,jdbcType=DECIMAL},
+            PROD_NAME = #{record.prodName,jdbcType=VARCHAR},
+            PAY_WAY = #{record.payWay,jdbcType=VARCHAR},
+            CRD_NO = #{record.crdNo,jdbcType=VARCHAR},
+            CRD_TYPE = #{record.crdType,jdbcType=VARCHAR},
+            BNK_ID = #{record.bnkId,jdbcType=VARCHAR},
+            USR_ID = #{record.usrId,jdbcType=VARCHAR},
+            GOODS_NM = #{record.goodsNm,jdbcType=VARCHAR},
+            OCC_TM = #{record.occTm,jdbcType=TIMESTAMP},
+            CT_TM = #{record.ctTm,jdbcType=TIMESTAMP},
+            MF_TM = #{record.mfTm,jdbcType=TIMESTAMP}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+</mapper>

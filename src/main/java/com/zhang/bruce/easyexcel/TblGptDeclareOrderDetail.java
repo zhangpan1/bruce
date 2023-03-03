@@ -8,12 +8,14 @@ import java.util.Date;
  *
  * @author wcyong
  *
- * @date 2023-01-18
+ * @date 2023-02-05
  */
 public class TblGptDeclareOrderDetail {
     private Long id;
 
     private String orderId;
+
+    private String parentRequestId;
 
     private String productCode;
 
@@ -131,8 +133,6 @@ public class TblGptDeclareOrderDetail {
 
     private String payResult;
 
-    private String declareStatus;
-
     private String goodsInfo;
 
     private Date createTime;
@@ -153,6 +153,14 @@ public class TblGptDeclareOrderDetail {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId == null ? null : orderId.trim();
+    }
+
+    public String getParentRequestId() {
+        return parentRequestId;
+    }
+
+    public void setParentRequestId(String parentRequestId) {
+        this.parentRequestId = parentRequestId == null ? null : parentRequestId.trim();
     }
 
     public String getProductCode() {
@@ -617,14 +625,6 @@ public class TblGptDeclareOrderDetail {
 
     public void setPayResult(String payResult) {
         this.payResult = payResult == null ? null : payResult.trim();
-    }
-
-    public String getDeclareStatus() {
-        return declareStatus;
-    }
-
-    public void setDeclareStatus(String declareStatus) {
-        this.declareStatus = declareStatus == null ? null : declareStatus.trim();
     }
 
     public String getGoodsInfo() {
