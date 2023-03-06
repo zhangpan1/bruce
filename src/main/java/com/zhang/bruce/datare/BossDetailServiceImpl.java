@@ -48,33 +48,38 @@ public class BossDetailServiceImpl implements BossDetailService {
 
     @Override
     public void fushData() {
-        // 查询全部数据，更新详情
-        TblRemitBossExample tblRemitBossExample = new TblRemitBossExample();
-        tblRemitBossExample.createCriteria().andCtTmLessThan(new Date());
-        List<TblRemitBoss> tblRemitBosses = tblRemitBossMapper.selectByExample(tblRemitBossExample);
-        for (TblRemitBoss tblRemitBoss : tblRemitBosses) {
-            // 详情如果不为空
-            if (StringUtils.isNotBlank(tblRemitBoss.getDvdDetail())) {
-                try {
-                    List<DivideDetail> divideDetails = JSONObject.parseArray(tblRemitBoss.getDvdDetail(), DivideDetail.class);
-                    if (CollectionUtils.isNotEmpty(divideDetails)) {
-                        for (DivideDetail detail : divideDetails) {
-                            TblRemitBossDetailExample detailExample = new TblRemitBossDetailExample();
-                            detailExample.createCriteria().andDvdreqIdEqualTo(detail.getDivideRequestId());
-                            // 更新详情数据
-                            TblRemitBossDetail tblRemitBossDetail = new TblRemitBossDetail();
-                            tblRemitBossDetail.setLedgerName(detail.getLedgerName());
-                            tblRemitBossDetail.setLedgerCrdNo(detail.getLedgerCardNo());
-                            tblRemitBossDetail.setLedgerIdNo(detail.getLedgerId());
-                            tblRemitBossDetail.setLedgerPhone(detail.getLedgerPhone());
-                            tblRemitBossDetail.setMfTm(new Date());
-                            tblRemitBossDetailMapper.updateByExampleSelective(tblRemitBossDetail, detailExample);
+        try {
+            DynamicDataSourceContextHolder.push(DataSourceConstants.FKJS);
+            // 查询全部数据，更新详情
+            TblRemitBossExample tblRemitBossExample = new TblRemitBossExample();
+            tblRemitBossExample.createCriteria().andCtTmLessThan(new Date());
+            List<TblRemitBoss> tblRemitBosses = tblRemitBossMapper.selectByExample(tblRemitBossExample);
+            for (TblRemitBoss tblRemitBoss : tblRemitBosses) {
+                // 详情如果不为空
+                if (StringUtils.isNotBlank(tblRemitBoss.getDvdDetail())) {
+                    try {
+                        List<DivideDetail> divideDetails = JSONObject.parseArray(tblRemitBoss.getDvdDetail(), DivideDetail.class);
+                        if (CollectionUtils.isNotEmpty(divideDetails)) {
+                            for (DivideDetail detail : divideDetails) {
+                                TblRemitBossDetailExample detailExample = new TblRemitBossDetailExample();
+                                detailExample.createCriteria().andDvdreqIdEqualTo(detail.getDivideRequestId());
+                                // 更新详情数据
+                                TblRemitBossDetail tblRemitBossDetail = new TblRemitBossDetail();
+                                tblRemitBossDetail.setLedgerName(detail.getLedgerName());
+                                tblRemitBossDetail.setLedgerCrdNo(detail.getLedgerCardNo());
+                                tblRemitBossDetail.setLedgerIdNo(detail.getLedgerId());
+                                tblRemitBossDetail.setLedgerPhone(detail.getLedgerPhone());
+                                tblRemitBossDetail.setMfTm(new Date());
+                                tblRemitBossDetailMapper.updateByExampleSelective(tblRemitBossDetail, detailExample);
+                            }
                         }
-                    }
-                } catch (Exception e) {
+                    } catch (Exception e) {
 
+                    }
                 }
             }
+        } finally {
+            DynamicDataSourceContextHolder.poll();
         }
     }
 
