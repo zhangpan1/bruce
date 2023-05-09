@@ -3,6 +3,8 @@ package com.zhang.bruce.riskgod.business;
 
 import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.zhang.bruce.config.DataSourceConstants;
+import com.zhang.bruce.general.mysql.TblOfflineReqMapper;
+import com.zhang.bruce.general.mysql.TblOfflineReqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -9,4 +9,6 @@ public interface ExchangeService {
     void saveDataBusines();
 
     void saveDataTldb();
+
+    void saveDataCurrent();
 }

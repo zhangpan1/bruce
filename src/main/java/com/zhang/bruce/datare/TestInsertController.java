@@ -39,7 +39,7 @@ public class TestInsertController {
     // 申报明细
     @PostMapping("/testSaveD")
     public void testSaveD() throws IOException {
-        declareService.saveDataBusines();
+
     }
     @PostMapping("/testSaveF")
     public void testSaveF() throws IOException {
@@ -73,5 +73,9 @@ public class TestInsertController {
     @PostMapping("/testSaveN")
     public void testSaveN() throws IOException {
         exchangeService.saveDataTldb();
+    }
+    @PostMapping("/testInsert")
+    public void testInsert() throws IOException {
+        exchangeService.saveDataCurrent();
     }
 }

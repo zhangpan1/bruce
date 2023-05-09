@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.TblRrsReqCurrentMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TblRrsReqCurrent" >
+        <result column="ID" property="id" jdbcType="BIGINT" />
+        <result column="IP_COUNTRY" property="ipCountry" jdbcType="VARCHAR" />
+        <result column="IP_PROVINCE" property="ipProvince" jdbcType="VARCHAR" />
+        <result column="IP_CITY" property="ipCity" jdbcType="VARCHAR" />
+        <result column="SEQ_ID" property="seqId" jdbcType="VARCHAR" />
+        <result column="REQ_ID" property="reqId" jdbcType="VARCHAR" />
+        <result column="RID" property="rid" jdbcType="VARCHAR" />
+        <result column="PROD" property="prod" jdbcType="VARCHAR" />
+        <result column="BIZ" property="biz" jdbcType="VARCHAR" />
+        <result column="USE_TOOL" property="useTool" jdbcType="VARCHAR" />
+        <result column="BNK_ID" property="bnkId" jdbcType="VARCHAR" />
+        <result column="CRD_NO" property="crdNo" jdbcType="VARCHAR" />
+        <result column="CRD_AREA" property="crdArea" jdbcType="VARCHAR" />
+        <result column="CRD_TYP" property="crdTyp" jdbcType="VARCHAR" />
+        <result column="AMT" property="amt" jdbcType="DECIMAL" />
+        <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+        <result column="MOBILE_AREA" property="mobileArea" jdbcType="VARCHAR" />
+        <result column="USR_ID" property="usrId" jdbcType="VARCHAR" />
+        <result column="PAY_ID" property="payId" jdbcType="VARCHAR" />
+        <result column="MEC_NO" property="mecNo" jdbcType="VARCHAR" />
+        <result column="USR_IP" property="usrIp" jdbcType="VARCHAR" />
+        <result column="USR_IP_AREA" property="usrIpArea" jdbcType="VARCHAR" />
+        <result column="OCC_TM" property="occTm" jdbcType="TIMESTAMP" />
+        <result column="TOOLS_IF" property="toolsIf" jdbcType="VARCHAR" />
+        <result column="GOODS_IF" property="goodsIf" jdbcType="VARCHAR" />
+        <result column="REQ_IF" property="reqIf" jdbcType="VARCHAR" />
+        <result column="RTS_TM" property="rtsTm" jdbcType="INTEGER" />
+        <result column="RTS_RETDESC" property="rtsRetdesc" jdbcType="VARCHAR" />
+        <result column="RLSB_TM" property="rlsbTm" jdbcType="INTEGER" />
+        <result column="RLSB_RETDESC" property="rlsbRetdesc" jdbcType="VARCHAR" />
+        <result column="RLSW_TM" property="rlswTm" jdbcType="INTEGER" />
+        <result column="RLSW_RETDESC" property="rlswRetdesc" jdbcType="VARCHAR" />
+        <result column="RDS_TM" property="rdsTm" jdbcType="INTEGER" />
+        <result column="RDS_RETDESC" property="rdsRetdesc" jdbcType="VARCHAR" />
+        <result column="DOORGOD_TM" property="doorgodTm" jdbcType="INTEGER" />
+        <result column="DOORGOD_RETDESC" property="doorgodRetdesc" jdbcType="VARCHAR" />
+        <result column="DOORGOD_RETCODE" property="doorgodRetcode" jdbcType="VARCHAR" />
+        <result column="PREPARE_TM" property="prepareTm" jdbcType="INTEGER" />
+        <result column="CHK_TM" property="chkTm" jdbcType="INTEGER" />
+        <result column="RK_IP" property="rkIp" jdbcType="VARCHAR" />
+        <result column="SUB_SYS" property="subSys" jdbcType="VARCHAR" />
+        <result column="CT_TM" property="ctTm" jdbcType="TIMESTAMP" />
+        <result column="MF_TM" property="mfTm" jdbcType="TIMESTAMP" />
+        <result column="CHK_RETDESC" property="chkRetdesc" jdbcType="VARCHAR" />
+        <result column="PREPARE_RETDESC" property="prepareRetdesc" jdbcType="VARCHAR" />
+        <result column="FIRST_PAY" property="firstPay" jdbcType="VARCHAR" />
+        <result column="GOODS_NM" property="goodsNm" jdbcType="VARCHAR" />
+        <result column="SUB_PROD_ID" property="subProdId" jdbcType="VARCHAR" />
+        <result column="RGS_RETDESC" property="rgsRetdesc" jdbcType="VARCHAR" />
+        <result column="RGS_TM" property="rgsTm" jdbcType="INTEGER" />
+        <result column="RBS_RETDESC" property="rbsRetdesc" jdbcType="VARCHAR" />
+        <result column="RBS_TM" property="rbsTm" jdbcType="INTEGER" />
+        <result column="RET_SWITCH" property="retSwitch" jdbcType="VARCHAR" />
+        <result column="RLSG_RETDESC" property="rlsgRetdesc" jdbcType="VARCHAR" />
+        <result column="RLSG_TM" property="rlsgTm" jdbcType="INTEGER" />
+        <result column="RETCODE" property="retcode" jdbcType="VARCHAR" />
+        <result column="BANGSUN_TRIGERRULE" property="bangsunTrigerrule" jdbcType="VARCHAR" />
+        <result column="PAYWAY" property="payway" jdbcType="VARCHAR" />
+        <result column="TRADE_SRC" property="tradeSrc" jdbcType="VARCHAR" />
+        <result column="PARAM_TYP" property="paramTyp" jdbcType="VARCHAR" />
+        <result column="MERCHANT_RETCODE" property="merchantRetcode" jdbcType="VARCHAR" />
+        <result column="IF_ENCRY" property="ifEncry" jdbcType="VARCHAR" />
+        <result column="PAY_RESULT" property="payResult" jdbcType="VARCHAR" />
+        <result column="PAY_TM" property="payTm" jdbcType="TIMESTAMP" />
+        <result column="PAY_CD" property="payCd" jdbcType="VARCHAR" />
+        <result column="SYN_CON_TM" property="synConTm" jdbcType="INTEGER" />
+        <result column="SYN_ERR_CD" property="synErrCd" jdbcType="VARCHAR" />
+        <result column="BIZORDER" property="bizorder" jdbcType="VARCHAR" />
+        <result column="BANK_SEQ" property="bankSeq" jdbcType="VARCHAR" />
+        <result column="BANK_ORDERNO" property="bankOrderno" jdbcType="VARCHAR" />
+        <result column="ORDER_TYPE" property="orderType" jdbcType="VARCHAR" />
+        <result column="FRP_CODE" property="frpCode" jdbcType="VARCHAR" />
+        <result column="ETLTASKID" property="etltaskid" jdbcType="VARCHAR" />
+        <result column="TERMINAL_ID" property="terminalId" jdbcType="VARCHAR" />
+        <result column="ID_NO" property="idNo" jdbcType="VARCHAR" />
+        <result column="PRE_PHONE" property="prePhone" jdbcType="VARCHAR" />
+        <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+        <result column="CUSTOMERIDNO" property="customeridno" jdbcType="VARCHAR" />
+        <result column="AGENCY_NO" property="agencyNo" jdbcType="VARCHAR" />
+        <result column="PASSENGER_PHONE" property="passengerPhone" jdbcType="VARCHAR" />
+        <result column="TARGET_MERCHANT_NO" property="targetMerchantNo" jdbcType="VARCHAR" />
+        <result column="REQUEST_MERCHANT_NO" property="requestMerchantNo" jdbcType="VARCHAR" />
+        <result column="USER_TYPE" property="userType" jdbcType="VARCHAR" />
+        <result column="TARGET_USER_TYPE" property="targetUserType" jdbcType="VARCHAR" />
+        <result column="PRE_PHONE_DIGEST" property="prePhoneDigest" jdbcType="VARCHAR" />
+        <result column="CONTACT_PHONE_DIGEST" property="contactPhoneDigest" jdbcType="VARCHAR" />
+        <result column="ID_NO_DIGEST" property="idNoDigest" jdbcType="VARCHAR" />
+        <result column="CUSTOMERIDNO_DIGEST" property="customeridnoDigest" jdbcType="VARCHAR" />
+        <result column="CRD_NO_DIGEST" property="crdNoDigest" jdbcType="VARCHAR" />
+        <result column="MOBILE_DIGEST" property="mobileDigest" jdbcType="VARCHAR" />
+        <result column="PASSENGER_PHONE_DIGEST" property="passengerPhoneDigest" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        ID, IP_COUNTRY, IP_PROVINCE, IP_CITY, SEQ_ID, REQ_ID, RID, PROD, BIZ, USE_TOOL, BNK_ID,
+        CRD_NO, CRD_AREA, CRD_TYP, AMT, MOBILE, MOBILE_AREA, USR_ID, PAY_ID, MEC_NO, USR_IP,
+        USR_IP_AREA, OCC_TM, TOOLS_IF, GOODS_IF, REQ_IF, RTS_TM, RTS_Rusr_idETDESC, RLSB_TM, RLSB_RETDESC,
+        RLSW_TM, RLSW_RETDESC, RDS_TM, RDS_RETDESC, DOORGOD_TM, DOORGOD_RETDESC, DOORGOD_RETCODE,
+        PREPARE_TM, CHK_TM, RK_IP, SUB_SYS, CT_TM, MF_TM, CHK_RETDESC, PREPARE_RETDESC, FIRST_PAY,
+        GOODS_NM, SUB_PROD_ID, RGS_RETDESC, RGS_TM, RBS_RETDESC, RBS_TM, RET_SWITCH, RLSG_RETDESC,
+        RLSG_TM, RETCODE, BANGSUN_TRIGERRULE, PAYWAY, TRADE_SRC, PARAM_TYP, MERCHANT_RETCODE,
+        IF_ENCRY, PAY_RESULT, PAY_TM, PAY_CD, SYN_CON_TM, SYN_ERR_CD, BIZORDER, BANK_SEQ,
+        BANK_ORDERNO, ORDER_TYPE, FRP_CODE, ETLTASKID, TERMINAL_ID, ID_NO, PRE_PHONE, CONTACT_PHONE,
+        CUSTOMERIDNO, AGENCY_NO, PASSENGER_PHONE, TARGET_MERCHANT_NO, REQUEST_MERCHANT_NO,
+        USER_TYPE, TARGET_USER_TYPE, PRE_PHONE_DIGEST, CONTACT_PHONE_DIGEST, ID_NO_DIGEST,
+        CUSTOMERIDNO_DIGEST, CRD_NO_DIGEST, MOBILE_DIGEST, PASSENGER_PHONE_DIGEST
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TblRrsReqCurrentExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from TBL_RRS_REQ_CURRENT
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <delete id="deleteByExample" parameterType="com.zhang.bruce.easyexcel.TblRrsReqCurrentExample" >
+        delete from TBL_RRS_REQ_CURRENT
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.easyexcel.TblRrsReqCurrent" >
+        insert into TBL_RRS_REQ_CURRENT (ID, IP_COUNTRY, IP_PROVINCE,
+            IP_CITY, SEQ_ID, REQ_ID,
+            RID, PROD, BIZ, USE_TOOL,
+            BNK_ID, CRD_NO, CRD_AREA,
+            CRD_TYP, AMT, MOBILE,
+            MOBILE_AREA, USR_ID, PAY_ID,
+            MEC_NO, USR_IP, USR_IP_AREA,
+            OCC_TM, TOOLS_IF, GOODS_IF,
+            REQ_IF, RTS_TM, RTS_RETDESC,
+            RLSB_TM, RLSB_RETDESC, RLSW_TM,
+            RLSW_RETDESC, RDS_TM, RDS_RETDESC,
+            DOORGOD_TM, DOORGOD_RETDESC, DOORGOD_RETCODE,
+            PREPARE_TM, CHK_TM, RK_IP,
+            SUB_SYS, CT_TM, MF_TM,
+            CHK_RETDESC, PREPARE_RETDESC, FIRST_PAY,
+            GOODS_NM, SUB_PROD_ID, RGS_RETDESC,
+            RGS_TM, RBS_RETDESC, RBS_TM,
+            RET_SWITCH, RLSG_RETDESC, RLSG_TM,
+            RETCODE, BANGSUN_TRIGERRULE, PAYWAY,
+            TRADE_SRC, PARAM_TYP, MERCHANT_RETCODE,
+            IF_ENCRY, PAY_RESULT, PAY_TM,
+            PAY_CD, SYN_CON_TM, SYN_ERR_CD,
+            BIZORDER, BANK_SEQ, BANK_ORDERNO,
+            ORDER_TYPE, FRP_CODE, ETLTASKID,
+            TERMINAL_ID, ID_NO, PRE_PHONE,
+            CONTACT_PHONE, CUSTOMERIDNO, AGENCY_NO,
+            PASSENGER_PHONE, TARGET_MERCHANT_NO, REQUEST_MERCHANT_NO,
+            USER_TYPE, TARGET_USER_TYPE, PRE_PHONE_DIGEST,
+            CONTACT_PHONE_DIGEST, ID_NO_DIGEST, CUSTOMERIDNO_DIGEST,
+            CRD_NO_DIGEST, MOBILE_DIGEST, PASSENGER_PHONE_DIGEST
+            )
+        values (#{id,jdbcType=BIGINT}, #{ipCountry,jdbcType=VARCHAR}, #{ipProvince,jdbcType=VARCHAR},
+            #{ipCity,jdbcType=VARCHAR}, #{seqId,jdbcType=VARCHAR}, #{reqId,jdbcType=VARCHAR},
+            #{rid,jdbcType=VARCHAR}, #{prod,jdbcType=VARCHAR}, #{biz,jdbcType=VARCHAR}, #{useTool,jdbcType=VARCHAR},
+            #{bnkId,jdbcType=VARCHAR}, #{crdNo,jdbcType=VARCHAR}, #{crdArea,jdbcType=VARCHAR},
+            #{crdTyp,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, #{mobile,jdbcType=VARCHAR},
+            #{mobileArea,jdbcType=VARCHAR}, #{usrId,jdbcType=VARCHAR}, #{payId,jdbcType=VARCHAR},
+            #{mecNo,jdbcType=VARCHAR}, #{usrIp,jdbcType=VARCHAR}, #{usrIpArea,jdbcType=VARCHAR},
+            #{occTm,jdbcType=TIMESTAMP}, #{toolsIf,jdbcType=VARCHAR}, #{goodsIf,jdbcType=VARCHAR},
+            #{reqIf,jdbcType=VARCHAR}, #{rtsTm,jdbcType=INTEGER}, #{rtsRetdesc,jdbcType=VARCHAR},
+            #{rlsbTm,jdbcType=INTEGER}, #{rlsbRetdesc,jdbcType=VARCHAR}, #{rlswTm,jdbcType=INTEGER},
+            #{rlswRetdesc,jdbcType=VARCHAR}, #{rdsTm,jdbcType=INTEGER}, #{rdsRetdesc,jdbcType=VARCHAR},
+            #{doorgodTm,jdbcType=INTEGER}, #{doorgodRetdesc,jdbcType=VARCHAR}, #{doorgodRetcode,jdbcType=VARCHAR},
+            #{prepareTm,jdbcType=INTEGER}, #{chkTm,jdbcType=INTEGER}, #{rkIp,jdbcType=VARCHAR},
+            #{subSys,jdbcType=VARCHAR}, #{ctTm,jdbcType=TIMESTAMP}, #{mfTm,jdbcType=TIMESTAMP},
+            #{chkRetdesc,jdbcType=VARCHAR}, #{prepareRetdesc,jdbcType=VARCHAR}, #{firstPay,jdbcType=VARCHAR},
+            #{goodsNm,jdbcType=VARCHAR}, #{subProdId,jdbcType=VARCHAR}, #{rgsRetdesc,jdbcType=VARCHAR},
+            #{rgsTm,jdbcType=INTEGER}, #{rbsRetdesc,jdbcType=VARCHAR}, #{rbsTm,jdbcType=INTEGER},
+            #{retSwitch,jdbcType=VARCHAR}, #{rlsgRetdesc,jdbcType=VARCHAR}, #{rlsgTm,jdbcType=INTEGER},
+            #{retcode,jdbcType=VARCHAR}, #{bangsunTrigerrule,jdbcType=VARCHAR}, #{payway,jdbcType=VARCHAR},
+            #{tradeSrc,jdbcType=VARCHAR}, #{paramTyp,jdbcType=VARCHAR}, #{merchantRetcode,jdbcType=VARCHAR},
+            #{ifEncry,jdbcType=VARCHAR}, #{payResult,jdbcType=VARCHAR}, #{payTm,jdbcType=TIMESTAMP},
+            #{payCd,jdbcType=VARCHAR}, #{synConTm,jdbcType=INTEGER}, #{synErrCd,jdbcType=VARCHAR},
+            #{bizorder,jdbcType=VARCHAR}, #{bankSeq,jdbcType=VARCHAR}, #{bankOrderno,jdbcType=VARCHAR},
+            #{orderType,jdbcType=VARCHAR}, #{frpCode,jdbcType=VARCHAR}, #{etltaskid,jdbcType=VARCHAR},
+            #{terminalId,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, #{prePhone,jdbcType=VARCHAR},
+            #{contactPhone,jdbcType=VARCHAR}, #{customeridno,jdbcType=VARCHAR}, #{agencyNo,jdbcType=VARCHAR},
+            #{passengerPhone,jdbcType=VARCHAR}, #{targetMerchantNo,jdbcType=VARCHAR}, #{requestMerchantNo,jdbcType=VARCHAR},
+            #{userType,jdbcType=VARCHAR}, #{targetUserType,jdbcType=VARCHAR}, #{prePhoneDigest,jdbcType=VARCHAR},
+            #{contactPhoneDigest,jdbcType=VARCHAR}, #{idNoDigest,jdbcType=VARCHAR}, #{customeridnoDigest,jdbcType=VARCHAR},
+            #{crdNoDigest,jdbcType=VARCHAR}, #{mobileDigest,jdbcType=VARCHAR}, #{passengerPhoneDigest,jdbcType=VARCHAR}
+            )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TblRrsReqCurrent" >
+        insert into TBL_RRS_REQ_CURRENT
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            <if test="ipCountry != null" >
+                IP_COUNTRY,
+            </if>
+            <if test="ipProvince != null" >
+                IP_PROVINCE,
+            </if>
+            <if test="ipCity != null" >
+                IP_CITY,
+            </if>
+            <if test="seqId != null" >
+                SEQ_ID,
+            </if>
+            <if test="reqId != null" >
+                REQ_ID,
+            </if>
+            <if test="rid != null" >
+                RID,
+            </if>
+            <if test="prod != null" >
+                PROD,
+            </if>
+            <if test="biz != null" >
+                BIZ,
+            </if>
+            <if test="useTool != null" >
+                USE_TOOL,
+            </if>
+            <if test="bnkId != null" >
+                BNK_ID,
+            </if>
+            <if test="crdNo != null" >
+                CRD_NO,
+            </if>
+            <if test="crdArea != null" >
+                CRD_AREA,
+            </if>
+            <if test="crdTyp != null" >
+                CRD_TYP,
+            </if>
+            <if test="amt != null" >
+                AMT,
+            </if>
+            <if test="mobile != null" >
+                MOBILE,
+            </if>
+            <if test="mobileArea != null" >
+                MOBILE_AREA,
+            </if>
+            <if test="usrId != null" >
+                USR_ID,
+            </if>
+            <if test="payId != null" >
+                PAY_ID,
+            </if>
+            <if test="mecNo != null" >
+                MEC_NO,
+            </if>
+            <if test="usrIp != null" >
+                USR_IP,
+            </if>
+            <if test="usrIpArea != null" >
+                USR_IP_AREA,
+            </if>
+            <if test="occTm != null" >
+                OCC_TM,
+            </if>
+            <if test="toolsIf != null" >
+                TOOLS_IF,
+            </if>
+            <if test="goodsIf != null" >
+                GOODS_IF,
+            </if>
+            <if test="reqIf != null" >
+                REQ_IF,
+            </if>
+            <if test="rtsTm != null" >
+                RTS_TM,
+            </if>
+            <if test="rtsRetdesc != null" >
+                RTS_RETDESC,
+            </if>
+            <if test="rlsbTm != null" >
+                RLSB_TM,
+            </if>
+            <if test="rlsbRetdesc != null" >
+                RLSB_RETDESC,
+            </if>
+            <if test="rlswTm != null" >
+                RLSW_TM,
+            </if>
+            <if test="rlswRetdesc != null" >
+                RLSW_RETDESC,
+            </if>
+            <if test="rdsTm != null" >
+                RDS_TM,
+            </if>
+            <if test="rdsRetdesc != null" >
+                RDS_RETDESC,
+            </if>
+            <if test="doorgodTm != null" >
+                DOORGOD_TM,
+            </if>
+            <if test="doorgodRetdesc != null" >
+                DOORGOD_RETDESC,
+            </if>
+            <if test="doorgodRetcode != null" >
+                DOORGOD_RETCODE,
+            </if>
+            <if test="prepareTm != null" >
+                PREPARE_TM,
+            </if>
+            <if test="chkTm != null" >
+                CHK_TM,
+            </if>
+            <if test="rkIp != null" >
+                RK_IP,
+            </if>
+            <if test="subSys != null" >
+                SUB_SYS,
+            </if>
+            <if test="ctTm != null" >
+                CT_TM,
+            </if>
+            <if test="mfTm != null" >
+                MF_TM,
+            </if>
+            <if test="chkRetdesc != null" >
+                CHK_RETDESC,
+            </if>
+            <if test="prepareRetdesc != null" >
+                PREPARE_RETDESC,
+            </if>
+            <if test="firstPay != null" >
+                FIRST_PAY,
+            </if>
+            <if test="goodsNm != null" >
+                GOODS_NM,
+            </if>
+            <if test="subProdId != null" >
+                SUB_PROD_ID,
+            </if>
+            <if test="rgsRetdesc != null" >
+                RGS_RETDESC,
+            </if>
+            <if test="rgsTm != null" >
+                RGS_TM,
+            </if>
+            <if test="rbsRetdesc != null" >
+                RBS_RETDESC,
+            </if>
+            <if test="rbsTm != null" >
+                RBS_TM,
+            </if>
+            <if test="retSwitch != null" >
+                RET_SWITCH,
+            </if>
+            <if test="rlsgRetdesc != null" >
+                RLSG_RETDESC,
+            </if>
+            <if test="rlsgTm != null" >
+                RLSG_TM,
+            </if>
+            <if test="retcode != null" >
+                RETCODE,
+            </if>
+            <if test="bangsunTrigerrule != null" >
+                BANGSUN_TRIGERRULE,
+            </if>
+            <if test="payway != null" >
+                PAYWAY,
+            </if>
+            <if test="tradeSrc != null" >
+                TRADE_SRC,
+            </if>
+            <if test="paramTyp != null" >
+                PARAM_TYP,
+            </if>
+            <if test="merchantRetcode != null" >
+                MERCHANT_RETCODE,
+            </if>
+            <if test="ifEncry != null" >
+                IF_ENCRY,
+            </if>
+            <if test="payResult != null" >
+                PAY_RESULT,
+            </if>
+            <if test="payTm != null" >
+                PAY_TM,
+            </if>
+            <if test="payCd != null" >
+                PAY_CD,
+            </if>
+            <if test="synConTm != null" >
+                SYN_CON_TM,
+            </if>
+            <if test="synErrCd != null" >
+                SYN_ERR_CD,
+            </if>
+            <if test="bizorder != null" >
+                BIZORDER,
+            </if>
+            <if test="bankSeq != null" >
+                BANK_SEQ,
+            </if>
+            <if test="bankOrderno != null" >
+                BANK_ORDERNO,
+            </if>
+            <if test="orderType != null" >
+                ORDER_TYPE,
+            </if>
+            <if test="frpCode != null" >
+                FRP_CODE,
+            </if>
+            <if test="etltaskid != null" >
+                ETLTASKID,
+            </if>
+            <if test="terminalId != null" >
+                TERMINAL_ID,
+            </if>
+            <if test="idNo != null" >
+                ID_NO,
+            </if>
+            <if test="prePhone != null" >
+                PRE_PHONE,
+            </if>
+            <if test="contactPhone != null" >
+                CONTACT_PHONE,
+            </if>
+            <if test="customeridno != null" >
+                CUSTOMERIDNO,
+            </if>
+            <if test="agencyNo != null" >
+                AGENCY_NO,
+            </if>
+            <if test="passengerPhone != null" >
+                PASSENGER_PHONE,
+            </if>
+            <if test="targetMerchantNo != null" >
+                TARGET_MERCHANT_NO,
+            </if>
+            <if test="requestMerchantNo != null" >
+                REQUEST_MERCHANT_NO,
+            </if>
+            <if test="userType != null" >
+                USER_TYPE,
+            </if>
+            <if test="targetUserType != null" >
+                TARGET_USER_TYPE,
+            </if>
+            <if test="prePhoneDigest != null" >
+                PRE_PHONE_DIGEST,
+            </if>
+            <if test="contactPhoneDigest != null" >
+                CONTACT_PHONE_DIGEST,
+            </if>
+            <if test="idNoDigest != null" >
+                ID_NO_DIGEST,
+            </if>
+            <if test="customeridnoDigest != null" >
+                CUSTOMERIDNO_DIGEST,
+            </if>
+            <if test="crdNoDigest != null" >
+                CRD_NO_DIGEST,
+            </if>
+            <if test="mobileDigest != null" >
+                MOBILE_DIGEST,
+            </if>
+            <if test="passengerPhoneDigest != null" >
+                PASSENGER_PHONE_DIGEST,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="ipCountry != null" >
+                #{ipCountry,jdbcType=VARCHAR},
+            </if>
+            <if test="ipProvince != null" >
+                #{ipProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="ipCity != null" >
+                #{ipCity,jdbcType=VARCHAR},
+            </if>
+            <if test="seqId != null" >
+                #{seqId,jdbcType=VARCHAR},
+            </if>
+            <if test="reqId != null" >
+                #{reqId,jdbcType=VARCHAR},
+            </if>
+            <if test="rid != null" >
+                #{rid,jdbcType=VARCHAR},
+            </if>
+            <if test="prod != null" >
+                #{prod,jdbcType=VARCHAR},
+            </if>
+            <if test="biz != null" >
+                #{biz,jdbcType=VARCHAR},
+            </if>
+            <if test="useTool != null" >
+                #{useTool,jdbcType=VARCHAR},
+            </if>
+            <if test="bnkId != null" >
+                #{bnkId,jdbcType=VARCHAR},
+            </if>
+            <if test="crdNo != null" >
+                #{crdNo,jdbcType=VARCHAR},
+            </if>
+            <if test="crdArea != null" >
+                #{crdArea,jdbcType=VARCHAR},
+            </if>
+            <if test="crdTyp != null" >
+                #{crdTyp,jdbcType=VARCHAR},
+            </if>
+            <if test="amt != null" >
+                #{amt,jdbcType=DECIMAL},
+            </if>
+            <if test="mobile != null" >
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="mobileArea != null" >
+                #{mobileArea,jdbcType=VARCHAR},
+            </if>
+            <if test="usrId != null" >
+                #{usrId,jdbcType=VARCHAR},
+            </if>
+            <if test="payId != null" >
+                #{payId,jdbcType=VARCHAR},
+            </if>
+            <if test="mecNo != null" >
+                #{mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="usrIp != null" >
+                #{usrIp,jdbcType=VARCHAR},
+            </if>
+            <if test="usrIpArea != null" >
+                #{usrIpArea,jdbcType=VARCHAR},
+            </if>
+            <if test="occTm != null" >
+                #{occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="toolsIf != null" >
+                #{toolsIf,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsIf != null" >
+                #{goodsIf,jdbcType=VARCHAR},
+            </if>
+            <if test="reqIf != null" >
+                #{reqIf,jdbcType=VARCHAR},
+            </if>
+            <if test="rtsTm != null" >
+                #{rtsTm,jdbcType=INTEGER},
+            </if>
+            <if test="rtsRetdesc != null" >
+                #{rtsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rlsbTm != null" >
+                #{rlsbTm,jdbcType=INTEGER},
+            </if>
+            <if test="rlsbRetdesc != null" >
+                #{rlsbRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rlswTm != null" >
+                #{rlswTm,jdbcType=INTEGER},
+            </if>
+            <if test="rlswRetdesc != null" >
+                #{rlswRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rdsTm != null" >
+                #{rdsTm,jdbcType=INTEGER},
+            </if>
+            <if test="rdsRetdesc != null" >
+                #{rdsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="doorgodTm != null" >
+                #{doorgodTm,jdbcType=INTEGER},
+            </if>
+            <if test="doorgodRetdesc != null" >
+                #{doorgodRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="doorgodRetcode != null" >
+                #{doorgodRetcode,jdbcType=VARCHAR},
+            </if>
+            <if test="prepareTm != null" >
+                #{prepareTm,jdbcType=INTEGER},
+            </if>
+            <if test="chkTm != null" >
+                #{chkTm,jdbcType=INTEGER},
+            </if>
+            <if test="rkIp != null" >
+                #{rkIp,jdbcType=VARCHAR},
+            </if>
+            <if test="subSys != null" >
+                #{subSys,jdbcType=VARCHAR},
+            </if>
+            <if test="ctTm != null" >
+                #{ctTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="mfTm != null" >
+                #{mfTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="chkRetdesc != null" >
+                #{chkRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="prepareRetdesc != null" >
+                #{prepareRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="firstPay != null" >
+                #{firstPay,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsNm != null" >
+                #{goodsNm,jdbcType=VARCHAR},
+            </if>
+            <if test="subProdId != null" >
+                #{subProdId,jdbcType=VARCHAR},
+            </if>
+            <if test="rgsRetdesc != null" >
+                #{rgsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rgsTm != null" >
+                #{rgsTm,jdbcType=INTEGER},
+            </if>
+            <if test="rbsRetdesc != null" >
+                #{rbsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rbsTm != null" >
+                #{rbsTm,jdbcType=INTEGER},
+            </if>
+            <if test="retSwitch != null" >
+                #{retSwitch,jdbcType=VARCHAR},
+            </if>
+            <if test="rlsgRetdesc != null" >
+                #{rlsgRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rlsgTm != null" >
+                #{rlsgTm,jdbcType=INTEGER},
+            </if>
+            <if test="retcode != null" >
+                #{retcode,jdbcType=VARCHAR},
+            </if>
+            <if test="bangsunTrigerrule != null" >
+                #{bangsunTrigerrule,jdbcType=VARCHAR},
+            </if>
+            <if test="payway != null" >
+                #{payway,jdbcType=VARCHAR},
+            </if>
+            <if test="tradeSrc != null" >
+                #{tradeSrc,jdbcType=VARCHAR},
+            </if>
+            <if test="paramTyp != null" >
+                #{paramTyp,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantRetcode != null" >
+                #{merchantRetcode,jdbcType=VARCHAR},
+            </if>
+            <if test="ifEncry != null" >
+                #{ifEncry,jdbcType=VARCHAR},
+            </if>
+            <if test="payResult != null" >
+                #{payResult,jdbcType=VARCHAR},
+            </if>
+            <if test="payTm != null" >
+                #{payTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payCd != null" >
+                #{payCd,jdbcType=VARCHAR},
+            </if>
+            <if test="synConTm != null" >
+                #{synConTm,jdbcType=INTEGER},
+            </if>
+            <if test="synErrCd != null" >
+                #{synErrCd,jdbcType=VARCHAR},
+            </if>
+            <if test="bizorder != null" >
+                #{bizorder,jdbcType=VARCHAR},
+            </if>
+            <if test="bankSeq != null" >
+                #{bankSeq,jdbcType=VARCHAR},
+            </if>
+            <if test="bankOrderno != null" >
+                #{bankOrderno,jdbcType=VARCHAR},
+            </if>
+            <if test="orderType != null" >
+                #{orderType,jdbcType=VARCHAR},
+            </if>
+            <if test="frpCode != null" >
+                #{frpCode,jdbcType=VARCHAR},
+            </if>
+            <if test="etltaskid != null" >
+                #{etltaskid,jdbcType=VARCHAR},
+            </if>
+            <if test="terminalId != null" >
+                #{terminalId,jdbcType=VARCHAR},
+            </if>
+            <if test="idNo != null" >
+                #{idNo,jdbcType=VARCHAR},
+            </if>
+            <if test="prePhone != null" >
+                #{prePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="contactPhone != null" >
+                #{contactPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="customeridno != null" >
+                #{customeridno,jdbcType=VARCHAR},
+            </if>
+            <if test="agencyNo != null" >
+                #{agencyNo,jdbcType=VARCHAR},
+            </if>
+            <if test="passengerPhone != null" >
+                #{passengerPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="targetMerchantNo != null" >
+                #{targetMerchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="requestMerchantNo != null" >
+                #{requestMerchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="userType != null" >
+                #{userType,jdbcType=VARCHAR},
+            </if>
+            <if test="targetUserType != null" >
+                #{targetUserType,jdbcType=VARCHAR},
+            </if>
+            <if test="prePhoneDigest != null" >
+                #{prePhoneDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="contactPhoneDigest != null" >
+                #{contactPhoneDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="idNoDigest != null" >
+                #{idNoDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="customeridnoDigest != null" >
+                #{customeridnoDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="crdNoDigest != null" >
+                #{crdNoDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="mobileDigest != null" >
+                #{mobileDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="passengerPhoneDigest != null" >
+                #{passengerPhoneDigest,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.zhang.bruce.easyexcel.TblRrsReqCurrentExample" resultType="java.lang.Integer" >
+        select count(*) from TBL_RRS_REQ_CURRENT
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update TBL_RRS_REQ_CURRENT
+        <set >
+            <if test="record.id != null" >
+                ID = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.ipCountry != null" >
+                IP_COUNTRY = #{record.ipCountry,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ipProvince != null" >
+                IP_PROVINCE = #{record.ipProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ipCity != null" >
+                IP_CITY = #{record.ipCity,jdbcType=VARCHAR},
+            </if>
+            <if test="record.seqId != null" >
+                SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.reqId != null" >
+                REQ_ID = #{record.reqId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rid != null" >
+                RID = #{record.rid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.prod != null" >
+                PROD = #{record.prod,jdbcType=VARCHAR},
+            </if>
+            <if test="record.biz != null" >
+                BIZ = #{record.biz,jdbcType=VARCHAR},
+            </if>
+            <if test="record.useTool != null" >
+                USE_TOOL = #{record.useTool,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bnkId != null" >
+                BNK_ID = #{record.bnkId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.crdNo != null" >
+                CRD_NO = #{record.crdNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.crdArea != null" >
+                CRD_AREA = #{record.crdArea,jdbcType=VARCHAR},
+            </if>
+            <if test="record.crdTyp != null" >
+                CRD_TYP = #{record.crdTyp,jdbcType=VARCHAR},
+            </if>
+            <if test="record.amt != null" >
+                AMT = #{record.amt,jdbcType=DECIMAL},
+            </if>
+            <if test="record.mobile != null" >
+                MOBILE = #{record.mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="record.mobileArea != null" >
+                MOBILE_AREA = #{record.mobileArea,jdbcType=VARCHAR},
+            </if>
+            <if test="record.usrId != null" >
+                USR_ID = #{record.usrId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payId != null" >
+                PAY_ID = #{record.payId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.mecNo != null" >
+                MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.usrIp != null" >
+                USR_IP = #{record.usrIp,jdbcType=VARCHAR},
+            </if>
+            <if test="record.usrIpArea != null" >
+                USR_IP_AREA = #{record.usrIpArea,jdbcType=VARCHAR},
+            </if>
+            <if test="record.occTm != null" >
+                OCC_TM = #{record.occTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.toolsIf != null" >
+                TOOLS_IF = #{record.toolsIf,jdbcType=VARCHAR},
+            </if>
+            <if test="record.goodsIf != null" >
+                GOODS_IF = #{record.goodsIf,jdbcType=VARCHAR},
+            </if>
+            <if test="record.reqIf != null" >
+                REQ_IF = #{record.reqIf,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rtsTm != null" >
+                RTS_TM = #{record.rtsTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.rtsRetdesc != null" >
+                RTS_RETDESC = #{record.rtsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rlsbTm != null" >
+                RLSB_TM = #{record.rlsbTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.rlsbRetdesc != null" >
+                RLSB_RETDESC = #{record.rlsbRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rlswTm != null" >
+                RLSW_TM = #{record.rlswTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.rlswRetdesc != null" >
+                RLSW_RETDESC = #{record.rlswRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rdsTm != null" >
+                RDS_TM = #{record.rdsTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.rdsRetdesc != null" >
+                RDS_RETDESC = #{record.rdsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.doorgodTm != null" >
+                DOORGOD_TM = #{record.doorgodTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.doorgodRetdesc != null" >
+                DOORGOD_RETDESC = #{record.doorgodRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.doorgodRetcode != null" >
+                DOORGOD_RETCODE = #{record.doorgodRetcode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.prepareTm != null" >
+                PREPARE_TM = #{record.prepareTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.chkTm != null" >
+                CHK_TM = #{record.chkTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.rkIp != null" >
+                RK_IP = #{record.rkIp,jdbcType=VARCHAR},
+            </if>
+            <if test="record.subSys != null" >
+                SUB_SYS = #{record.subSys,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ctTm != null" >
+                CT_TM = #{record.ctTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.mfTm != null" >
+                MF_TM = #{record.mfTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.chkRetdesc != null" >
+                CHK_RETDESC = #{record.chkRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.prepareRetdesc != null" >
+                PREPARE_RETDESC = #{record.prepareRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.firstPay != null" >
+                FIRST_PAY = #{record.firstPay,jdbcType=VARCHAR},
+            </if>
+            <if test="record.goodsNm != null" >
+                GOODS_NM = #{record.goodsNm,jdbcType=VARCHAR},
+            </if>
+            <if test="record.subProdId != null" >
+                SUB_PROD_ID = #{record.subProdId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rgsRetdesc != null" >
+                RGS_RETDESC = #{record.rgsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rgsTm != null" >
+                RGS_TM = #{record.rgsTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.rbsRetdesc != null" >
+                RBS_RETDESC = #{record.rbsRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rbsTm != null" >
+                RBS_TM = #{record.rbsTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.retSwitch != null" >
+                RET_SWITCH = #{record.retSwitch,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rlsgRetdesc != null" >
+                RLSG_RETDESC = #{record.rlsgRetdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rlsgTm != null" >
+                RLSG_TM = #{record.rlsgTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.retcode != null" >
+                RETCODE = #{record.retcode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bangsunTrigerrule != null" >
+                BANGSUN_TRIGERRULE = #{record.bangsunTrigerrule,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payway != null" >
+                PAYWAY = #{record.payway,jdbcType=VARCHAR},
+            </if>
+            <if test="record.tradeSrc != null" >
+                TRADE_SRC = #{record.tradeSrc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.paramTyp != null" >
+                PARAM_TYP = #{record.paramTyp,jdbcType=VARCHAR},
+            </if>
+            <if test="record.merchantRetcode != null" >
+                MERCHANT_RETCODE = #{record.merchantRetcode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ifEncry != null" >
+                IF_ENCRY = #{record.ifEncry,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payResult != null" >
+                PAY_RESULT = #{record.payResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.payTm != null" >
+                PAY_TM = #{record.payTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.payCd != null" >
+                PAY_CD = #{record.payCd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.synConTm != null" >
+                SYN_CON_TM = #{record.synConTm,jdbcType=INTEGER},
+            </if>
+            <if test="record.synErrCd != null" >
+                SYN_ERR_CD = #{record.synErrCd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bizorder != null" >
+                BIZORDER = #{record.bizorder,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bankSeq != null" >
+                BANK_SEQ = #{record.bankSeq,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bankOrderno != null" >
+                BANK_ORDERNO = #{record.bankOrderno,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderType != null" >
+                ORDER_TYPE = #{record.orderType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.frpCode != null" >
+                FRP_CODE = #{record.frpCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.etltaskid != null" >
+                ETLTASKID = #{record.etltaskid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.terminalId != null" >
+                TERMINAL_ID = #{record.terminalId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.idNo != null" >
+                ID_NO = #{record.idNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.prePhone != null" >
+                PRE_PHONE = #{record.prePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="record.contactPhone != null" >
+                CONTACT_PHONE = #{record.contactPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="record.customeridno != null" >
+                CUSTOMERIDNO = #{record.customeridno,jdbcType=VARCHAR},
+            </if>
+            <if test="record.agencyNo != null" >
+                AGENCY_NO = #{record.agencyNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.passengerPhone != null" >
+                PASSENGER_PHONE = #{record.passengerPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="record.targetMerchantNo != null" >
+                TARGET_MERCHANT_NO = #{record.targetMerchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.requestMerchantNo != null" >
+                REQUEST_MERCHANT_NO = #{record.requestMerchantNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userType != null" >
+                USER_TYPE = #{record.userType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.targetUserType != null" >
+                TARGET_USER_TYPE = #{record.targetUserType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.prePhoneDigest != null" >
+                PRE_PHONE_DIGEST = #{record.prePhoneDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.contactPhoneDigest != null" >
+                CONTACT_PHONE_DIGEST = #{record.contactPhoneDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.idNoDigest != null" >
+                ID_NO_DIGEST = #{record.idNoDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.customeridnoDigest != null" >
+                CUSTOMERIDNO_DIGEST = #{record.customeridnoDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.crdNoDigest != null" >
+                CRD_NO_DIGEST = #{record.crdNoDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.mobileDigest != null" >
+                MOBILE_DIGEST = #{record.mobileDigest,jdbcType=VARCHAR},
+            </if>
+            <if test="record.passengerPhoneDigest != null" >
+                PASSENGER_PHONE_DIGEST = #{record.passengerPhoneDigest,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update TBL_RRS_REQ_CURRENT
+        set ID = #{record.id,jdbcType=BIGINT},
+            IP_COUNTRY = #{record.ipCountry,jdbcType=VARCHAR},
+            IP_PROVINCE = #{record.ipProvince,jdbcType=VARCHAR},
+            IP_CITY = #{record.ipCity,jdbcType=VARCHAR},
+            SEQ_ID = #{record.seqId,jdbcType=VARCHAR},
+            REQ_ID = #{record.reqId,jdbcType=VARCHAR},
+            RID = #{record.rid,jdbcType=VARCHAR},
+            PROD = #{record.prod,jdbcType=VARCHAR},
+            BIZ = #{record.biz,jdbcType=VARCHAR},
+            USE_TOOL = #{record.useTool,jdbcType=VARCHAR},
+            BNK_ID = #{record.bnkId,jdbcType=VARCHAR},
+            CRD_NO = #{record.crdNo,jdbcType=VARCHAR},
+            CRD_AREA = #{record.crdArea,jdbcType=VARCHAR},
+            CRD_TYP = #{record.crdTyp,jdbcType=VARCHAR},
+            AMT = #{record.amt,jdbcType=DECIMAL},
+            MOBILE = #{record.mobile,jdbcType=VARCHAR},
+            MOBILE_AREA = #{record.mobileArea,jdbcType=VARCHAR},
+            USR_ID = #{record.usrId,jdbcType=VARCHAR},
+            PAY_ID = #{record.payId,jdbcType=VARCHAR},
+            MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            USR_IP = #{record.usrIp,jdbcType=VARCHAR},
+            USR_IP_AREA = #{record.usrIpArea,jdbcType=VARCHAR},
+            OCC_TM = #{record.occTm,jdbcType=TIMESTAMP},
+            TOOLS_IF = #{record.toolsIf,jdbcType=VARCHAR},
+            GOODS_IF = #{record.goodsIf,jdbcType=VARCHAR},
+            REQ_IF = #{record.reqIf,jdbcType=VARCHAR},
+            RTS_TM = #{record.rtsTm,jdbcType=INTEGER},
+            RTS_RETDESC = #{record.rtsRetdesc,jdbcType=VARCHAR},
+            RLSB_TM = #{record.rlsbTm,jdbcType=INTEGER},
+            RLSB_RETDESC = #{record.rlsbRetdesc,jdbcType=VARCHAR},
+            RLSW_TM = #{record.rlswTm,jdbcType=INTEGER},
+            RLSW_RETDESC = #{record.rlswRetdesc,jdbcType=VARCHAR},
+            RDS_TM = #{record.rdsTm,jdbcType=INTEGER},
+            RDS_RETDESC = #{record.rdsRetdesc,jdbcType=VARCHAR},
+            DOORGOD_TM = #{record.doorgodTm,jdbcType=INTEGER},
+            DOORGOD_RETDESC = #{record.doorgodRetdesc,jdbcType=VARCHAR},
+            DOORGOD_RETCODE = #{record.doorgodRetcode,jdbcType=VARCHAR},
+            PREPARE_TM = #{record.prepareTm,jdbcType=INTEGER},
+            CHK_TM = #{record.chkTm,jdbcType=INTEGER},
+            RK_IP = #{record.rkIp,jdbcType=VARCHAR},
+            SUB_SYS = #{record.subSys,jdbcType=VARCHAR},
+            CT_TM = #{record.ctTm,jdbcType=TIMESTAMP},
+            MF_TM = #{record.mfTm,jdbcType=TIMESTAMP},
+            CHK_RETDESC = #{record.chkRetdesc,jdbcType=VARCHAR},
+            PREPARE_RETDESC = #{record.prepareRetdesc,jdbcType=VARCHAR},
+            FIRST_PAY = #{record.firstPay,jdbcType=VARCHAR},
+            GOODS_NM = #{record.goodsNm,jdbcType=VARCHAR},
+            SUB_PROD_ID = #{record.subProdId,jdbcType=VARCHAR},
+            RGS_RETDESC = #{record.rgsRetdesc,jdbcType=VARCHAR},
+            RGS_TM = #{record.rgsTm,jdbcType=INTEGER},
+            RBS_RETDESC = #{record.rbsRetdesc,jdbcType=VARCHAR},
+            RBS_TM = #{record.rbsTm,jdbcType=INTEGER},
+            RET_SWITCH = #{record.retSwitch,jdbcType=VARCHAR},
+            RLSG_RETDESC = #{record.rlsgRetdesc,jdbcType=VARCHAR},
+            RLSG_TM = #{record.rlsgTm,jdbcType=INTEGER},
+            RETCODE = #{record.retcode,jdbcType=VARCHAR},
+            BANGSUN_TRIGERRULE = #{record.bangsunTrigerrule,jdbcType=VARCHAR},
+            PAYWAY = #{record.payway,jdbcType=VARCHAR},
+            TRADE_SRC = #{record.tradeSrc,jdbcType=VARCHAR},
+            PARAM_TYP = #{record.paramTyp,jdbcType=VARCHAR},
+            MERCHANT_RETCODE = #{record.merchantRetcode,jdbcType=VARCHAR},
+            IF_ENCRY = #{record.ifEncry,jdbcType=VARCHAR},
+            PAY_RESULT = #{record.payResult,jdbcType=VARCHAR},
+            PAY_TM = #{record.payTm,jdbcType=TIMESTAMP},
+            PAY_CD = #{record.payCd,jdbcType=VARCHAR},
+            SYN_CON_TM = #{record.synConTm,jdbcType=INTEGER},
+            SYN_ERR_CD = #{record.synErrCd,jdbcType=VARCHAR},
+            BIZORDER = #{record.bizorder,jdbcType=VARCHAR},
+            BANK_SEQ = #{record.bankSeq,jdbcType=VARCHAR},
+            BANK_ORDERNO = #{record.bankOrderno,jdbcType=VARCHAR},
+            ORDER_TYPE = #{record.orderType,jdbcType=VARCHAR},
+            FRP_CODE = #{record.frpCode,jdbcType=VARCHAR},
+            ETLTASKID = #{record.etltaskid,jdbcType=VARCHAR},
+            TERMINAL_ID = #{record.terminalId,jdbcType=VARCHAR},
+            ID_NO = #{record.idNo,jdbcType=VARCHAR},
+            PRE_PHONE = #{record.prePhone,jdbcType=VARCHAR},
+            CONTACT_PHONE = #{record.contactPhone,jdbcType=VARCHAR},
+            CUSTOMERIDNO = #{record.customeridno,jdbcType=VARCHAR},
+            AGENCY_NO = #{record.agencyNo,jdbcType=VARCHAR},
+            PASSENGER_PHONE = #{record.passengerPhone,jdbcType=VARCHAR},
+            TARGET_MERCHANT_NO = #{record.targetMerchantNo,jdbcType=VARCHAR},
+            REQUEST_MERCHANT_NO = #{record.requestMerchantNo,jdbcType=VARCHAR},
+            USER_TYPE = #{record.userType,jdbcType=VARCHAR},
+            TARGET_USER_TYPE = #{record.targetUserType,jdbcType=VARCHAR},
+            PRE_PHONE_DIGEST = #{record.prePhoneDigest,jdbcType=VARCHAR},
+            CONTACT_PHONE_DIGEST = #{record.contactPhoneDigest,jdbcType=VARCHAR},
+            ID_NO_DIGEST = #{record.idNoDigest,jdbcType=VARCHAR},
+            CUSTOMERIDNO_DIGEST = #{record.customeridnoDigest,jdbcType=VARCHAR},
+            CRD_NO_DIGEST = #{record.crdNoDigest,jdbcType=VARCHAR},
+            MOBILE_DIGEST = #{record.mobileDigest,jdbcType=VARCHAR},
+            PASSENGER_PHONE_DIGEST = #{record.passengerPhoneDigest,jdbcType=VARCHAR}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <select id="countNoYesterday" resultType="int">
+        select
+        count(ID)
+        from TL.TBL_RRS_REQ_CURRENT
+        where 1 = 1
+        <if test="startTime != null ">
+            and CT_TM &gt;= #{startTime}
+        </if>
+        <if test="endTime != null ">
+            and CT_TM &lt; #{endTime}
+        </if>
+    </select>
+</mapper>

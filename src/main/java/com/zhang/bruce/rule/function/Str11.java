@@ -13,7 +13,7 @@ import static com.zhang.bruce.rule.FunctionTest.isNull;
  */
 public class Str11 {
     public static void main(String[] args) {
-        System.out.println(divisionByDecimal(50,100));
+        System.out.println(divisionByDecimal(300,150));
 
     }
     static double divisionByDecimal (Object fenziObj, Object fenmuObj){

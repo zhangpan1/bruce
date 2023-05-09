@@ -1,4 +1,6 @@
-package com.zhang.bruce.riskgod.business;
+package com.zhang.bruce.general.mysql;
+
+import com.zhang.bruce.riskgod.business.TblOfflineReq;
 
 import java.util.List;
 

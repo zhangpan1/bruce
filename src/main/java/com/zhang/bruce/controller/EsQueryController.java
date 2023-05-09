@@ -26,4 +26,11 @@ public class EsQueryController {
     public String testIndex() throws Exception {
         return esQueryService.queryWithId();
     }
+    // 测试查询
+    @GetMapping("/testInsert")
+    @ResponseBody
+    public String testRS() throws Exception {
+        return esQueryService.queryWithId();
+    }
+
 }

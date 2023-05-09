@@ -12,6 +12,8 @@ import com.zhang.bruce.general.mysql.TblGptTdOrderDetailMapper;
 import org.apache.commons.compress.utils.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -32,6 +34,7 @@ public class DataServiceImpl implements DataService{
 
 
     @Override
+    @Transactional(rollbackFor = Throwable.class, propagation = Propagation.REQUIRES_NEW)
     public void saveDataBusines() {
         try {
             DynamicDataSourceContextHolder.push(DataSourceConstants.GPTBUSINESS);

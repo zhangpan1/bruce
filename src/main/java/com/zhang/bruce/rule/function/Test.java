@@ -1,6 +1,7 @@
 package com.zhang.bruce.rule.function;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @description: some desc
@@ -9,6 +10,16 @@ import org.apache.commons.lang.StringEscapeUtils;
  */
 public class Test {
     public static void main(String[] args) {
-        String s = "";
+        System.out.println(getEndData());
+    }
+    private static Date getEndData(){
+        Calendar nowCalendar = Calendar.getInstance();
+        nowCalendar.add(Calendar.DATE,-1);
+        nowCalendar.set(Calendar.HOUR_OF_DAY,0);
+        nowCalendar.set(Calendar.MINUTE,0);
+        nowCalendar.set(Calendar.SECOND,0);
+        nowCalendar.set(Calendar.MILLISECOND,0);
+        Date limitDate = nowCalendar.getTime();
+        return limitDate;
     }
 }

@@ -6,9 +6,11 @@ import com.yeepay.g3.utils.gmcrypt.utils.SMUtils;
 import com.zhang.bruce.config.DataSourceConstants;
 import com.zhang.bruce.easyexcel.GptExchangeOrder;
 import com.zhang.bruce.easyexcel.TblGptExchangeOrder;
+import com.zhang.bruce.easyexcel.TblRrsReqCurrent;
 import com.zhang.bruce.general.DateUtils;
 import com.zhang.bruce.general.mysql.GptExchangeOrderMapper;
 import com.zhang.bruce.general.mysql.TblGptExchangeOrderMapper;
+import com.zhang.bruce.general.mysql.TblRrsReqCurrentMapper;
 import org.apache.commons.compress.utils.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,11 +26,13 @@ import java.util.UUID;
  * @date: 2023/1/19 8:48 下午
  */
 @Service
-public class ExchangeServiceImpl implements ExchangeService{
+public class ExchangeServiceImpl implements ExchangeService {
     @Autowired
     private GptExchangeOrderMapper gptExchangeOrderMapper;
     @Autowired
     private TblGptExchangeOrderMapper tblGptExchangeOrderMapper;
+    @Autowired
+    private TblRrsReqCurrentMapper tblRrsReqCurrentMapper;
 
     @Override
     public void saveDataBusines() {
@@ -42,12 +46,14 @@ public class ExchangeServiceImpl implements ExchangeService{
             DynamicDataSourceContextHolder.poll();
         }
     }
+
     public static String getUUID(boolean isFilter) {
         if (isFilter) {
             return UUID.randomUUID().toString().replaceAll("-", "");
         }
         return UUID.randomUUID().toString();
     }
+
     private List<GptExchangeOrder> buildOrderDetail() {
         List<GptExchangeOrder> details = Lists.newArrayList();
         for (int i = 0; i < 40; i++) {
@@ -119,6 +125,25 @@ public class ExchangeServiceImpl implements ExchangeService{
         }
     }
 
+    @Override
+    public void saveDataCurrent() {
+        try {
+            DynamicDataSourceContextHolder.push(DataSourceConstants.FKJS);
+            TblRrsReqCurrent tblRrsReqCurrent = new TblRrsReqCurrent();
+            tblRrsReqCurrent.setIpCountry("中国");
+            tblRrsReqCurrent.setUsrIp("2408:841e:440:3ab3:38c0:fe56:c257:5932");
+            tblRrsReqCurrent.setUsrIpArea("中国;河北;石家庄;");
+            tblRrsReqCurrent.setOccTm(new Date());
+            tblRrsReqCurrent.setGoodsIf("{\"settleBankCards\":\"1204075109200088839\",\"merchantCreateTime\":\"2022-09-26 11:09:51\",\"merchantRetCode\":\"0000\",\"parentSignName\":\"爱信诺征信有限公司\",\"industry\":\"大零售行业线—XLS\",\"merchantInfoCity\":\"嘉兴\",\"scene\":\"Offline\",\"legalName\":\"DG$1$Wry2ohaTprRgngEkMmLMIg\",\"subBizcatName\":\"各类软件\",\"merchantInfoProvince\":\"浙江\",\"merchantContactName\":\"李鹏贤\",\"openProduct\":\"\",\"signType\":\"ENTERPRISE\",\"bizcatName\":\"网络媒体/计算机服务/游戏\",\"goodsName\":\"DG$1$4HYrw3ExoywOnIk1nx447g\",\"finalResultSub\":\"各类软件\",\"salesType\":\"CHANNEL_EXPANDING\",\"merchantRole\":\"ORDINARY_MERCHANT\",\"merchantInfoAddress\":\"乌镇镇子夜东路868号5幢3层\",\"systemMerchantNo\":\"10088401793\",\"signName\":\"航信云享科技有限公司\",\"isProxyIp\":false,\"legalIdNo\":\"DG$1$_CidMol75ih8Vns0D0rqBcMet6wGlnB1BmvV4htr4lg\",\"signSubject\":\"航信云享科技有限公司\",\"subBizcatCode\":\"131005\",\"cardSubject\":\"370281197503026312\",\"ypMerchantType\":\"CUSTOMER\",\"uniCrdCode\":\"91330483MABPEKL98U\",\"smsNoStatus\":\"\",\"shareholderName\":\"桐乡云行创业投资合伙企业（有限合伙）\",\"launchMode\":\"API\",\"cashierTypeRisk\":\"API\",\"bizcatCode\":\"131\",\"finalResult\":\"网络媒体/计算机服务/游戏\"}");
+            tblRrsReqCurrent.setReqIf("orderType=JSAPI,production=DS,occurTime=2023-04-18 14:39:40,payWay=WECHAT,sequenceId=2304181439403841330735142048,serverId=,bankMsg=其它（未知）,requestId=1648212201110409217,paymentId=2304181439403841330735142048,bankTradeNo=,synConsumeTime=,appId=wxfe20bb743047ae1d,tradeError=,tradeResult=0,amount=0.01,paySystem=AGGPAY,bankChannelId=UNION_NET_OPEN_YLSJ6062,productId=FE,bizOrder=1013202304180000006014993221,bankError=500099,bankCardType=null,completeTime=2023-04-18 14:39:40,userId=oB6Zj6LnPC-Oje7Vhzd1U9LQuAM0,synErrorCode=,transactionId=,bankId=null,tradeMsg=,bankOrderNo=5989198682230418,userType=MERCHANT,bankTradeId=,rmSequence=2062a853-0306-4b45-8dc2-938560faec03,merchantNo=10088808132");
+            tblRrsReqCurrent.setRtsRetdesc("isStop=false, supportCode=0000, rcd=null, rcode=null, rdate=null, des=riskRuleIds:688,695, ecode=null, edes=null");
+
+            tblRrsReqCurrentMapper.insertSelective(tblRrsReqCurrent);
+        } finally {
+            DynamicDataSourceContextHolder.poll();
+        }
+    }
+
     private List<TblGptExchangeOrder> buildTDOrderDetail() {
         List<TblGptExchangeOrder> details = Lists.newArrayList();
         for (int i = 0; i < 40; i++) {
@@ -176,4 +201,6 @@ public class ExchangeServiceImpl implements ExchangeService{
         }
         return details;
     }
+
+
 }
