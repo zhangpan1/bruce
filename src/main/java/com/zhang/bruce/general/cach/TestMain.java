@@ -11,7 +11,12 @@ import static com.zhang.bruce.general.cach.TestEngine.notNull;
  */
 public class TestMain {
     public static void main(String[] args) {
-        System.out.println(splitByProduction("OFFLINE_POS"));
+        String finalPrv = "四川省";
+        String finalCity = "成都市";
+        if (finalPrv.contains("省")) {
+            finalPrv = finalPrv.replace("省","");
+        }
+        System.out.println(finalPrv);
     }
 
     static Object splitByProduction(Object obj) {

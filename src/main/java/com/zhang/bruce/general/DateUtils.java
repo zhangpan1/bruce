@@ -8,6 +8,10 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -632,4 +636,32 @@ public class DateUtils {
         return dateStr;
     }
 
+    public static String parseOccTimeString(Long lt) {
+        String res;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //将时间戳转换为时间
+        Date date = new Date(lt);
+        //将时间调整为yyyy-MM-dd HH:mm:ss时间样式
+        res = simpleDateFormat.format(date);
+        return res;
+    }
+
+    public static String long2DateString(long time) {
+        String format = "yyyy-MM-dd HH:mm:ss";
+        SimpleDateFormat sf = new SimpleDateFormat(format);
+        Date date = new Date(time);
+        return sf.format(date);
+    }
+    public static Date getStartOfDay(Date date, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_YEAR, -day);
+        return getStartOfDay(calendar.getTime());
+    }
+    // 获得某天最小时间 2019-10-15 00:00:00
+    public static Date getStartOfDay(Date date) {
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(date.getTime()), ZoneId.systemDefault());
+        LocalDateTime startOfDay = localDateTime.with(LocalTime.MIN);
+        return Date.from(startOfDay.atZone(ZoneId.systemDefault()).toInstant());
+    }
 }

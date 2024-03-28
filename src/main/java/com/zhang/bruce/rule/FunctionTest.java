@@ -492,26 +492,166 @@ public class FunctionTest {
         }
     }
 
-    public static long getValueFromMapByKeySplit(Object obj, String key){
+
+
+    public static BigDecimal getMergeMapByKeys(Object obj, Object transtime, String duration, Object key1, Object key2, Object countType) {
+        BigDecimal result = new BigDecimal(0);
         try {
-            long value = 0;
-            if (StringUtils.isBlank(key)) return value;
+            if (obj == null || !(obj instanceof TimedItems) || key1 == null || key2 == null || countType == null) {
+                return new BigDecimal("0");
+            }
+            TimedItems tt = (TimedItems) obj;
+            Object o = null;
+
+            String[] key1Array = key1.toString().split(",");
+            String[] key2Array = key2.toString().split(",");
+            Set<String> keySet = new HashSet<String>();
+            for (String s : key1Array) {
+                for (String s2 : key2Array) {
+                    String newStr = s + "_" + s2;
+                    keySet.add(newStr);
+                }
+            }
+            //统计金额或者次数 "amount" or "number"
+            String countTypeStr = countType.toString();
+
+            if (transtime == null || duration == null) {
+                o = tt.getRaw();
+            } else {
+                o = tt.getRaw(transtime, duration);
+            }
+            if (o instanceof MergeableMapObject) {
+                ConvenientHashMap map = (ConvenientHashMap) ((MergeableMapObject) o).getMap();
+
+                if ("amount".equalsIgnoreCase(countTypeStr)) {
+                    for (String key : keySet) {
+                        if (map.containsKey(key)){
+                            Object sum = map.get(key);
+                            if (sum instanceof SumNumber  ) {
+                                BigDecimal bigDecimal1 = new BigDecimal(((SumNumber) sum).longValue());
+                                result = result.add(bigDecimal1);
+                            }
+                        }
+
+                    }
+                } else if ("number".equalsIgnoreCase(countTypeStr)) {
+                    for (String key : keySet) {
+                        if (map.containsKey(key)){
+                            Object sum = map.get(key);
+                            if (sum instanceof SumNumber  ) {
+                                BigDecimal bigDecimal1 = new BigDecimal(((SumNumber) sum).getCount());
+                                result = result.add(bigDecimal1);
+                            }
+                        }
+                    }
+                }
+                LoggerUtil.getLogger().info("getMergeMapByKeys result:{}",result);
+
+            }
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("全局方法出现异常 getMergeMapByKeys", e);
+            return result;
+        }
+        return result;
+    }
+    public BigDecimal getMergeMapByKey(Object obj, Object transtime, String duration, Object key1, Object countType) {
+        BigDecimal result = new BigDecimal(0);
+        try {
+            if (obj == null || !(obj instanceof TimedItems) || key1 == null || countType == null) {
+                return new BigDecimal("0");
+            }
+            TimedItems tt = (TimedItems) obj;
+            Object o = null;
+
+            String[] key1Array = key1.toString().split(",|;");
+
+            //统计金额或者次数 "amount" or "number"
+            String countTypeStr = countType.toString();
+
+            if (transtime == null || duration == null) {
+                o = tt.getRaw();
+            } else {
+                o = tt.getRaw(transtime, duration);
+            }
+            if (o instanceof MergeableMapObject) {
+                ConvenientHashMap map = (ConvenientHashMap) ((MergeableMapObject) o).getMap();
+
+                if ("amount".equalsIgnoreCase(countTypeStr)) {
+                    for (String key : key1Array) {
+                        if (map.containsKey(key)){
+                            Object sum = map.get(key);
+                            if (sum instanceof SumNumber  ) {
+                                BigDecimal bigDecimal1 = new BigDecimal(((SumNumber) sum).longValue());
+                                result = result.add(bigDecimal1);
+                            }
+                        }
+
+                    }
+                } else if ("number".equalsIgnoreCase(countTypeStr)) {
+                    for (String key : key1Array) {
+                        if (map.containsKey(key)){
+                            Object sum = map.get(key);
+                            if (sum instanceof SumNumber  ) {
+                                BigDecimal bigDecimal1 = new BigDecimal(((SumNumber) sum).getCount());
+                                result = result.add(bigDecimal1);
+                            }
+                        }
+                    }
+                }
+                LoggerUtil.getLogger().info("getMergeMapByKey result:{}",result);
+
+            }
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("全局方法出现异常 getMergeMapByKey", e);
+            return result;
+        }
+        return result;
+    }
+
+    public static BigDecimal getValueFromMapByAllKeySplit(Object obj, Object key,Object countType){
+        BigDecimal value = new BigDecimal(0);
+        try {
+            LoggerUtil.getLogger().info("getValueFromMapByAllKeySplit,obj == {}", JSONObject.toJSONString(obj));
+            LoggerUtil.getLogger().info("getValueFromMapByAllKeySplit,key == {}", JSONObject.toJSONString(key));
+
+            if (obj == null || isNull(key) || countType == null) return value;
+            //统计金额或者次数 "amount" or "number"
+            String countTypeStr = countType.toString();
+
             if (obj instanceof ConvenientHashMap) {
                 ConvenientHashMap map = (ConvenientHashMap) obj;
-                String[] keyArray = key.trim().split(",");
-                for (String keyStr : keyArray) {
-                    Object o = map.get(keyStr);
-                    if (o != null && o instanceof SumNumber) {
-                        value += ((SumNumber) o).longValue();
+                String keyStr = key.toString();
+                if ("all".equalsIgnoreCase(keyStr)) {
+                    for (Object o : map.values()) {
+                        if ( o != null && o instanceof SumNumber ) {
+                            if ("amount".equalsIgnoreCase(countTypeStr)) {
+                                value = value.add(new BigDecimal(((SumNumber) o).longValue()));
+                            } else if ("number".equalsIgnoreCase(countTypeStr)) {
+                                value = value.add(new BigDecimal(((SumNumber) o).getCount()));
+                            }
+                        }
+                    }
+                } else {
+                    String[] keyArray = keyStr.trim().split(",|;");
+                    for (String keyItme : keyArray) {
+                        Object o = map.get(keyItme);
+                        if (o != null && o instanceof SumNumber) {
+                            if ("amount".equalsIgnoreCase(countTypeStr)) {
+                                value = value.add(new BigDecimal(((SumNumber) o).longValue()));
+                            } else if ("number".equalsIgnoreCase(countTypeStr)) {
+                                value = value.add(new BigDecimal(((SumNumber) o).getCount()));
+                            }
+                        }
                     }
                 }
             }
             return value;
         } catch (Exception e) {
-            LoggerUtil.getLogger().error("getValueFromMapByKeySplit 全局方法出现异常", e);
-            return 0;
+            LoggerUtil.getLogger().error("getValueFromMapByAllKeySplit 全局方法出现异常", e);
+            return value;
         }
     }
+
 
     public static long getMergeMapObjectValue(Object obj,Object transtime, String duration, String key){
         try {
@@ -2295,10 +2435,10 @@ public class FunctionTest {
         return new String(tempArr);
     }
 
+
     public static void main(String[] args) {
-        System.out.println(isInString("10086249365","10086249365"));
-        System.out.println(getBizCode("G3MEMBER_WITHDRAW","BALANCE_PAYMENT").equals("BALANCE_PAYMENT_G3MEMBER_WITHDRAW"));
-        System.out.println(isContainOrNotNoSplit(toLowerCase("360121199001253959"),"包含",toLowerCase("230183199007186216,360121199001253959,420117199902153914")));
+        System.out.println(isEquals("","1", true));
+
     }
 }
 

@@ -78,4 +78,9 @@ public class TestInsertController {
     public void testInsert() throws IOException {
         exchangeService.saveDataCurrent();
     }
+
+    @PostMapping("/saveUrl")
+    public void testBruce() throws IOException {
+        exchangeService.saveRul();
+    }
 }

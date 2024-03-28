@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
  */
 public class InteresltUtils {
     private static final Logger LOGGER = LogManager.getLogger(InteresltUtils.class);
-    // AuditResult [score=0.0, verifyPolicy=null, notifyPolicy=null, uuid=9b2a7eef-0ef7-4bfe-8b8d-b1603571ecc6, risks=null, items=null, customization=null,ruleNameList=[],effectRisk=null,verifyPolicyList=null]
 
     /**
      * 解析规则结果
@@ -36,7 +35,14 @@ public class InteresltUtils {
                 String str2 = bsResult.substring(str1.length() + 1, bsResult.length());
                 if (StringUtils.isNotEmpty(str2)) {
                     //截取_之前字符串
-                    String effectRisk = str2.substring(0, str2.indexOf(",verifyPolicyList="));
+                    String effectRisk = "";
+                    int x = str2.indexOf(", comments=");
+//                    if (x == -1) {
+//                        effectRisk = str2.substring(0, str2.indexOf(",verifyPolicyList="));
+//                    } else {
+//                        effectRisk = str2.substring(0, x);
+//                    }
+                    effectRisk = str2.substring(0, str2.indexOf(",verifyPolicyList="));
                     if (StringUtils.isNotEmpty(effectRisk) && effectRisk.contains("ruleName=")) {
                         //effectRisk=Risk [ruleName=13570 : wallet_rule_0033-2 : 国航钱包高频提现-2, rulePackageName=rule1052,
                         // 截取Risk [ 之后和ruleName之前的数据
@@ -259,22 +265,22 @@ public class InteresltUtils {
 //        String rule1 = "";
 //        String rule2 = "CALL_RISKGOD_NOUSE";
 //        String rule3 = "AuditResult [score=0.0, verifyPolicy=null, notifyPolicy=null, uuid=9b2a7eef-0ef7-4bfe-8b8d-b1603571ecc6, risks=null, items=null, customization=null,ruleNameList=[],effectRisk=null,verifyPolicyList=null]";
-        String rule4 = "AuditResult [score=210.0, " +
-                "verifyPolicy=VerifyPolicy [code=BLOCK, name=阻断, priority=160, succControl=, failControl=], notifyPolicy=NotifyPolicy [code=NO_HANDLE, name=无处置, priority=1], \n" +
-                "uuid=78fce8d1-2d14-48ab-abeb-9659ad14ff16, " +
-                "risks=null, " +
-                "items=null," +
-                "customization=null," +
-                "ruleNameList=[国航钱包高频提现-2, 国航钱包高频提现不外呼]," +
-                "effectRisk=Risk [ruleName=13570 : wallet_rule_0033-2 : 国航钱包高频提现-2, rulePackageName=rule1052, score=210, weight=0, comments=背景：持卡人被骗多张卡交替操作 20220609测试条件 20220613上线, notifyPolicy=NotifyPolicy [code=NO_HANDLE, name=无处置, priority=1], verifyPolicy=VerifyPolicy [code=BLOCK, name=阻断, priority=160, succControl=, failControl=], createTime=Mon Jan 02 15:07:09 CST 2023, ]," +
-                "verifyPolicyList=null]";
-        String black1 = "isStop=false,level=null,code=null,value=null,ecode=null,edes=null";
-        String black2 = "isStop=true,level=1,code=maliciousComplaint,value=black_trade_bankCardNo:DG$1$QG6lIGQucGYwc4d2wTlOTDEH1iJ_ioFVd7CJtr3LdR8,ecode=null,edes=null";
-        String black = "";
-         System.out.println(analysisBlackResult(black2));
-        // System.out.println(analysisRuleResult(rule4));
-        String limit1 = "isStop=false, supportCode=0000, rcd=null, rcode=null, rdate=null, des=riskRuleIds:684,360,674, ecode=null, edes=null";
-        String limit2 = "isStop=true, supportCode=6105, rcd=202009140037, rcode=MERCHANTNO, rdate=DG$1$wBEIGCSSGXV-8uFDTe1BIg, des=daycount stop,daycount:3,riskRuleIds:360,667, ecode=null, edes=null";
+//        String rule4 = "AuditResult [score=210.0, " +
+//                "verifyPolicy=VerifyPolicy [code=BLOCK, name=阻断, priority=160, succControl=, failControl=], notifyPolicy=NotifyPolicy [code=NO_HANDLE, name=无处置, priority=1], \n" +
+//                "uuid=78fce8d1-2d14-48ab-abeb-9659ad14ff16, " +
+//                "risks=null, " +
+//                "items=null," +
+//                "customization=null," +
+//                "ruleNameList=[国航钱包高频提现-2, 国航钱包高频提现不外呼]," +
+//                "effectRisk=Risk [ruleName=13570 : wallet_rule_0033-2 : 国航钱包高频提现-2, rulePackageName=rule1052, score=210, weight=0, comments=背景：持卡人被骗多张卡交替操作 20220609测试条件 20220613上线, notifyPolicy=NotifyPolicy [code=NO_HANDLE, name=无处置, priority=1], verifyPolicy=VerifyPolicy [code=BLOCK, name=阻断, priority=160, succControl=, failControl=], createTime=Mon Jan 02 15:07:09 CST 2023, ]," +
+//                "verifyPolicyList=null]";
+//        String black1 = "isStop=false,level=null,code=null,value=null,ecode=null,edes=null";
+//        String black2 = "isStop=true,level=1,code=maliciousComplaint,value=black_trade_bankCardNo:DG$1$QG6lIGQucGYwc4d2wTlOTDEH1iJ_ioFVd7CJtr3LdR8,ecode=null,edes=null";
+//        String black = "";
+//         System.out.println(analysisBlackResult(black2));
+//        // System.out.println(analysisRuleResult(rule4));
+//        String limit1 = "isStop=false, supportCode=0000, rcd=null, rcode=null, rdate=null, des=riskRuleIds:684,360,674, ecode=null, edes=null";
+//        String limit2 = "isStop=true, supportCode=6105, rcd=202009140037, rcode=MERCHANTNO, rdate=DG$1$wBEIGCSSGXV-8uFDTe1BIg, des=daycount stop,daycount:3,riskRuleIds:360,667, ecode=null, edes=null";
 
         //System.out.println(analysisTradeLimitResult(limit2));
 
@@ -284,6 +290,9 @@ public class InteresltUtils {
         // 规则白名单
         String ruleWhite = "{\"frms_bank_card_no-frms_phone_no-frms_ip_addr\":\"sdsdsds\",\"frms_mch_id\":\"sdsdsds\",\"frms_phone_no\":\"sdsdsds\",\"frms_ip_addr\":\"sdsdsds\"}";
         //System.out.println(analysisWhiteRuleResult(ruleWhite));
+        String bsResult =  "AuditResult [score=150.0, verifyPolicy=VerifyPolicy [code=BLOCK, name=阻断, priority=160, succControl=, failControl=], notifyPolicy=NotifyPolicy [code=NO_HANDLE, name=无处置, priority=1], uuid=cf3e5609-d2a8-4f5c-8fdd-93d9d6e1da2e, risks=null, items=null, customization=null,ruleNameList=[国航钱包-批量发起充值交易, 国航钱包-大额充值交易全部外呼],effectRisk=Risk [ruleName=10018 : wallet_rule_0054 : 国航钱包-批量发起充值交易, rulePackageName=rule1052, score=150, weight=0, comments=背景：211017，国航钱包批量盗卡事件，同卡短时间被发起多次交易, notifyPolicy=NotifyPolicy [code=NO_HANDLE, name=无处置, priority=1], verifyPolicy=VerifyPolicy [code=BLOCK, name=阻断, priority=160, succControl=, failControl=], createTime=Mon Mar 06 12:46:41 CST 2023, ],verifyPolicyList=null]";
+
+        System.out.println( analysisRuleResult(bsResult));
     }
 }
 

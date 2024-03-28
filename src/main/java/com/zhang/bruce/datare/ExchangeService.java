@@ -11,4 +11,6 @@ public interface ExchangeService {
     void saveDataTldb();
 
     void saveDataCurrent();
+
+    void saveRul();
 }

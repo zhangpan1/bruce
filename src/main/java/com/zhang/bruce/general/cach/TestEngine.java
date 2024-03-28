@@ -28,16 +28,20 @@ public class TestEngine {
         List<Object> list = new ArrayList<Object>();
         DefaultModel obj = new DefaultModel();
         obj.setTradeTableName("TBL_MERCHANT_CHECKLIST");
+
+        obj.put("TRADETABLENAME","TBL_MERCHANT_CHECKLIST");
         obj.put("merchantNo","10088811547");
         obj.put("occurTime","2023-02-15 18:22:11");
         obj.put("ruleCode","MEC_R_D_021");
         DefaultModel obj1 = new DefaultModel();
         obj1.setTradeTableName("TBL_MERCHANT_CHECKLIST");
+        obj1.put("TRADETABLENAME","TBL_MERCHANT_CHECKLIST");
         obj1.put("merchantNo","10088811547");
         obj1.put("occurTime","2023-02-15 20:22:11");
         obj1.put("ruleCode","MEC_R_D_021");
         DefaultModel obj2 = new DefaultModel();
         obj2.setTradeTableName("TBL_MERCHANT_CHECKLIST");
+        obj2.put("TRADETABLENAME","TBL_MERCHANT_CHECKLIST");
         obj2.put("merchantNo","10088811547");
         obj2.put("occurTime","2023-02-15 21:22:11");
         obj2.put("ruleCode","MEC_R_D_021");
@@ -67,7 +71,7 @@ public class TestEngine {
         }
 
     }
-    static BigDecimal getMergeMapByKey(Object obj, Object transtime, String duration, Object key1, Object countType) {
+    public static BigDecimal getMergeMapByKey(Object obj, Object transtime, String duration, Object key1, Object countType) {
         BigDecimal result = new BigDecimal(0);
         try {
             if (obj == null || !(obj instanceof TimedItems) || key1 == null || countType == null) {
@@ -371,4 +375,5 @@ public class TestEngine {
             return 0;
         }
     }
+
 }

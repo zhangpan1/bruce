@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.yeepay.riskcontrol</groupId>
             <artifactId>riskcontrol-facade</artifactId>
-            <version>2.0.3</version>
+            <version>2.0.7</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -126,6 +126,17 @@
             </exclusions>
         </dependency>
         <dependency>
+            <artifactId>tc-streaming-core</artifactId>
+            <groupId>com.tcredit.streaming</groupId>
+            <version>1.2.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
             <version>4.9.1</version>
@@ -192,6 +203,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -4,13 +4,9 @@ import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.yeepay.g3.utils.common.UUIDUtils;
 import com.yeepay.g3.utils.gmcrypt.utils.SMUtils;
 import com.zhang.bruce.config.DataSourceConstants;
-import com.zhang.bruce.easyexcel.GptExchangeOrder;
-import com.zhang.bruce.easyexcel.TblGptExchangeOrder;
-import com.zhang.bruce.easyexcel.TblRrsReqCurrent;
+import com.zhang.bruce.easyexcel.*;
 import com.zhang.bruce.general.DateUtils;
-import com.zhang.bruce.general.mysql.GptExchangeOrderMapper;
-import com.zhang.bruce.general.mysql.TblGptExchangeOrderMapper;
-import com.zhang.bruce.general.mysql.TblRrsReqCurrentMapper;
+import com.zhang.bruce.general.mysql.*;
 import org.apache.commons.compress.utils.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +29,11 @@ public class ExchangeServiceImpl implements ExchangeService {
     private TblGptExchangeOrderMapper tblGptExchangeOrderMapper;
     @Autowired
     private TblRrsReqCurrentMapper tblRrsReqCurrentMapper;
+    @Autowired
+    private SysRoleUrlMapper sysRoleUrlMapper;
+    @Autowired
+    private SysUrlMapper sysUrlMapper;
+
 
     @Override
     public void saveDataBusines() {
@@ -142,6 +143,23 @@ public class ExchangeServiceImpl implements ExchangeService {
         } finally {
             DynamicDataSourceContextHolder.poll();
         }
+    }
+
+    @Override
+    public void saveRul() {
+        try {
+            DynamicDataSourceContextHolder.push(DataSourceConstants.BUSINESS);
+            List<SysUrl> urls = sysUrlMapper.selectAllData();
+            for (SysUrl url : urls) {
+                SysRoleUrl roleUrl = new SysRoleUrl();
+                roleUrl.setRoleId(115);
+                roleUrl.setUrlId(url.getId());
+                sysRoleUrlMapper.insert(roleUrl);
+            }
+        }finally {
+            DynamicDataSourceContextHolder.poll();
+        }
+
     }
 
     private List<TblGptExchangeOrder> buildTDOrderDetail() {

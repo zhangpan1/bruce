@@ -13,6 +13,9 @@ import java.util.Map;
 public class NoTest {
     public static void main(String[] args) {
 
+        String packageName = "FD[NPHZ2014411000012-20231130-00000015].ZIP";
+        String packageTypePrefix = org.apache.commons.lang3.StringUtils.substring(packageName, 0, 3);
+        System.out.println(packageTypePrefix);
     }
 
     public static Map<String, Object> reqinfoParse(String reqInfo) {

@@ -1,8 +1,11 @@
 package com.zhang.bruce.rule.function;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tcredit.streaming.core.utils.LoggerUtil;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.zhang.bruce.rule.FunctionTest.isNull;
 
@@ -13,7 +16,22 @@ import static com.zhang.bruce.rule.FunctionTest.isNull;
  */
 public class Str11 {
     public static void main(String[] args) {
-        System.out.println(divisionByDecimal(300,150));
+//        Map<String,String> requestMap = new HashMap();
+//        requestMap.put("code","200");
+//        Map<String,String> date = new HashMap();
+//        date.put("mec_no","10000000060");
+//        date.put("out_trade_no","5159709303200130");
+//        date.put("complaint_reason","赌博");
+//        requestMap.put("data",JSONObject.toJSONString(date));
+//        requestMap.put("message","请求成功");
+//        String requestJson = JSONObject.toJSONString(requestMap);
+//        System.out.println(requestJson);
+        Map<String,String> requestMap = new HashMap();
+        requestMap.put("mec_no","10000000060");
+        requestMap.put("out_trade_no","5159709303200130");
+        requestMap.put("complaint_detail","查询不明扣费，退款致电用户，告知收款商家，表示自己没有借款是有个朋友在好分期借款了，商户经常打电话给用户找他朋友，并且现在已经造成实际扣费，已提示用户，如是朋友借款不会从用户银行卡扣费，建议联系商家查询清楚，用户表示不用处理了，就20多块钱，自己会冻结银行卡的，提示用户，如确认是信息泄露建议报警处理，用户认可 已邮件商户报备");
+        String requestJson = JSONObject.toJSONString(requestMap);
+        System.out.println(requestJson);
 
     }
     static double divisionByDecimal (Object fenziObj, Object fenmuObj){
@@ -50,6 +68,23 @@ public class Str11 {
         } catch (Exception e) {
             LoggerUtil.getLogger().error("全局方法出现异常 subtractByDecimal", e);
             return 0;
+        }
+    }
+
+    static Object getCityFromArea(Object obj1){
+        try {
+            LoggerUtil.getLogger().debug("obj1 == {}", obj1);
+            if(obj1!=null){
+                String str = obj1.toString();
+                String[] split = str.split(";");
+                if (split.length > 2) {
+                    return split[2];
+                }
+            }
+            return "";
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("全局方法出现异常 getCityFromArea", e);
+            return "";
         }
     }
 

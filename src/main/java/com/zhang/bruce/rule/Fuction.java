@@ -18,9 +18,9 @@ import java.util.List;
  */
 public class Fuction {
     public static void main(String[] args) {
-        String par = "{\"diff\":\"181\"#\"rules\":\"M_ESELLER_001\"}";
-        String x = "180";
-        String y = "M_ESELLER_001";
+        String par = "{\"diff\":\"0\",\"rules\":\"MEC_D7_hotspot_02\"},{\"diff\":\"88\",\"rules\":\"MEC_D7_hotspot_02\"}";
+        String x = "90";
+        String y = "MEC_D7_hotspot_02";
         System.out.println(merchantNotTriggerRules(par,x,y));
     }
     public static boolean merchantNotTriggerRules(Object jsonArrayObj, Object numDays, Object ruleCodes) {
@@ -59,5 +59,32 @@ public class Fuction {
             LoggerUtil.getLogger().error("getMerchantTriggerRulesResult 全局方法出现异常", e);
             return !result;
         }
+    }
+    static boolean isEqualsOrNotEquals(Object a, Object x) {
+        try {
+            if (a == null || x == null) {
+                return false;
+            }
+            String as = (String) a;
+            String xs = (String) x;
+            String tag = "1";
+            String tagNo = "0";
+            if ("是".equals(as)) {
+                if (tag.equals(xs)) {
+                    return true;
+                }
+            }
+            if ("否".equals(as)) {
+                if (tagNo.equals(xs)) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("isEqualsOrNotEquals", e);
+            e.printStackTrace();
+            return false;
+        }
+        // eval(isContainorNotEquals(#x#,#topAgent#))
     }
 }
