@@ -8,6 +8,7 @@ import com.tcredit.streaming.core.bean.ConvenientHashMap;
 import com.tcredit.streaming.core.bean.TimedItems;
 import com.tcredit.streaming.core.bean.method.DistinctedListObject;
 import com.tcredit.streaming.core.bean.method.MergeableMapObject;
+import com.tcredit.streaming.core.bean.method.SumNumber;
 import com.tcredit.streaming.core.model.DSPayOrder;
 import com.tcredit.streaming.core.norm.define.*;
 import com.tcredit.streaming.core.utils.LoggerUtil;
@@ -118,7 +119,6 @@ public class TestRecharge {
                         DSPayOrder order = (DSPayOrder) obj;
                         String signName = getMapValue(order.getGoodsInfo(),"signName");
                         String payerName = getMapValue(order.getGoodsInfo(),"payerName");
-
                         String payWay =   getBackUpValue(order.getBackUp(),"payWay");
                         return ("B2B".equals(payWay) || "B2C".equals(payWay) || "NET".equals(payWay) || "Deduction".equals(payWay) || "Remittance".equals(payWay)) && notNull(payerName) && notNull(signName) && isNotEquals(payerName,signName,true);
                     }
@@ -297,6 +297,69 @@ public class TestRecharge {
             LoggerUtil.getLogger().error("operCondSimple 全局方法出现异常", e);
             return false;
         }
+    }
+
+    /**
+     * 计算单个藏品的金额 和总数以及平均数是否大于某个值
+     * @param obj
+     * @param transtime
+     * @param duration
+     * @return
+     */
+    private static boolean getCollectionValue23(Object obj, Object transtime, String duration) {
+        try {
+            if (obj == null || !(obj instanceof TimedItems)) {
+                return false;
+            }
+            BigDecimal sumAll = new BigDecimal("0");
+            long sumCount = 0;
+            TimedItems tt = (TimedItems) obj;
+            Object o = null;
+
+            if (transtime == null || duration == null) {
+                o = tt.getRaw();
+            } else {
+                o = tt.getRaw(transtime, duration);
+            }
+            boolean avgFlag = false;
+
+            if (o instanceof MergeableMapObject) {
+                ConvenientHashMap map = (ConvenientHashMap) ((MergeableMapObject) o).getMap();
+                Iterator entries = map.entrySet().iterator();
+                while (entries.hasNext()) {
+                    Map.Entry entry = (Map.Entry) entries.next();
+                    if (entry != null && entry.getValue() != null && entry.getValue() instanceof SumNumber) {
+                        BigDecimal amt = new BigDecimal(((SumNumber) entry.getValue()).longValue());
+                        long count = ((SumNumber) entry.getValue()).getCount();
+                        String log1 = entry.getKey() + "_" + count + "_" + amt;
+                        LoggerUtil.getLogger().info("getCollectionValue one  key , countValue,sumValue {}",log1);
+
+                        if (count > 10) {
+                            BigDecimal threshold = new BigDecimal("500000");
+                            BigDecimal result = amt.divide(BigDecimal.valueOf(count),BigDecimal.ROUND_CEILING);
+                            if (result.compareTo(threshold) > 0) {
+                                avgFlag = true;
+                            }
+                        }
+                        sumCount += count;
+                        sumAll = sumAll.add(amt);
+                    }
+                }
+            }
+            String log2 = sumCount + "_" + sumAll;
+            LoggerUtil.getLogger().info("getCollectionValue all  countValue:,sumValue {}",log2);
+            if (avgFlag) {
+                BigDecimal threshold = new BigDecimal(20000 * 1000);
+                if (sumAll.compareTo(threshold) > 0) {
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("全局方法出现异常 getCollectionValue", e);
+            return false;
+        }
+        return false;
     }
 
 }

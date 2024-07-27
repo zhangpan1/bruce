@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.zhang.bruce.general.cach.TestDsPayOrder.getValueByIpcountry;
+
 /**
  * @author bruce
  * @version 1.0
@@ -21,7 +23,7 @@ public class CachTest {
     public static void main(String[] args) {
         System.out.println(getCurOrgTimesTamp()-1000L);
         Date date = new Date(getCurOrgTimesTamp()-1000L);
-        System.out.println(date);
+        System.out.println(getValueByIpcountry("中国",21000L));
 
 
     }

@@ -17,10 +17,14 @@ public class Condition0526 {
     public static void main(String[] args) {
 //        String json = "{\"b2b非同名充值\":[10011240071],\"企业网银支付\":[10012420660,10012559100,10011240071],\"个人网银支付\":[10011240071]}";
 //        System.out.println(getCountByJsonKey(json,"b2b非同名充值,企业网银支付"));
-        String json1 = "{\"MEC_D7_UR_081\":{\"agent_mec_cnt_1\":\"0\",\"agent_mec_cnt_7\":\"0\",\"agent_mec_cnt_14\":\"14\",\"agent_mec_cnt_30\":\"0\",\"agent_mec_cnt_60\":\"0\"},\"MEC_D7_E_022\":{\"agent_mec_cnt_1\":\"0\",\"agent_mec_cnt_7\":\"0\",\"agent_mec_cnt_14\":\"14\",\"agent_mec_cnt_30\":\"1\",\"agent_mec_cnt_60\":\"1\"},\"MEC_M_SC_044\":{\"agent_mec_cnt_1\":\"0\",\"agent_mec_cnt_7\":\"0\",\"agent_mec_cnt_14\":\"15\",\"agent_mec_cnt_30\":\"0\",\"agent_mec_cnt_60\":\"0\"}}";
-        System.out.println(getCountByNumJsonKey(json1,"all","agent_mec_cnt_14"));
+        // String json1 = "{\"MEC_D7_UR_081\":{\"agent_mec_cnt_1\":\"0\",\"agent_mec_cnt_7\":\"0\",\"agent_mec_cnt_14\":\"14\",\"agent_mec_cnt_30\":\"0\",\"agent_mec_cnt_60\":\"0\"},\"MEC_D7_E_022\":{\"agent_mec_cnt_1\":\"0\",\"agent_mec_cnt_7\":\"0\",\"agent_mec_cnt_14\":\"14\",\"agent_mec_cnt_30\":\"1\",\"agent_mec_cnt_60\":\"1\"},\"MEC_M_SC_044\":{\"agent_mec_cnt_1\":\"0\",\"agent_mec_cnt_7\":\"0\",\"agent_mec_cnt_14\":\"15\",\"agent_mec_cnt_30\":\"0\",\"agent_mec_cnt_60\":\"0\"}}";
+       //  System.out.println(getCountByNumJsonKey(json1,"all","agent_mec_cnt_14"));
             String json2 = "{\"MEC_D7_UR_AGENT_011\":{\"parent_rule_cnt_1\":\"0\",\"parent_rule_cnt_7\":\"0\",\"parent_rule_cnt_14\":\"14\",\"parent_rule_cnt_30\":\"0\",\"parent_rule_cnt_60\":\"1\"},\"MEC_D7_UR_AGENT_012\":{\"parent_rule_cnt_1\":\"0\",\"parent_rule_cnt_7\":\"0\",\"parent_rule_cnt_14\":\"14\",\"parent_rule_cnt_30\":\"0\",\"parent_rule_cnt_60\":\"1\"}}";
-        System.out.println(isContainorNotEquals("是",0));
+       // System.out.println(isContainorNotEquals("是",0));
+
+        String x = "否";
+        String userua = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.4";
+        System.out.println(isContainorKjBank(x,userua));
     }
     static Object getCountByJsonKey(Object jsonArrayObj, Object key) {
         try {
@@ -155,6 +159,33 @@ public class Condition0526 {
             return false;
         } catch (Exception e) {
             LoggerUtil.getLogger().error("isContainorNotEquals", e);
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    static boolean isContainorKjBank(Object a, Object x) {
+        try {
+            if (a == null || x == null) {
+                return false;
+            }
+            String as = (String) a;
+            String userua = (String) x;
+            if ("是".equals(as)) {
+               if (userua.startsWith("UnionPay") && userua.contains("3999")) {
+                   return true;
+               }
+            }
+            if ("否".equals(as)) {
+                if (userua.startsWith("UnionPay") && userua.contains("3999")) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("isContainorKjBank", e);
             e.printStackTrace();
             return false;
         }

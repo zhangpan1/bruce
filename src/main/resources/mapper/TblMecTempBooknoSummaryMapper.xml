@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.bruce.general.mysql.TblMecTempBooknoSummaryMapper" >
+
+    <resultMap id="BaseResultMap" type="com.zhang.bruce.easyexcel.TblMecTempBooknoSummary" >
+        <result column="ID" property="id" jdbcType="BIGINT" />
+        <result column="MEC_NO" property="mecNo" jdbcType="VARCHAR" />
+        <result column="BOOK_NO" property="bookNo" jdbcType="VARCHAR" />
+        <result column="BOOK_NO_ADVANCE_BANKCARD_NAME" property="bookNoAdvanceBankcardName" jdbcType="VARCHAR" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        ID, MEC_NO, BOOK_NO, BOOK_NO_ADVANCE_BANKCARD_NAME, CREATE_DATE
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.bruce.easyexcel.TblMecTempBooknoSummaryExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from TL.TBL_MEC_TEMP_BOOKNO_SUMMARY
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <delete id="deleteByExample" parameterType="com.zhang.bruce.easyexcel.TblMecTempBooknoSummaryExample" >
+        delete from TL.TBL_MEC_TEMP_BOOKNO_SUMMARY
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.zhang.bruce.easyexcel.TblMecTempBooknoSummary" >
+        insert into TL.TBL_MEC_TEMP_BOOKNO_SUMMARY (ID, MEC_NO, BOOK_NO,
+            BOOK_NO_ADVANCE_BANKCARD_NAME, CREATE_DATE
+            )
+        values (#{id,jdbcType=BIGINT}, #{mecNo,jdbcType=VARCHAR}, #{bookNo,jdbcType=VARCHAR},
+            #{bookNoAdvanceBankcardName,jdbcType=VARCHAR}, #{createDate,jdbcType=VARCHAR}
+            )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.zhang.bruce.easyexcel.TblMecTempBooknoSummary" >
+        insert into TL.TBL_MEC_TEMP_BOOKNO_SUMMARY
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            <if test="mecNo != null" >
+                MEC_NO,
+            </if>
+            <if test="bookNo != null" >
+                BOOK_NO,
+            </if>
+            <if test="bookNoAdvanceBankcardName != null" >
+                BOOK_NO_ADVANCE_BANKCARD_NAME,
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="mecNo != null" >
+                #{mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="bookNo != null" >
+                #{bookNo,jdbcType=VARCHAR},
+            </if>
+            <if test="bookNoAdvanceBankcardName != null" >
+                #{bookNoAdvanceBankcardName,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null" >
+                #{createDate,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.zhang.bruce.easyexcel.TblMecTempBooknoSummaryExample" resultType="java.lang.Integer" >
+        select count(*) from TL.TBL_MEC_TEMP_BOOKNO_SUMMARY
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update TL.TBL_MEC_TEMP_BOOKNO_SUMMARY
+        <set >
+            <if test="record.id != null" >
+                ID = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.mecNo != null" >
+                MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bookNo != null" >
+                BOOK_NO = #{record.bookNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bookNoAdvanceBankcardName != null" >
+                BOOK_NO_ADVANCE_BANKCARD_NAME = #{record.bookNoAdvanceBankcardName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createDate != null" >
+                CREATE_DATE = #{record.createDate,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update TL.TBL_MEC_TEMP_BOOKNO_SUMMARY
+        set ID = #{record.id,jdbcType=BIGINT},
+            MEC_NO = #{record.mecNo,jdbcType=VARCHAR},
+            BOOK_NO = #{record.bookNo,jdbcType=VARCHAR},
+            BOOK_NO_ADVANCE_BANKCARD_NAME = #{record.bookNoAdvanceBankcardName,jdbcType=VARCHAR},
+            CREATE_DATE = #{record.createDate,jdbcType=VARCHAR}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <select id="selectBookNoPayNameCount" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+        select count(*)
+        from TL.TBL_MEC_TEMP_BANKCARDNAME_SUMMARY
+        where 1 = 1
+        <if test="merchantNo != null ">
+            and MEC_NO = #{merchantNo}
+        </if>
+        <if test="createDate != null ">
+            and CREATE_DATE = #{createDate}
+        </if>
+    </select>
+    <select id="queryMerchantBookNoPayNameByPage" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+        select * from(
+        select
+        <include refid="Base_Column_List" />,
+        ROW_NUMBER() OVER(order by CT_TM) as ROW_NUM
+        from TL.TBL_MEC_TEMP_BANKCARDNAME_SUMMARY
+        <if test="merchantNo != null ">
+            and MEC_NO = #{merchantNo}
+        </if>
+        <if test="createDate != null ">
+            and CREATE_DATE = #{createDate}
+        </if>
+        ) as a where a.ROW_NUM &gt; ${startNo} and a.ROW_NUM &lt;= ${endNo}
+        with ur
+    </select>
+</mapper>

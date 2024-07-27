@@ -1,11 +1,8 @@
 package com.zhang.bruce.rule.function;
 
-import com.alibaba.fastjson.JSONObject;
 import com.tcredit.streaming.core.utils.LoggerUtil;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.zhang.bruce.rule.FunctionTest.isNull;
 
@@ -26,12 +23,14 @@ public class Str11 {
 //        requestMap.put("message","请求成功");
 //        String requestJson = JSONObject.toJSONString(requestMap);
 //        System.out.println(requestJson);
-        Map<String,String> requestMap = new HashMap();
-        requestMap.put("mec_no","10000000060");
-        requestMap.put("out_trade_no","5159709303200130");
-        requestMap.put("complaint_detail","查询不明扣费，退款致电用户，告知收款商家，表示自己没有借款是有个朋友在好分期借款了，商户经常打电话给用户找他朋友，并且现在已经造成实际扣费，已提示用户，如是朋友借款不会从用户银行卡扣费，建议联系商家查询清楚，用户表示不用处理了，就20多块钱，自己会冻结银行卡的，提示用户，如确认是信息泄露建议报警处理，用户认可 已邮件商户报备");
-        String requestJson = JSONObject.toJSONString(requestMap);
-        System.out.println(requestJson);
+//        Map<String,String> requestMap = new HashMap();
+//        requestMap.put("mec_no","10000000060");
+//        requestMap.put("out_trade_no","5159709303200130");
+//        requestMap.put("complaint_detail","查询不明扣费，退款致电用户，告知收款商家，表示自己没有借款是有个朋友在好分期借款了，商户经常打电话给用户找他朋友，并且现在已经造成实际扣费，已提示用户，如是朋友借款不会从用户银行卡扣费，建议联系商家查询清楚，用户表示不用处理了，就20多块钱，自己会冻结银行卡的，提示用户，如确认是信息泄露建议报警处理，用户认可 已邮件商户报备");
+//        String requestJson = JSONObject.toJSONString(requestMap);
+//        System.out.println(requestJson);
+
+        System.out.println(divisionByDecimal(subtractByDecimal(1,2),2));
 
     }
     static double divisionByDecimal (Object fenziObj, Object fenmuObj){

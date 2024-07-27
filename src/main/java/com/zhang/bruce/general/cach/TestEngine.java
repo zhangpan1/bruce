@@ -6,10 +6,7 @@ import com.tcredit.streaming.core.api.Mergeable;
 import com.tcredit.streaming.core.bean.CachedRecord;
 import com.tcredit.streaming.core.bean.ConvenientHashMap;
 import com.tcredit.streaming.core.bean.TimedItems;
-import com.tcredit.streaming.core.bean.method.CountNumber;
-import com.tcredit.streaming.core.bean.method.DistinctedListObject;
-import com.tcredit.streaming.core.bean.method.MergeableMapObject;
-import com.tcredit.streaming.core.bean.method.SumNumber;
+import com.tcredit.streaming.core.bean.method.*;
 import com.tcredit.streaming.core.model.DSPayOrder;
 import com.tcredit.streaming.core.model.DefaultModel;
 import com.tcredit.streaming.core.model.OfflineDSPayOrder;
@@ -375,5 +372,69 @@ public class TestEngine {
             return 0;
         }
     }
+
+
+    public static Collection getCacheCollect(Object obj, Object transtime, String duration) {
+        try {
+            LoggerUtil.getLogger().debug("obj == {}", obj);
+            LoggerUtil.getLogger().debug("transtime == {}", transtime);
+            LoggerUtil.getLogger().debug("duration == {}", duration);
+            /**
+             *获取DistinctedListObject等类型cache中保存的set和list对象
+             */
+            Set set = new HashSet();
+            if (obj == null || !(obj instanceof TimedItems)) {
+                return set;
+            }
+            TimedItems tt = (TimedItems) obj;
+            Object o = null;
+            if (transtime == null || duration == null) {
+                o = tt.getRaw();
+            } else {
+                o = tt.getRaw(transtime, duration);
+            }
+            if (o instanceof DistinctedListObject) {
+                return ((DistinctedListObject) o).getSet();
+            }
+            if (o instanceof MergeableListObject) {
+                return ((MergeableListObject) o).getList();
+            }
+            if (o instanceof MergeableSortedList) {
+                return ((MergeableSortedList) o).getList();
+            }
+            return set;
+        } catch (Exception e) {
+
+            LoggerUtil.getLogger().error("全局方法出现异常", e);
+            return null;
+        }
+    }
+
+    public static boolean notTriggerRules(Object obj, Object ruleCodeContent){
+        boolean  result = true;
+        try {
+
+            Set  values = new HashSet();
+            if(obj != null){
+                values.addAll((Set) obj);
+            }
+            if("all".equalsIgnoreCase(ruleCodeContent.toString()) && values.size()>0){
+                result =false;
+            }
+            if(!"all".equalsIgnoreCase(ruleCodeContent.toString())){
+                List<String>  ruleCodeList = Arrays.asList(ruleCodeContent.toString().split(","));
+                for(String ruleCode :ruleCodeList){
+                    if(!values.add(ruleCode)){
+                        return !result ;
+                    }
+                }
+            }
+            return result;
+        } catch (Exception e) {
+            LoggerUtil.getLogger().error("notTriggerRules 全局方法出现异常", e);
+            return !result;
+        }
+    }
+
 
 }

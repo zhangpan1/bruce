@@ -33,6 +33,10 @@ public class ExchangeServiceImpl implements ExchangeService {
     private SysRoleUrlMapper sysRoleUrlMapper;
     @Autowired
     private SysUrlMapper sysUrlMapper;
+    @Autowired
+    private TblMecTempBankcardnameSummaryMapper tblMecTempBankcardnameSummaryMapper;
+    @Autowired
+    private TblMecTempBooknoSummaryMapper tblMecTempBooknoSummaryMapper;
 
 
     @Override
@@ -160,6 +164,32 @@ public class ExchangeServiceImpl implements ExchangeService {
             DynamicDataSourceContextHolder.poll();
         }
 
+    }
+
+    @Override
+    public void saveCondition() {
+        try {
+            DynamicDataSourceContextHolder.push(DataSourceConstants.FKJS);
+            for (int i = 0; i < 50; i++) {
+                TblMecTempBooknoSummary tblMecTempBooknoSummary = new TblMecTempBooknoSummary();
+                tblMecTempBooknoSummary.setMecNo("10090332896");
+                tblMecTempBooknoSummary.setBookNo("8880062012590" + i);
+                tblMecTempBooknoSummary.setBookNoAdvanceBankcardName("台州市开合电器有限公司"+i);
+                tblMecTempBooknoSummary.setCreateDate("2024-07-26");
+                tblMecTempBooknoSummaryMapper.insertSelective(tblMecTempBooknoSummary);
+            }
+            for (int i = 0; i < 50; i++) {
+                TblMecTempBankcardnameSummary bankcardnameSummary = new TblMecTempBankcardnameSummary();
+                bankcardnameSummary.setMecNo("10090332896");
+                bankcardnameSummary.setBankCardName("上海百誉实业有限公司" + i);
+                bankcardnameSummary.setBankCardBookAdvanceCusamt(new BigDecimal("1950000"));
+                bankcardnameSummary.setBankCardDfdfCusamt(new BigDecimal("1900000"));
+                bankcardnameSummary.setCreateDate("2024-07-26");
+                tblMecTempBankcardnameSummaryMapper.insertSelective(bankcardnameSummary);
+            }
+        }finally {
+            DynamicDataSourceContextHolder.poll();
+        }
     }
 
     private List<TblGptExchangeOrder> buildTDOrderDetail() {

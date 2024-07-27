@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2023/2/19 15:16
  * @Description:
  */
-@RequestMapping("/excel")
+@RequestMapping("/excel3")
 @RestController
 public class CheckListGenelaController {
 

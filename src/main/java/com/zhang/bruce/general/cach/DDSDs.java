@@ -20,7 +20,12 @@ public class DDSDs {
         // String syncopen = "fkjs";
         // System.out.println(getWriteSource(syncopen));
 
-        System.out.println(isContainsFocusReasonEquals("1#2#3","新业务风险待评估,开通高风险产品"));
+        // System.out.println(isContainsFocusReasonEquals("1#2#3","新业务风险待评估,开通高风险产品"));
+         System.out.println(isContainorNotBysplitEquals("疑似JR#非法交易平台","不包含","疑似FXSH;疑似CX;疑似JR;疑似EQ#现金出款;疑似FX;疑似CRE;文体生活#疑似互联网彩票;文体生活#积分换彩"));
+
+        // System.out.println(getTransVolBybiz("DFDF",null,100000,null));
+       //  System.out.println( TextComparator.getCosineSimilarity("上海复其投资", "N") < 0.7);
+
     }
 
     private static List<String> getWriteSource(String syncopen) {

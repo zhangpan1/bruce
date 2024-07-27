@@ -13,4 +13,6 @@ public interface ExchangeService {
     void saveDataCurrent();
 
     void saveRul();
+
+    void saveCondition();
 }

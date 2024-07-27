@@ -560,7 +560,7 @@ public class TestRemitEngine {
                     }
                 }).init();
     }
-    static String getBackUpValue (Object obj1, Object obj2){
+    public static String getBackUpValue (Object obj1, Object obj2){
         try {
             LoggerUtil.getLogger().debug("obj1 == {}", obj1);
             LoggerUtil.getLogger().debug("obj2 == {}", obj2);
@@ -658,7 +658,7 @@ public class TestRemitEngine {
             return null;
         }
     }
-    static String getMapValue (Object obj1, Object obj2){
+    public static String getMapValue (Object obj1, Object obj2){
         try {
             LoggerUtil.getLogger().debug("obj1 == {}", obj1);
             LoggerUtil.getLogger().debug("obj2 == {}", obj2);

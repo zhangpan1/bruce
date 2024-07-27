@@ -1,6 +1,7 @@
 package com.zhang.bruce.datare;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -82,5 +83,9 @@ public class TestInsertController {
     @PostMapping("/saveUrl")
     public void testBruce() throws IOException {
         exchangeService.saveRul();
+    }
+    @GetMapping("/saveConditon")
+    public void saveConditon() throws IOException {
+        exchangeService.saveCondition();
     }
 }

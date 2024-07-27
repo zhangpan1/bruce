@@ -22,8 +22,8 @@ import java.util.regex.Pattern;
  */
 public class FunctionTest {
 
-    public void testOperCond() {
-        System.out.println(operCondNan("232","<=","+∞"));
+    public static void testOperCond() {
+        System.out.println(isContainOrNotNoSplit("10089446871","不包含"," 10086226805,10033701445,10089417312,10088803100\n"));
     }
 
     public static boolean operCond(Object obj, String x, Object obj2) {
@@ -2437,7 +2437,7 @@ public class FunctionTest {
 
 
     public static void main(String[] args) {
-        System.out.println(isEquals("","1", true));
+        System.out.println(isContainOrNotNoSplit("","不包含","10086226805,10033701445,10089417312,10088803100\n"));
 
     }
 }
